@@ -50,7 +50,7 @@ class StatamicAuthTables extends Migration
              $table->dropColumn('avatar');
              $table->dropColumn('preferences');
              $table->dropColumn('last_login');
-             $table->string('password')->nullable(false)->change();
+            //  $table->string('password')->nullable(false)->change();
          });
 
          Schema::dropIfExists('role_user');

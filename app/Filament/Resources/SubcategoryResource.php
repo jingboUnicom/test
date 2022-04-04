@@ -8,6 +8,8 @@ use App\Models\Subcategory;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\SubcategoryResource\Pages;
 use App\Filament\Resources\SubcategoryResource\RelationManagers;
 
@@ -91,7 +93,26 @@ class SubcategoryResource extends Resource
         return [
             'index' => Pages\ListSubcategories::route('/'),
             'create' => Pages\CreateSubcategory::route('/create'),
+            'view' => Pages\ViewSubcategory::route('/{record}'),
             'edit' => Pages\EditSubcategory::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $user = Auth::user();
+        $query = parent::getEloquentQuery();
+
+        if ($user->super) {
+            return $query;
+        }
+
+        if ($user->agent) {
+            return $query;
+        }
+
+        if ($user->employer) {
+            return $query;
+        }
     }
 }

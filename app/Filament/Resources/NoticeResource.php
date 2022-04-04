@@ -3,32 +3,31 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
-use App\Models\User;
 use Filament\Tables;
-use App\Models\Subscriber;
+use App\Models\Notice;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\SubscriberResource\Pages;
-use App\Filament\Resources\SubscriberResource\RelationManagers;
+use App\Filament\Resources\NoticeResource\Pages;
+use App\Filament\Resources\NoticeResource\RelationManagers;
 
-class SubscriberResource extends Resource
+class NoticeResource extends Resource
 {
-    protected static ?string $model = Subscriber::class;
+    protected static ?string $model = Notice::class;
 
-    protected static ?string $navigationGroup = 'Portal Management';
+    protected static ?string $navigationGroup = null;
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 1;
 
-    protected static ?string $navigationIcon = 'heroicon-o-mail';
+    protected static ?string $navigationIcon = 'heroicon-o-bell';
 
-    protected static ?string $navigationLabel = 'Subscribers';
+    protected static ?string $navigationLabel = 'Notices';
 
-    protected static ?string $label = 'Subscriber';
+    protected static ?string $label = 'Notice';
 
-    protected static ?string $pluralLabel = 'Subscribers';
+    protected static ?string $pluralLabel = 'Notices';
 
     public static function form(Form $form): Form
     {
@@ -38,14 +37,23 @@ class SubscriberResource extends Resource
                     ->schema([
                         Forms\Components\Card::make()
                             ->schema([
-                                Forms\Components\TextInput::make('email')
-                                    ->label('Email')
+                                Forms\Components\TextInput::make('title')
+                                    ->label('Title')
                                     ->required()
-                                    ->email()
-                                    ->unique(User::class, 'email', fn ($record) => $record)
+                                    ->columnSpan(12),
+                                Forms\Components\DatePicker::make('started_at')->format('Y-m-d')
+                                    ->label('Start Date')
+                                    ->columnSpan(6),
+                                Forms\Components\DatePicker::make('ended_at')->format('Y-m-d')
+                                    ->label('End Date')
+                                    ->columnSpan(6),
+                                Forms\Components\RichEditor::make('description')
+                                    ->label('Description')
+                                    ->fileAttachmentsDirectory('notice-files')
+                                    ->required()
                                     ->columnSpan(12),
                             ])->columns(12),
-                    ])->columnSpan(6),
+                    ])->columnSpan(12),
             ])->columns(12);
     }
 
@@ -57,8 +65,8 @@ class SubscriberResource extends Resource
                     ->label('ID')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('email')
-                    ->label('Email')
+                Tables\Columns\TextColumn::make('title')
+                    ->label('Title')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
@@ -83,11 +91,10 @@ class SubscriberResource extends Resource
     public static function getPages(): array
     {
         return [
-            'export' => Pages\ExportSubscribers::route('/export'),
-            'index' => Pages\ListSubscribers::route('/'),
-            'create' => Pages\CreateSubscriber::route('/create'),
-            'view' => Pages\ViewSubscriber::route('/{record}'),
-            'edit' => Pages\EditSubscriber::route('/{record}/edit'),
+            'index' => Pages\ListNotices::route('/'),
+            'create' => Pages\CreateNotice::route('/create'),
+            'view' => Pages\ViewNotice::route('/{record}'),
+            'edit' => Pages\EditNotice::route('/{record}/edit'),
         ];
     }
 

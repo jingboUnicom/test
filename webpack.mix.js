@@ -25,6 +25,7 @@ mix.setPublicPath('public');
 // );
 
 mix.sass('resources/sass/app.scss', 'css');
+mix.sass('resources/sass/filament.scss', 'css');
 
 mix.js('resources/js/app.js', 'js');
 

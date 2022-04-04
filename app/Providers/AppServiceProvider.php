@@ -29,12 +29,13 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Filament::registerNavigationGroups([
-            'Portal Management',
             'Recruitment Management',
             'Candidate Management',
             'Order Management',
             'Payment Management',
             'System Management',
+            'Portal Management',
+            'Job Adder Management',
         ]);
     }
 }

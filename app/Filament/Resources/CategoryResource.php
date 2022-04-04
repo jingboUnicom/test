@@ -41,8 +41,8 @@ class CategoryResource extends Resource
                                     ->label('Name')
                                     ->required()
                                     ->columnSpan(12),
-                            ])->columns(12)
-                    ])->columnSpan(6)
+                            ])->columns(12),
+                    ])->columnSpan(6),
             ])->columns(12);
     }
 

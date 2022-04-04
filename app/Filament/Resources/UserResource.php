@@ -71,7 +71,7 @@ class UserResource extends Resource
                                 Forms\Components\TextInput::make('phone')
                                     ->label('Phone')
                                     ->columnSpan(12),
-                            ])->columns(12)
+                            ])->columns(12),
                     ])->columnSpan(6),
                 // Field Notes: Admin use only
                 Forms\Components\Group::make()

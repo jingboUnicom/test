@@ -3,15 +3,15 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\Category;
+use App\Models\Subcategory;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CategoryPolicy
+class SubcategoryPolicy
 {
     use HandlesAuthorization;
 
-    // Agents CANNOT BROWSE Categories
-    // Employers CANNOT BROWSE Categories
+    // Agents CANNOT BROWSE Subcategories
+    // Employers CANNOT BROWSE Subcategories
     public function viewAny(User $user)
     {
         if ($user->agent) {
@@ -23,9 +23,9 @@ class CategoryPolicy
         }
     }
 
-    // Agents CANNOT READ Categories
-    // Employers CANNOT READ Categories
-    public function view(User $user, Category $category)
+    // Agents CANNOT READ Subcategories
+    // Employers CANNOT READ Subcategories
+    public function view(User $user, Subcategory $category)
     {
         if ($user->agent) {
             return false;
@@ -36,8 +36,8 @@ class CategoryPolicy
         }
     }
 
-    // Agents CANNOT ADD Categories
-    // Employers CANNOT ADD Categories
+    // Agents CANNOT ADD Subcategories
+    // Employers CANNOT ADD Subcategories
     public function create(User $user)
     {
         if ($user->agent) {
@@ -49,9 +49,9 @@ class CategoryPolicy
         }
     }
 
-    // Agents CANNOT EDIT Categories
-    // Employers CANNOT EDIT Categories
-    public function update(User $user, Category $category)
+    // Agents CANNOT EDIT Subcategories
+    // Employers CANNOT EDIT Subcategories
+    public function update(User $user, Subcategory $category)
     {
         if ($user->agent) {
             return false;
@@ -62,9 +62,9 @@ class CategoryPolicy
         }
     }
 
-    // Agents CANNOT DELETE Categories
-    // Employers CANNOT DELETE Categories
-    public function delete(User $user, Category $category)
+    // Agents CANNOT DELETE Subcategories
+    // Employers CANNOT DELETE Subcategories
+    public function delete(User $user, Subcategory $category)
     {
         if ($user->agent) {
             return false;
@@ -75,9 +75,9 @@ class CategoryPolicy
         }
     }
 
-    // Agents CANNOT RESTORE Categories
-    // Employers CANNOT RESTORE Categories
-    public function restore(User $user, Category $category)
+    // Agents CANNOT RESTORE Subcategories
+    // Employers CANNOT RESTORE Subcategories
+    public function restore(User $user, Subcategory $category)
     {
         if ($user->agent) {
             return false;
@@ -88,9 +88,9 @@ class CategoryPolicy
         }
     }
 
-    // Agents CANNOT FORCE DELETE Categories
-    // Employers CANNOT FORCE Delete Categories
-    public function forceDelete(User $user, Category $category)
+    // Agents CANNOT FORCE DELETE Subcategories
+    // Employers CANNOT FORCE Delete Subcategories
+    public function forceDelete(User $user, Subcategory $category)
     {
         if ($user->agent) {
             return false;

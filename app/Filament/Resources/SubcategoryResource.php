@@ -4,30 +4,28 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Location;
+use App\Models\Subcategory;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\LocationResource\Pages;
-use App\Filament\Resources\LocationResource\RelationManagers;
+use App\Filament\Resources\SubcategoryResource\Pages;
+use App\Filament\Resources\SubcategoryResource\RelationManagers;
 
-class LocationResource extends Resource
+class SubcategoryResource extends Resource
 {
-    protected static ?string $model = Location::class;
+    protected static ?string $model = Subcategory::class;
 
     protected static ?string $navigationGroup = 'Attributes Management';
 
-    protected static ?int $navigationSort = 0;
+    protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationIcon = 'heroicon-o-location-marker';
+    protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-    protected static ?string $navigationLabel = 'Locations';
+    protected static ?string $navigationLabel = 'Sub Categories';
 
-    protected static ?string $label = 'Location';
+    protected static ?string $label = 'Sub Category';
 
-    protected static ?string $pluralLabel = 'Locations';
+    protected static ?string $pluralLabel = 'Sub Categories';
 
     public static function form(Form $form): Form
     {
@@ -37,6 +35,12 @@ class LocationResource extends Resource
                     ->schema([
                         Forms\Components\Card::make()
                             ->schema([
+                                Forms\Components\BelongsToSelect::make('category_id')
+                                    ->relationship('category', 'name')
+                                    ->preload()
+                                    ->label('Category')
+                                    ->required()
+                                    ->columnSpan(12),
                                 Forms\Components\TextInput::make('name')
                                     ->label('Name')
                                     ->required()
@@ -52,6 +56,10 @@ class LocationResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->label('ID')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('category.name')
+                    ->label('Category')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
@@ -81,28 +89,9 @@ class LocationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLocations::route('/'),
-            'create' => Pages\CreateLocation::route('/create'),
-            'view' => Pages\ViewLocation::route('/{record}'),
-            'edit' => Pages\EditLocation::route('/{record}/edit'),
+            'index' => Pages\ListSubcategories::route('/'),
+            'create' => Pages\CreateSubcategory::route('/create'),
+            'edit' => Pages\EditSubcategory::route('/{record}/edit'),
         ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        $user = Auth::user();
-        $query = parent::getEloquentQuery();
-
-        if ($user->super) {
-            return $query;
-        }
-
-        if ($user->agent) {
-            return $query;
-        }
-
-        if ($user->employer) {
-            return $query;
-        }
     }
 }

@@ -17,9 +17,9 @@ class SubcategoryResource extends Resource
 {
     protected static ?string $model = Subcategory::class;
 
-    protected static ?string $navigationGroup = 'Attributes Management';
+    protected static ?string $navigationGroup = 'Portal Management';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 5;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -69,7 +69,6 @@ class SubcategoryResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
                     ->dateTime('d/m/Y H:i:s')
                     ->label('Updated')
                     ->searchable()

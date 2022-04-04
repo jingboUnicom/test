@@ -17,9 +17,9 @@ class LocationResource extends Resource
 {
     protected static ?string $model = Location::class;
 
-    protected static ?string $navigationGroup = 'Attributes Management';
+    protected static ?string $navigationGroup = 'Portal Management';
 
-    protected static ?int $navigationSort = 0;
+    protected static ?int $navigationSort = 3;
 
     protected static ?string $navigationIcon = 'heroicon-o-location-marker';
 
@@ -59,7 +59,6 @@ class LocationResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
                     ->dateTime('d/m/Y H:i:s')
                     ->label('Updated')
                     ->searchable()

@@ -18,4 +18,5 @@ class Location extends Model
     // Relationships
 
     // Inversed Relationships
+
 }

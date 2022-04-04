@@ -44,7 +44,6 @@ class SubcategoriesRelationManager extends HasManyRelationManager
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
                     ->dateTime('d/m/Y H:i:s')
                     ->label('Updated')
                     ->searchable()

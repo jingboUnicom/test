@@ -24,4 +24,5 @@ class Category extends Model
     }
 
     // Inversed Relationships
+
 }

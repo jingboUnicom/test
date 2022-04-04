@@ -17,9 +17,9 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
-    protected static ?string $navigationGroup = 'Attributes Management';
+    protected static ?string $navigationGroup = 'Portal Management';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 4;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -59,7 +59,6 @@ class CategoryResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
                     ->dateTime('d/m/Y H:i:s')
                     ->label('Updated')
                     ->searchable()

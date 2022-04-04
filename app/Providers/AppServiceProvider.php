@@ -34,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
             'Order Management',
             'Payment Management',
             'System Management',
+            'Attributes Management'
         ]);
     }
 }

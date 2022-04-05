@@ -3,8 +3,6 @@
 namespace App\Filament\Pages;
 
 use Filament\Pages\Page;
-use Illuminate\Support\Facades\Cache;
-use App\Services\JobAdder as ServiceJobAdder;
 
 class JobAdder extends Page
 {
@@ -18,8 +16,6 @@ class JobAdder extends Page
 
     protected static string $view = 'filament.pages.job-adder';
 
-    protected $jobadder;
-
     public function mount()
     {
         abort_unless(auth()->user()->super, 403);
@@ -32,20 +28,23 @@ class JobAdder extends Page
 
     protected function getViewData(): array
     {
-        return [];
+        return [
+            'jobadder' => app()->make('jobadder'),
+        ];
     }
 
-    public function isUnauthorised(): bool
+    public function authorise()
     {
-        $this->jobadder = app()->make(ServiceJobAdder::class);
-
-        return $this->jobadder->oauth === null;
+        app()->make('jobadder')->authorise();
     }
 
     public function refresh(): void
     {
-        $this->jobadder = app()->make(ServiceJobAdder::class);
-
-        $this->jobadder->refresh();
+        app()->make('jobadder')->refresh();
     }
+
+    public function isAuthorised(): bool
+	{
+		return app()->make('jobadder')->isAuthorised();
+	}
 }

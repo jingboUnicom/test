@@ -15,6 +15,7 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.5",
         "orangehill/iseed": "^3.0",
+        "spatie/data-transfer-object": "^3.7",
         "statamic/cms": "^3.3"
     },
     "require-dev": {

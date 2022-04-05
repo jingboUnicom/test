@@ -28,20 +28,14 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::prefix('jobadder')->name('jobadder')->middleware(['web', 'jobadder'])->group(function () {
-    Route::get('/authorise', 'App\Services\JobAdder@authorise')->name('.authorise');
+    // Route::get('/authorise', 'App\Services\JobAdder\API\OAuth@authorise')->name('.authorise');
 
     Route::prefix('token')->group(function () {
-        Route::get('/', 'App\Services\JobAdder@token')->name('.token');
-        // Route::get('/refresh', 'App\Services\JobAdder@refresh')->name('.refresh');
+        Route::get('/', 'App\Services\JobAdder\API\OAuth@token')->name('.token');
+        // Route::get('/refresh', 'App\Services\JobAdder\API\OAuth@refresh')->name('.refresh');
     });
 
     // Route::get('/', function () {
-    //     $jobadder = app()->make(App\Services\JobAdder::class);
-    //     dd($jobadder);
+    //     dd(app()->make('jobadder'));
     // });
-
-    Route::get('/find-job-ads', function () {
-        $jobadder = app()->make(App\Services\JobAdder::class);
-        dd($jobadder->findJobAds());
-    });
 });

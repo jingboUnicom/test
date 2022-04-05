@@ -2,7 +2,6 @@
 
 namespace App\Console;
 
-use App\Services\JobAdder;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -17,9 +16,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            $jobadder = app()->make(JobAdder::class);
-            $jobadder->refresh();
-        })->name('JobAdder@refresh')->hourly();
+            app()->make('jobadder')->refresh();
+        })->name('App\Services\JobAdder\API\OAuth@refresh')->hourly();
     }
 
     /**

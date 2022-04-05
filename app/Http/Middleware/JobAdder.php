@@ -22,7 +22,7 @@ class JobAdder
             return $next($request);
         }
 
-        Log::error('JobAdder@handle: ' . 'middleware');
+        Log::error('App\Http\Middleware\JobAdder@handle: ' . 'middleware');
 
         throw new NotFoundHttpException;
     }

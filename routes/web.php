@@ -32,6 +32,11 @@ Route::prefix('jobadder')->name('jobadder')->middleware(['web', 'jobadder'])->gr
 
     Route::prefix('token')->group(function () {
         Route::get('/', 'App\Services\JobAdder@token')->name('.token');
-        Route::get('/refresh', 'App\Services\JobAdder@refresh')->name('.refresh');
+        // Route::get('/refresh', 'App\Services\JobAdder@refresh')->name('.refresh');
     });
+
+    // Route::get('/', function () {
+    //     $jobadder = app()->make(App\Services\JobAdder::class);
+    //     dd($jobadder);
+    // });
 });

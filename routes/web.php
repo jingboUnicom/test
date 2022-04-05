@@ -26,3 +26,12 @@ use Illuminate\Support\Facades\Route;
 //         return view('dashboard');
 //     })->name('dashboard');
 // });
+
+Route::prefix('jobadder')->name('jobadder')->middleware(['web', 'jobadder'])->group(function () {
+    Route::get('/authorise', 'App\Services\JobAdder@authorise')->name('.authorise');
+
+    Route::prefix('token')->group(function () {
+        Route::get('/', 'App\Services\JobAdder@token')->name('.token');
+        Route::get('/refresh', 'App\Services\JobAdder@refresh')->name('.refresh');
+    });
+});

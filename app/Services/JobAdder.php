@@ -74,4 +74,13 @@ class JobAdder
 			Cache::put('jobadder::oauth', $response, now()->addHour());
 		}
 	}
+
+	public function findJobAds(): mixed
+	{
+		$response = Http::withHeaders([
+			'Authorization' => 'Bearer ' . $this->oauth['access_token']
+		])->get($this->oauth['api'] . '/jobads/');
+
+		return $response->json();
+	}
 }

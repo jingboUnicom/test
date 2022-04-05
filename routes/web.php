@@ -39,4 +39,9 @@ Route::prefix('jobadder')->name('jobadder')->middleware(['web', 'jobadder'])->gr
     //     $jobadder = app()->make(App\Services\JobAdder::class);
     //     dd($jobadder);
     // });
+
+    Route::get('/find-job-ads', function () {
+        $jobadder = app()->make(App\Services\JobAdder::class);
+        dd($jobadder->findJobAds());
+    });
 });

@@ -21,6 +21,7 @@ class SubcategoriesRelationManager extends HasManyRelationManager
                 // Forms\Components\BelongsToSelect::make('category_id')
                 //     ->relationship('category', 'name')
                 //     ->preload()
+                //     ->searchable()
                 //     ->label('Category')
                 //     ->required()
                 //     ->columnSpan(12),

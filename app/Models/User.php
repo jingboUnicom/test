@@ -9,6 +9,7 @@ use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -90,4 +91,9 @@ class User extends Authenticatable implements FilamentUser
     // Relationships
 
     // Inversed Relationships
+
+    public function company(): HasOne
+    {
+        return $this->hasOne(Company::class);
+    }
 }

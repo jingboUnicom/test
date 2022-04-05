@@ -48,8 +48,8 @@ class NoticeResource extends Resource
                                     ->label('End Date')
                                     ->columnSpan(6),
                                 Forms\Components\RichEditor::make('description')
-                                    ->label('Description')
                                     ->fileAttachmentsDirectory('notice-files')
+                                    ->label('Description')
                                     ->required()
                                     ->columnSpan(12),
                             ])->columns(12),

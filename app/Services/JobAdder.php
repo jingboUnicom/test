@@ -34,7 +34,7 @@ class JobAdder
 		return redirect('https://id.jobadder.com/connect/authorize?' . $query);
 	}
 
-	public function token(Request $request): mixed
+	public function token(Request $request): void
 	{
 		$response = json_decode(Http::asForm()->post('https://id.jobadder.com/connect/token', [
 			'grant_type' => 'authorization_code',
@@ -49,16 +49,14 @@ class JobAdder
 		} else {
 			Cache::put('jobadder::oauth', $response);
 		}
-
-		return redirect(route('filament.pages.dashboard') . '/job-adder');
 	}
 
-	public function refresh(): mixed
+	public function refresh(): void
 	{
 		if ($this->oauth === null) {
 			Log::error('JobAdder@refresh: ' . 'jobadder::oauth');
 
-			return redirect(route('jobadder.authorise'));
+			exit();
 		}
 
 		$response = json_decode(Http::asForm()->post('https://id.jobadder.com/connect/token', [
@@ -73,7 +71,5 @@ class JobAdder
 		} else {
 			Cache::put('jobadder::oauth', $response);
 		}
-
-		return redirect(route('filament.pages.dashboard') . '/job-adder');
 	}
 }

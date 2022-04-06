@@ -17,9 +17,9 @@ class LocationResource extends Resource
 {
     protected static ?string $model = Location::class;
 
-    protected static ?string $navigationGroup = 'Portal Management';
+    protected static ?string $navigationGroup = null;
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 12;
 
     protected static ?string $navigationIcon = 'heroicon-o-location-marker';
 
@@ -51,7 +51,7 @@ class LocationResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
+                    ->label('Reference')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')

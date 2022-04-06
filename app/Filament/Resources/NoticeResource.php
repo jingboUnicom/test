@@ -17,9 +17,9 @@ class NoticeResource extends Resource
 {
     protected static ?string $model = Notice::class;
 
-    protected static ?string $navigationGroup = 'Portal Management';
+    protected static ?string $navigationGroup = null;
 
-    protected static ?int $navigationSort = 0;
+    protected static ?int $navigationSort = 9;
 
     protected static ?string $navigationIcon = 'heroicon-o-bell';
 
@@ -62,7 +62,7 @@ class NoticeResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
+                    ->label('Reference')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('title')

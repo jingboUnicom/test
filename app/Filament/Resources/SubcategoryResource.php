@@ -17,9 +17,9 @@ class SubcategoryResource extends Resource
 {
     protected static ?string $model = Subcategory::class;
 
-    protected static ?string $navigationGroup = 'Portal Management';
+    protected static ?string $navigationGroup = null;
 
-    protected static ?int $navigationSort = 4;
+    protected static ?int $navigationSort = 14;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -58,7 +58,7 @@ class SubcategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
+                    ->label('Reference')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('category.name')

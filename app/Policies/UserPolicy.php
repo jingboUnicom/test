@@ -60,7 +60,7 @@ class UserPolicy
         }
 
         if ($user->employer) {
-            return false;
+            return true;
         }
 
         return false;
@@ -98,7 +98,7 @@ class UserPolicy
         }
 
         if ($user->employer) {
-            return false;
+            return true;
         }
 
         return false;

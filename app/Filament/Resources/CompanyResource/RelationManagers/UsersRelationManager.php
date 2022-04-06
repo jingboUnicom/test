@@ -63,7 +63,8 @@ class UsersRelationManager extends HasManyRelationManager
                                 Forms\Components\TextInput::make('department')
                                     ->label('Department')
                                     ->columnSpan(12),
-                                // Field Notes: Employers can only select his/her own companies or no companies
+                                // Field Notes: Employers can select only his/her own company or no company
+                                // Field Notes: Agents can only select his/her belonged company or no company
                                 // Forms\Components\BelongsToSelect::make('company_id')
                                 //     ->relationship('contact', 'company_name', function (Builder $query) {
                                 //         $user = Auth::user();
@@ -118,7 +119,7 @@ class UsersRelationManager extends HasManyRelationManager
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
+                    ->label('Reference')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('contact_name')

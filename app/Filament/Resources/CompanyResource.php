@@ -17,9 +17,9 @@ class CompanyResource extends Resource
 {
     protected static ?string $model = Company::class;
 
-    protected static ?string $navigationGroup = 'System Management';
+    protected static ?string $navigationGroup = null;
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 8;
 
     protected static ?string $navigationIcon = 'heroicon-o-office-building';
 
@@ -44,8 +44,8 @@ class CompanyResource extends Resource
                                 Forms\Components\TextInput::make('legal_name')
                                     ->label('Legal Name')
                                     ->columnSpan(12),
-                                // Field Notes: Employers can only select his/her own user id
-                                // Field Notes: Can only select user who does not have a company yet
+                                // Field Notes: Employers can select only himself/herself
+                                // Field Notes: Admins can select only user who does not have a company yet
                                 Forms\Components\BelongsToSelect::make('user_id')
                                     ->relationship('user', 'contact_name', function (Builder $query) {
                                         $user = Auth::user();
@@ -109,7 +109,7 @@ class CompanyResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
+                    ->label('Reference')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('company_name')
@@ -125,7 +125,7 @@ class CompanyResource extends Resource
                     ->enum(Company::MEMBERSHIP_TYPES)
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('user.name')
+                Tables\Columns\TextColumn::make('user.contact_name')
                     ->label('Main Contact')
                     ->searchable()
                     ->sortable(),
@@ -171,7 +171,7 @@ class CompanyResource extends Resource
             return $query;
         }
 
-        // Policy Notes: Employers CAN BROWSE/READ/EDIT Companies, only his/her own companies or no companies
+        // Policy Notes: Employers can BROWSE/READ/EDIT only his/her company or no company
         if ($user->employer) {
             if ($user->company) {
                 return $query->where('id', $user->company->id);

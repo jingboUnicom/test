@@ -18,17 +18,17 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationGroup = 'System Management';
+    protected static ?string $navigationGroup = null;
 
-    protected static ?int $navigationSort = 0;
+    protected static ?int $navigationSort = 7;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
 
-    protected static ?string $navigationLabel = 'Contact';
+    protected static ?string $navigationLabel = 'Contacts';
 
     protected static ?string $label = 'Contact';
 
-    protected static ?string $pluralLabel = 'Contact';
+    protected static ?string $pluralLabel = 'Contacts';
 
     public static function form(Form $form): Form
     {
@@ -76,7 +76,8 @@ class UserResource extends Resource
                                 Forms\Components\TextInput::make('department')
                                     ->label('Department')
                                     ->columnSpan(12),
-                                // Field Notes: Employers can only select his/her own companies or no companies
+                                // Field Notes: Employers can select only his/her company or no company
+                                // Field Notes: Agents can select only his/her belonged company or no company
                                 Forms\Components\BelongsToSelect::make('company_id')
                                     ->relationship('contact', 'company_name', function (Builder $query) {
                                         $user = Auth::user();
@@ -89,11 +90,32 @@ class UserResource extends Resource
                                             }
                                         }
 
+                                        if ($user->agent) {
+                                            if ($user->contact) {
+                                                return $query->where('id', $user->contact->id);
+                                            } else {
+                                                return $query->where('id', -1);
+                                            }
+                                        }
+
                                         return $query;
                                     })
                                     ->preload()
                                     ->searchable()
                                     ->label('Company')
+                                    ->required(function () {
+                                        $user = Auth::user();
+
+                                        if ($user->employer) {
+                                            return true;
+                                        }
+
+                                        if ($user->agent) {
+                                            return true;
+                                        }
+
+                                        return false;
+                                    })
                                     ->columnSpan(12),
                                 Forms\Components\TextInput::make('phone')
                                     ->label('Phone')
@@ -131,7 +153,7 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
+                    ->label('Reference')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('contact_name')
@@ -187,14 +209,18 @@ class UserResource extends Resource
             return $query;
         }
 
-        // Policy Notes: Agents CAN BROWSE/READ/EDIT Users, only his/her own users or no users
+        // Policy Notes: Agents can BROWSE/READ/EDIT only himself/herself
         if ($user->agent) {
             return $query->where('id', $user->id);
         }
 
-        // Policy Notes: Employers CAN BROWSE/READ/EDIT Users, only his/her own users or no users
+        // Policy Notes: Employers CAN BROWSE/READ/ADD/EDIT/DELETE only his/her company's users or no users
         if ($user->employer) {
-            return $query->where('id', $user->id);
+            if ($user->company) {
+                return $query->where('company_id', $user->company->id);
+            } else {
+                return $query->where('id', $user->id);
+            }
         }
     }
 }

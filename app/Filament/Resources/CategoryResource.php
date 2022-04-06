@@ -17,9 +17,9 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
-    protected static ?string $navigationGroup = 'Portal Management';
+    protected static ?string $navigationGroup = null;
 
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 13;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -51,7 +51,7 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
+                    ->label('Reference')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')

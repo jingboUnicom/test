@@ -6,9 +6,9 @@ use Filament\Pages\Page;
 
 class JobAdder extends Page
 {
-    protected static ?string $navigationGroup = 'Job Adder Management';
+    protected static ?string $navigationGroup = null;
 
-    protected static ?int $navigationSort = 0;
+    protected static ?int $navigationSort = 11;
 
     protected static ?string $navigationIcon = 'heroicon-o-star';
 

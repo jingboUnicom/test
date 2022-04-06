@@ -43,7 +43,7 @@ class SubcategoriesRelationManager extends HasManyRelationManager
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
+                    ->label('Reference')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')

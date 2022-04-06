@@ -14,6 +14,10 @@ class CompanyPolicy
     // Employers CAN BROWSE Companies
     public function viewAny(User $user): bool
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -21,12 +25,18 @@ class CompanyPolicy
         if ($user->employer) {
             return true;
         }
+
+        return false;
     }
 
     // Agents CANNOT READ Companies
     // Employers CAN READ Companies
     public function view(User $user, Company $company): bool
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -34,12 +44,18 @@ class CompanyPolicy
         if ($user->employer) {
             return true;
         }
+
+        return false;
     }
 
     // Agents CANNOT ADD Companies
     // Employers CANNOT ADD Companies
     public function create(User $user): bool
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -47,12 +63,18 @@ class CompanyPolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT EDIT Companies
     // Employers CAN EDIT Companies
     public function update(User $user, Company $company): bool
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -60,12 +82,18 @@ class CompanyPolicy
         if ($user->employer) {
             return true;
         }
+
+        return false;
     }
 
     // Agents CANNOT DELETE Companies
     // Employers CANNOT DELETE Companies
     public function delete(User $user, Company $company): bool
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -73,12 +101,18 @@ class CompanyPolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT RESTORE Companies
     // Employers CANNOT RESTORE Companies
     public function restore(User $user, Company $company): bool
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -86,12 +120,18 @@ class CompanyPolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT FORCE DELETE Companies
     // Employers CANNOT FORCE DELETE Companies
     public function forceDelete(User $user, Company $company): bool
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -99,5 +139,7 @@ class CompanyPolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 }

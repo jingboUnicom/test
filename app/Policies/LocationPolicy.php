@@ -14,6 +14,10 @@ class LocationPolicy
     // Employers CANNOT BROWSE Locations
     public function viewAny(User $user)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -21,12 +25,18 @@ class LocationPolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT READ Locations
     // Employers CANNOT READ Locations
     public function view(User $user, Location $location)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -34,12 +44,18 @@ class LocationPolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT ADD Locations
     // Employers CANNOT ADD Locations
     public function create(User $user)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -47,12 +63,18 @@ class LocationPolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT EDIT Locations
     // Employers CANNOT EDIT Locations
     public function update(User $user, Location $location)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -60,12 +82,18 @@ class LocationPolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT DELETE Locations
     // Employers CANNOT DELETE Locations
     public function delete(User $user, Location $location)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -73,12 +101,18 @@ class LocationPolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT RESTORE Locations
     // Employers CANNOT RESTORE Locations
     public function restore(User $user, Location $location)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -86,12 +120,18 @@ class LocationPolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT FORCE DELETE Locations
     // Employers CANNOT FORCE Delete Locations
     public function forceDelete(User $user, Location $location)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -99,5 +139,7 @@ class LocationPolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 }

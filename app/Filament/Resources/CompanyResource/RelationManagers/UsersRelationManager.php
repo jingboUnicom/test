@@ -1,34 +1,21 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\CompanyResource\RelationManagers;
 
 use Filament\Forms;
-use App\Models\User;
 use Filament\Tables;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
-use Filament\Resources\Resource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
+use Filament\Resources\RelationManagers\HasManyRelationManager;
 
-class UserResource extends Resource
+class UsersRelationManager extends HasManyRelationManager
 {
-    protected static ?string $model = User::class;
+    protected static string $relationship = 'contacts';
 
-    protected static ?string $navigationGroup = 'System Management';
-
-    protected static ?int $navigationSort = 0;
-
-    protected static ?string $navigationIcon = 'heroicon-o-user-circle';
-
-    protected static ?string $navigationLabel = 'Contact';
-
-    protected static ?string $label = 'Contact';
-
-    protected static ?string $pluralLabel = 'Contact';
+    protected static ?string $recordTitleAttribute = 'contact_name';
 
     public static function form(Form $form): Form
     {
@@ -45,23 +32,23 @@ class UserResource extends Resource
                                 Forms\Components\TextInput::make('surname')
                                     ->label('Last Name')
                                     ->columnSpan(6),
-                                Forms\Components\TextInput::make('email')
-                                    ->label('Email')
-                                    ->required()
-                                    ->email()
-                                    ->unique(User::class, 'email', fn ($record) => $record)
-                                    ->columnSpan(12),
-                                Forms\Components\TextInput::make('password')
-                                    ->label('New Password')
-                                    ->password()
-                                    ->same('password_confirmation')
-                                    ->dehydrateStateUsing(fn ($state) => Hash::make($state))
-                                    ->dehydrated(fn ($state): bool => (bool) ($state))
-                                    ->columnSpan(12),
-                                Forms\Components\TextInput::make('password_confirmation')
-                                    ->label('Confirm Password')
-                                    ->password()
-                                    ->columnSpan(12),
+                                // Forms\Components\TextInput::make('email')
+                                //     ->label('Email')
+                                //     ->required()
+                                //     ->email()
+                                //     ->unique(User::class, 'email', fn ($record) => $record)
+                                //     ->columnSpan(12),
+                                // Forms\Components\TextInput::make('password')
+                                //     ->label('New Password')
+                                //     ->password()
+                                //     ->same('password_confirmation')
+                                //     ->dehydrateStateUsing(fn ($state) => Hash::make($state))
+                                //     ->dehydrated(fn ($state): bool => (bool) ($state))
+                                //     ->columnSpan(12),
+                                // Forms\Components\TextInput::make('password_confirmation')
+                                //     ->label('Confirm Password')
+                                //     ->password()
+                                //     ->columnSpan(12),
                                 Forms\Components\FileUpload::make('profile_photo_path')
                                     ->image()
                                     ->directory('profile-photos')
@@ -77,24 +64,24 @@ class UserResource extends Resource
                                     ->label('Department')
                                     ->columnSpan(12),
                                 // Field Notes: Employers can only select his/her own companies or no companies
-                                Forms\Components\BelongsToSelect::make('company_id')
-                                    ->relationship('contact', 'company_name', function (Builder $query) {
-                                        $user = Auth::user();
+                                // Forms\Components\BelongsToSelect::make('company_id')
+                                //     ->relationship('contact', 'company_name', function (Builder $query) {
+                                //         $user = Auth::user();
 
-                                        if ($user->employer) {
-                                            if ($user->company) {
-                                                return $query->where('id', $user->company->id);
-                                            } else {
-                                                return $query->where('id', -1);
-                                            }
-                                        }
+                                //         if ($user->employer) {
+                                //             if ($user->company) {
+                                //                 return $query->where('id', $user->company->id);
+                                //             } else {
+                                //                 return $query->where('id', -1);
+                                //             }
+                                //         }
 
-                                        return $query;
-                                    })
-                                    ->preload()
-                                    ->searchable()
-                                    ->label('Company')
-                                    ->columnSpan(12),
+                                //         return $query;
+                                //     })
+                                //     ->preload()
+                                //     ->searchable()
+                                //     ->label('Company')
+                                //     ->columnSpan(12),
                                 Forms\Components\TextInput::make('phone')
                                     ->label('Phone')
                                     ->columnSpan(12),
@@ -142,10 +129,10 @@ class UserResource extends Resource
                     ->label('Position')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('contact.company_name')
-                    ->label('Company')
-                    ->searchable()
-                    ->sortable(),
+                // Tables\Columns\TextColumn::make('contact.company_name')
+                //     ->label('Company')
+                //     ->searchable()
+                //     ->sortable(),
                 Tables\Columns\TextColumn::make('phone')
                     ->label('Phone')
                     ->searchable()
@@ -160,41 +147,5 @@ class UserResource extends Resource
                 //
             ])
             ->defaultSort('id', 'desc');
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'view' => Pages\ViewUser::route('/{record}'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
-        ];
-    }
-    public static function getEloquentQuery(): Builder
-    {
-        $user = Auth::user();
-        $query = parent::getEloquentQuery();
-
-        if ($user->super) {
-            return $query;
-        }
-
-        // Policy Notes: Agents CAN BROWSE/READ/EDIT Users, only his/her own users or no users
-        if ($user->agent) {
-            return $query->where('id', $user->id);
-        }
-
-        // Policy Notes: Employers CAN BROWSE/READ/EDIT Users, only his/her own users or no users
-        if ($user->employer) {
-            return $query->where('id', $user->id);
-        }
     }
 }

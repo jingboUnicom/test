@@ -18,17 +18,23 @@ class SubcategoriesRelationManager extends HasManyRelationManager
     {
         return $form
             ->schema([
-                // Forms\Components\BelongsToSelect::make('category_id')
-                //     ->relationship('category', 'name')
-                //     ->preload()
-                //     ->searchable()
-                //     ->label('Category')
-                //     ->required()
-                //     ->columnSpan(12),
-                Forms\Components\TextInput::make('name')
-                    ->label('Name')
-                    ->required()
-                    ->columnSpan(12),
+                Forms\Components\Group::make()
+                    ->schema([
+                        Forms\Components\Card::make()
+                            ->schema([
+                                // Forms\Components\BelongsToSelect::make('category_id')
+                                //     ->relationship('category', 'name')
+                                //     ->preload()
+                                //     ->searchable()
+                                //     ->label('Category')
+                                //     ->required()
+                                //     ->columnSpan(12),
+                                Forms\Components\TextInput::make('name')
+                                    ->label('Name')
+                                    ->required()
+                                    ->columnSpan(12),
+                            ])->columns(12),
+                    ])->columnSpan(6),
             ])->columns(12);
     }
 

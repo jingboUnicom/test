@@ -14,6 +14,10 @@ class NoticePolicy
     // Employers CANNOT BROWSE Notices
     public function viewAny(User $user)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -21,12 +25,18 @@ class NoticePolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT READ Notices
     // Employers CANNOT READ Notices
     public function view(User $user, Notice $notice)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -34,12 +44,18 @@ class NoticePolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT ADD Notices
     // Employers CANNOT ADD Notices
     public function create(User $user)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -47,12 +63,18 @@ class NoticePolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT EDIT Notices
     // Employers CANNOT EDIT Notices
     public function update(User $user, Notice $notice)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -60,12 +82,18 @@ class NoticePolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT DELETE Notices
     // Employers CANNOT DELETE Notices
     public function delete(User $user, Notice $notice)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -73,12 +101,18 @@ class NoticePolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT RESTORE Notices
     // Employers CANNOT RESTORE Notices
     public function restore(User $user, Notice $notice)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -86,12 +120,18 @@ class NoticePolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 
     // Agents CANNOT FORCE DELETE Notices
     // Employers CANNOT FORCE DELETE Notices
     public function forceDelete(User $user, Notice $notice)
     {
+        if ($user->super) {
+            return true;
+        }
+
         if ($user->agent) {
             return false;
         }
@@ -99,5 +139,7 @@ class NoticePolicy
         if ($user->employer) {
             return false;
         }
+
+        return false;
     }
 }

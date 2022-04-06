@@ -4,16 +4,19 @@ namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
+use Illuminate\Support\Facades\Storage;
+use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements FilamentUser, HasAvatar
 {
     use HasApiTokens;
     use HasFactory;
@@ -33,7 +36,9 @@ class User extends Authenticatable implements FilamentUser
         'contact_name',
         'email',
         'password',
+        'profile_photo_path',
         'position',
+        'department',
         'company_id',
         'phone',
         'super',
@@ -85,7 +90,16 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessFilament(): bool
     {
-        return true;
+        return $this->super || $this->agent || $this->employer;
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        if ($this->profile_photo_path) {
+            return Storage::url($this->profile_photo_path);
+        }
+
+        return $this->avatar_url;
     }
 
     // Relationships
@@ -95,5 +109,10 @@ class User extends Authenticatable implements FilamentUser
     public function company(): HasOne
     {
         return $this->hasOne(Company::class);
+    }
+
+    public function contact(): BelongsTo
+    {
+        return $this->belongsTo(Company::class, 'company_id');
     }
 }

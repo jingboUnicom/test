@@ -65,6 +65,9 @@ class CompanyResource extends Resource
                                     ->directory('company-files')
                                     ->label('Logo')
                                     ->columnSpan(12),
+                                \App\Forms\Components\FileDownload::make('download_logo')
+                                    ->download('logo')
+                                    ->columnSpan(12),
                                 Forms\Components\TextInput::make('address')
                                     ->label('Address')
                                     ->columnSpan(12),
@@ -141,7 +144,7 @@ class CompanyResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\UsersRelationManager::class,
         ];
     }
 

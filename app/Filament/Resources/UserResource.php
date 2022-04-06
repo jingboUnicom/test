@@ -110,10 +110,6 @@ class UserResource extends Resource
                                             return true;
                                         }
 
-                                        if ($user->agent) {
-                                            return true;
-                                        }
-
                                         return false;
                                     })
                                     ->columnSpan(12),

@@ -90,9 +90,12 @@ class CompanyResource extends Resource
                                     ->label('Industry')
                                     ->columnSpan(12),
                                 // Field Notes: Admin use only
-                                Forms\Components\Select::make('membership_type')
+                                Forms\Components\BelongsToSelect::make('membership_id')
+                                    ->relationship('membership', 'name')
+                                    ->preload()
+                                    ->searchable()
                                     ->label('Membership Type')
-                                    ->options(Company::MEMBERSHIP_TYPES)
+                                    ->required()
                                     ->columnSpan(12)
                                     ->hidden(function () {
                                         $user = Auth::user();
@@ -120,9 +123,8 @@ class CompanyResource extends Resource
                     ->label('Address')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('membership_type')
+                Tables\Columns\TextColumn::make('membership.name')
                     ->label('Membership Type')
-                    ->enum(Company::MEMBERSHIP_TYPES)
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('user.contact_name')

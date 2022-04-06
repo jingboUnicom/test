@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('url')->nullable();
             $table->foreignId('category_id')->nullable();
-            $table->tinyInteger('membership_type')->nullable();
+            $table->foreignId('membership_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

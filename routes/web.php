@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,26 +32,6 @@ Route::prefix('jobadder')->name('jobadder')->middleware(['web', 'jobadder'])->gr
 
     Route::prefix('token')->group(function () {
         Route::get('/', 'App\Services\JobAdder\API\OAuth@token')->name('.token');
-        // Route::get('/refresh', 'App\Services\JobAdder\API\OAuth@refresh')->name('.refresh');
-    });
-
-    Route::get('/', function () {
-        dd(app()->make('jobadder'));
-    });
-
-    Route::get('/job-ads', function () {
-        $ads = Http::withHeaders([
-			'Authorization' => 'Bearer ' . app()->make('jobadder')->cache['access_token']
-		])->get(app()->make('jobadder')->cache['api'] . '/jobads/')->json();
-
-		foreach ($ads['items'] as $ad) {
-			$job = Http::withHeaders([
-				'Authorization' => 'Bearer ' . app()->make('jobadder')->cache['access_token']
-			])->get(app()->make('jobadder')->cache['api'] . '/jobs/' . $ad['reference'])->json();
-
-			dump($ad, $job);
-		}
-
-		dd();
+        Route::get('/refresh', 'App\Services\JobAdder\API\OAuth@refresh')->name('.refresh');
     });
 });

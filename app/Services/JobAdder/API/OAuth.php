@@ -15,6 +15,10 @@ class OAuth
 	public function __construct()
 	{
 		$this->cache = Cache::get('jobadder::oauth');
+
+		if (!$this->isAuthorised()) {
+			$this->cache = (new OAuthData())->toArray();
+		}
 	}
 
 	public function authorise(): mixed
@@ -40,7 +44,7 @@ class OAuth
 		if ($data->error) {
 			Log::error('App\Services\JobAdder\API\OAuth@token: ' . $data->error);
 		} else {
-			Cache::put('jobadder::oauth', $data->toArray(), now()->addHour());
+			Cache::put('jobadder::oauth', $data->toArray());
 		}
 
 		return redirect(route('filament.pages.dashboard') . '/job-adder');
@@ -48,12 +52,6 @@ class OAuth
 
 	public function refresh(): void
 	{
-		if (!$this->isAuthorised()) {
-			Log::error('App\Services\JobAdder\API\OAuth@refresh: ' . 'jobadder::oauth');
-
-			exit();
-		}
-
 		$data = new OAuthData(Http::asForm()->post('https://id.jobadder.com/connect/token', [
 			'grant_type' => 'refresh_token',
 			'client_id' => config('jobadder.client_id'),
@@ -64,12 +62,12 @@ class OAuth
 		if ($data->error) {
 			Log::error('App\Services\JobAdder\API\OAuth@refresh: ' . $data->error);
 		} else {
-			Cache::put('jobadder::oauth', $data->toArray(), now()->addHour());
+			Cache::put('jobadder::oauth', $data->toArray());
 		}
 	}
 
 	public function isAuthorised(): bool
 	{
-		return $this->cache !== null;
+		return Cache::get('jobadder::oauth') !== null;
 	}
 }

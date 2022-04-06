@@ -22,13 +22,7 @@ class Company extends Model
         'phone',
         'url',
         'category_id',
-        'membership_type',
-    ];
-
-    const MEMBERSHIP_TYPES = [
-        'Professional',
-        'Elite',
-        'Gem'
+        'membership_id',
     ];
 
     // Relationships
@@ -46,6 +40,11 @@ class Company extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function membership(): BelongsTo
+    {
+        return $this->belongsTo(Membership::class);
     }
 
     // Inversed Relationships

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -14,6 +13,7 @@ class Category extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'id',
         'name',
     ];
 
@@ -26,8 +26,8 @@ class Category extends Model
 
     // Inversed Relationships
 
-    public function company(): HasOne
+    public function companies(): HasMany
     {
-        return $this->hasOne(Company::class);
+        return $this->hasMany(Company::class);
     }
 }

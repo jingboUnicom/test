@@ -13,6 +13,7 @@ class Subcategory extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'id',
         'name',
         'category_id',
     ];

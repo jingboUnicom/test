@@ -10,7 +10,7 @@ class JobAdder extends Page
 
     protected static ?int $navigationSort = 12;
 
-    protected static ?string $navigationIcon = 'heroicon-o-star';
+    protected static ?string $navigationIcon = 'heroicon-o-sparkles';
 
     protected static ?string $title = 'Job Adder';
 

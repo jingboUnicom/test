@@ -21,7 +21,7 @@ class MembershipResource extends Resource
 
     protected static ?int $navigationSort = 11;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-view-boards';
 
     protected static ?string $navigationLabel = 'Membership Types';
 

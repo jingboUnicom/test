@@ -47,13 +47,10 @@ class UserResource extends Resource
                                     ->columnSpan(12),
                                 Forms\Components\Toggle::make('super')
                                     ->label('Admin')
-                                    ->columnSpan(4),
-                                Forms\Components\Toggle::make('agent')
-                                    ->label('Agent')
-                                    ->columnSpan(4),
+                                    ->columnSpan(6),
                                 Forms\Components\Toggle::make('employer')
                                     ->label('Employer')
-                                    ->columnSpan(4),
+                                    ->columnSpan(6),
                             ])->columns(12),
                     ])->hidden(function () {
                         $user = Auth::user();
@@ -103,8 +100,7 @@ class UserResource extends Resource
                                     ->label('Department')
                                     ->columnSpan(12),
                                 // Field Notes: Employers can select only his/her company or no company
-                                // Field Notes: Agents can select only his/her belonged company or no company
-                                // Field Notes: Employeres are required to select
+                                // Field Notes: Employers are required to select
                                 Forms\Components\BelongsToSelect::make('company_id')
                                     ->relationship('contact', 'company_name', function (Builder $query) {
                                         $user = Auth::user();
@@ -112,14 +108,6 @@ class UserResource extends Resource
                                         if ($user->employer) {
                                             if ($user->company) {
                                                 return $query->where('id', $user->company->id);
-                                            } else {
-                                                return $query->where('id', -1);
-                                            }
-                                        }
-
-                                        if ($user->agent) {
-                                            if ($user->contact) {
-                                                return $query->where('id', $user->contact->id);
                                             } else {
                                                 return $query->where('id', -1);
                                             }
@@ -207,11 +195,6 @@ class UserResource extends Resource
 
         if ($user->super) {
             return $query;
-        }
-
-        // Policy Notes: Agents can BROWSE/READ/EDIT only himself/herself
-        if ($user->agent) {
-            return $query->where('id', $user->id);
         }
 
         // Policy Notes: Employers CAN BROWSE/READ/ADD/EDIT/DELETE only his/her company's users or no users

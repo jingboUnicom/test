@@ -17,10 +17,6 @@ class ListJobOrders extends ListRecords
             return;
         }
 
-        if ($user->agent) {
-            return;
-        }
-
         if ($user->employer) {
             return;
         }

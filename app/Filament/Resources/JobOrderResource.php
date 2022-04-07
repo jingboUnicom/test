@@ -42,10 +42,6 @@ class JobOrderResource extends Resource
             return true;
         }
 
-        if ($user->agent) {
-            return true;
-        }
-
         if ($user->employer) {
             return true;
         }
@@ -264,10 +260,6 @@ class JobOrderResource extends Resource
         $query = parent::getEloquentQuery();
 
         if ($user->super) {
-            return $query->whereIn('status', [Vacancy::STATUS_OPEN, Vacancy::STATUS_HOLD]);
-        }
-
-        if ($user->agent) {
             return $query->whereIn('status', [Vacancy::STATUS_OPEN, Vacancy::STATUS_HOLD]);
         }
 

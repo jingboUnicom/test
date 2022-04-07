@@ -20,8 +20,7 @@ return new class extends Migration
             $table->string('department')->nullable()->after('position');
             $table->foreignId('company_id')->nullable()->after('department');
             $table->string('phone')->nullable()->after('company_id');
-            $table->boolean('agent')->default(false)->after('super');
-            $table->boolean('employer')->default(false)->after('agent');
+            $table->boolean('employer')->default(false)->after('super');
         });
     }
 
@@ -34,7 +33,6 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('employer');
-            $table->dropColumn('agent');
             $table->dropColumn('phone');
             $table->dropColumn('company_id');
             $table->dropColumn('department');

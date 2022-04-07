@@ -17,10 +17,6 @@ class ListJobAds extends ListRecords
             return;
         }
 
-        if ($user->agent) {
-            abort(403);
-        }
-
         if ($user->employer) {
             abort(403);
         }

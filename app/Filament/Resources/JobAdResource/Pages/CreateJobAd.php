@@ -17,10 +17,6 @@ class CreateJobAd extends CreateRecord
             abort(403);
         }
 
-        if ($user->agent) {
-            abort(403);
-        }
-
         if ($user->employer) {
             abort(403);
         }

@@ -17,10 +17,6 @@ class ViewJobOrder extends ViewRecord
             return;
         }
 
-        if ($user->agent) {
-            return;
-        }
-
         if ($user->employer) {
             return;
         }

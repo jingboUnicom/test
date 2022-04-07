@@ -11,17 +11,12 @@ class SubscriberPolicy
     use HandlesAuthorization;
 
     // Admins CAN BROWSE Subscribers
-    // Agents CANNOT BROWSE Subscribers
     // Employers CANNOT BROWSE Subscribers
     // Guests CANNOT BROWSE Subscribers
     public function viewAny(User $user)
     {
         if ($user->super) {
             return true;
-        }
-
-        if ($user->agent) {
-            return false;
         }
 
         if ($user->employer) {
@@ -32,17 +27,12 @@ class SubscriberPolicy
     }
 
     // Admins CAN READ Subscribers
-    // Agents CANNOT READ Subscribers
     // Employers CANNOT READ Subscribers
     // Guests CANNOT READ Subscribers
     public function view(User $user, Subscriber $subscriber)
     {
         if ($user->super) {
             return true;
-        }
-
-        if ($user->agent) {
-            return false;
         }
 
         if ($user->employer) {
@@ -53,17 +43,12 @@ class SubscriberPolicy
     }
 
     // Admins CAN ADD Subscribers
-    // Agents CANNOT ADD Subscribers
     // Employers CANNOT ADD Subscribers
     // Guests CANNOT ADD Subscribers
     public function create(User $user)
     {
         if ($user->super) {
             return true;
-        }
-
-        if ($user->agent) {
-            return false;
         }
 
         if ($user->employer) {
@@ -74,17 +59,12 @@ class SubscriberPolicy
     }
 
     // Admins CAN EDIT Subscribers
-    // Agents CANNOT EDIT Subscribers
     // Employers CANNOT EDIT Subscribers
     // Guests CANNOT EDIT Subscribers
     public function update(User $user, Subscriber $subscriber)
     {
         if ($user->super) {
             return true;
-        }
-
-        if ($user->agent) {
-            return false;
         }
 
         if ($user->employer) {
@@ -95,17 +75,12 @@ class SubscriberPolicy
     }
 
     // Admins CAN DELETE Subscribers
-    // Agents CANNOT DELETE Subscribers
     // Employers CANNOT DELETE Subscribers
     // Guests CANNOT DELETE Subscribers
     public function delete(User $user, Subscriber $subscriber)
     {
         if ($user->super) {
             return true;
-        }
-
-        if ($user->agent) {
-            return false;
         }
 
         if ($user->employer) {
@@ -116,17 +91,12 @@ class SubscriberPolicy
     }
 
     // Admins CAN RESTORE Subscribers
-    // Agents CANNOT RESTORE Subscribers
     // Employers CANNOT RESTORE Subscribers
     // Guests CANNOT RESTORE Subscribers
     public function restore(User $user, Subscriber $subscriber)
     {
         if ($user->super) {
             return true;
-        }
-
-        if ($user->agent) {
-            return false;
         }
 
         if ($user->employer) {
@@ -137,17 +107,12 @@ class SubscriberPolicy
     }
 
     // Admins CAN FORCE DELETE Subscribers
-    // Agents CANNOT FORCE DELETE Subscribers
     // Employers CANNOT FORCE DELETE Subscribers
     // Guests CANNOT FORCE DELETE Subscribers
     public function forceDelete(User $user, Subscriber $subscriber)
     {
         if ($user->super) {
             return true;
-        }
-
-        if ($user->agent) {
-            return false;
         }
 
         if ($user->employer) {

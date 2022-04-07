@@ -98,10 +98,6 @@ class StateResource extends Resource
             return $query;
         }
 
-        if ($user->agent) {
-            return $query;
-        }
-
         if ($user->employer) {
             return $query;
         }

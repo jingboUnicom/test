@@ -17,10 +17,6 @@ class EditJobOrder extends EditRecord
             return;
         }
 
-        if ($user->agent) {
-            return;
-        }
-
         if ($user->employer) {
             return;
         }

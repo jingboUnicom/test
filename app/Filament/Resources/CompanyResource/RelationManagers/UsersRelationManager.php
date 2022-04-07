@@ -34,13 +34,10 @@ class UsersRelationManager extends HasManyRelationManager
                                             ->columnSpan(12),
                                         Forms\Components\Toggle::make('super')
                                             ->label('Admin')
-                                            ->columnSpan(4),
-                                        Forms\Components\Toggle::make('agent')
-                                            ->label('Agent')
-                                            ->columnSpan(4),
+                                            ->columnSpan(6),
                                         Forms\Components\Toggle::make('employer')
                                             ->label('Employer')
-                                            ->columnSpan(4),
+                                            ->columnSpan(6),
                                     ])->columns(12),
                             ])->hidden(function () {
                                 $user = Auth::user();
@@ -88,7 +85,6 @@ class UsersRelationManager extends HasManyRelationManager
                                     ->label('Department')
                                     ->columnSpan(12),
                                 // Field Notes: Employers can select only his/her own company or no company
-                                // Field Notes: Agents can only select his/her belonged company or no company
                                 // Forms\Components\BelongsToSelect::make('company_id')
                                 //     ->relationship('contact', 'company_name', function (Builder $query) {
                                 //         $user = Auth::user();

@@ -17,10 +17,6 @@ class EditJobAd extends EditRecord
             abort(403);
         }
 
-        if ($user->agent) {
-            abort(403);
-        }
-
         if ($user->employer) {
             abort(403);
         }

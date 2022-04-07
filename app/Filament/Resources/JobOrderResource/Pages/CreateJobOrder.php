@@ -19,10 +19,6 @@ class CreateJobOrder extends CreateRecord
             return;
         }
 
-        if ($user->agent) {
-            return;
-        }
-
         if ($user->employer) {
             return;
         }

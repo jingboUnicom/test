@@ -172,10 +172,6 @@ class CompanyResource extends Resource
             return $query;
         }
 
-        if ($user->agent) {
-            return $query;
-        }
-
         // Policy Notes: Employers can BROWSE/READ/EDIT only his/her company or no company
         if ($user->employer) {
             if ($user->company) {

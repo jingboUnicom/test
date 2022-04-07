@@ -43,7 +43,6 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         'company_id',
         'phone',
         'super',
-        'agent',
         'employer',
     ];
 
@@ -91,7 +90,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function canAccessFilament(): bool
     {
-        return $this->super || $this->agent || $this->employer;
+        return $this->super || $this->employer;
     }
 
     public function getFilamentAvatarUrl(): ?string

@@ -3,16 +3,17 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Vacancy;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UserPolicy
+class VacancyPolicy
 {
     use HandlesAuthorization;
 
-    // Admins CAN BROWSE Users
-    // Agents CAN BROWSE Users
-    // Employers CAN BROWSE Users
-    // Guests CANNOT BROWSE Users
+    // Admins CAN BROWSE Company Vacancies
+    // Agents CAN BROWSE Company Vacancies
+    // Employers CAN BROWSE Company Vacancies
+    // Guests CANNOT BROWSE Company Vacancies
     public function viewAny(User $user)
     {
         if ($user->super) {
@@ -30,11 +31,11 @@ class UserPolicy
         return false;
     }
 
-    // Admins CAN READ Users
-    // Agents CAN READ Users
-    // Employers CAN READ Users
-    // Guests CANNOT READ Users
-    public function view(User $user, User $model)
+    // Admins CAN READ Company Vacancies
+    // Agents CAN READ Company Vacancies
+    // Employers CAN READ Company Vacancies
+    // Guests CANNOT READ Company Vacancies
+    public function view(User $user, Vacancy $vacancy)
     {
         if ($user->super) {
             return true;
@@ -51,10 +52,10 @@ class UserPolicy
         return false;
     }
 
-    // Admins CAN ADD Users
-    // Agents CANNOT ADD Users
-    // Employers CANNOT ADD Users
-    // Guests CANNOT ADD Users
+    // Admins CAN ADD Company Vacancies
+    // Agents CAN ADD Company Vacancies
+    // Employers CAN ADD Company Vacancies
+    // Guests CANNOT ADD Company Vacancies
     public function create(User $user)
     {
         if ($user->super) {
@@ -62,7 +63,7 @@ class UserPolicy
         }
 
         if ($user->agent) {
-            return false;
+            return true;
         }
 
         if ($user->employer) {
@@ -72,11 +73,11 @@ class UserPolicy
         return false;
     }
 
-    // Admins CAN EDIT Users
-    // Agents CAN EDIT Users
-    // Employers CAN EDIT Users
-    // Guests CANNOT EDIT Users
-    public function update(User $user, User $model)
+    // Admins CAN EDIT Company Vacancies
+    // Agents CAN EDIT Company Vacancies
+    // Employers CAN EDIT Company Vacancies
+    // Guests CANNOT EDIT Company Vacancies
+    public function update(User $user, Vacancy $vacancy)
     {
         if ($user->super) {
             return true;
@@ -93,32 +94,11 @@ class UserPolicy
         return false;
     }
 
-    // Admins CAN DELETE Users
-    // Agents CANNOT DELETE Users
-    // Employers CANNOT DELETE Users
-    // Guests CANNOT DELETE Users
-    public function delete(User $user, User $model)
-    {
-        if ($user->super) {
-            return true;
-        }
-
-        if ($user->agent) {
-            return false;
-        }
-
-        if ($user->employer) {
-            return true;
-        }
-
-        return false;
-    }
-
-    // Admins CAN RESTORE Users
-    // Agents CANNOT RESTORE Users
-    // Employers CANNOT RESTORE Users
-    // Guests CANNOT RESTORE Users
-    public function restore(User $user, User $model)
+    // Admins CAN DELETE Company Vacancies
+    // Agents CANNOT DELETE Company Vacancies
+    // Employers CANNOT DELETE Company Vacancies
+    // Guests CANNOT DELETE Company Vacancies
+    public function delete(User $user, Vacancy $vacancy)
     {
         if ($user->super) {
             return true;
@@ -135,11 +115,32 @@ class UserPolicy
         return false;
     }
 
-    // Admins CAN FORCE DELETE Users
-    // Agents CANNOT FORCE DELETE Users
-    // Employers CANNOT FORCE DELETE Users
-    // Guests CANNOT FORCE DELETE Users
-    public function forceDelete(User $user, User $model)
+    // Admins CAN RESTORE Company Vacancies
+    // Agents CANNOT RESTORE Company Vacancies
+    // Employers CANNOT RESTORE Company Vacancies
+    // Guests CANNOT RESTORE Company Vacancies
+    public function restore(User $user, Vacancy $vacancy)
+    {
+        if ($user->super) {
+            return true;
+        }
+
+        if ($user->agent) {
+            return false;
+        }
+
+        if ($user->employer) {
+            return false;
+        }
+
+        return false;
+    }
+
+    // Admins CAN FORCE DELETE Company Vacancies
+    // Agents CANNOT FORCE DELETE Company Vacancies
+    // Employers CANNOT FORCE DELETE  Company Vacancies
+    // Guests CANNOT FORCE DELETE  Company Vacancies
+    public function forceDelete(User $user, Vacancy $vacancy)
     {
         if ($user->super) {
             return true;

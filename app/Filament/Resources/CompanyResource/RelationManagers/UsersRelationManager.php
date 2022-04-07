@@ -23,6 +23,30 @@ class UsersRelationManager extends HasManyRelationManager
             ->schema([
                 Forms\Components\Group::make()
                     ->schema([
+                        // Field Notes: For admin use only
+                        Forms\Components\Group::make()
+                            ->schema([
+                                Forms\Components\Card::make()
+                                    ->schema([
+                                        Forms\Components\Placeholder::make('For Admin Use Only')
+                                            ->columnSpan(12),
+                                        Forms\Components\Placeholder::make('Role')
+                                            ->columnSpan(12),
+                                        Forms\Components\Toggle::make('super')
+                                            ->label('Admin')
+                                            ->columnSpan(4),
+                                        Forms\Components\Toggle::make('agent')
+                                            ->label('Agent')
+                                            ->columnSpan(4),
+                                        Forms\Components\Toggle::make('employer')
+                                            ->label('Employer')
+                                            ->columnSpan(4),
+                                    ])->columns(12),
+                            ])->hidden(function () {
+                                $user = Auth::user();
+
+                                return !$user->super;
+                            })->columnSpan(12),
                         Forms\Components\Card::make()
                             ->schema([
                                 Forms\Components\TextInput::make('name')
@@ -87,30 +111,7 @@ class UsersRelationManager extends HasManyRelationManager
                                     ->label('Phone')
                                     ->columnSpan(12),
                             ])->columns(12),
-                    ])->columnSpan(6),
-                // Field Notes: Admin use only
-                Forms\Components\Group::make()
-                    ->schema([
-                        Forms\Components\Card::make()
-                            ->schema([
-                                Forms\Components\Placeholder::make('Role')
-                                    ->columnSpan(12),
-                                Forms\Components\Toggle::make('super')
-                                    ->label('Admin')
-                                    ->columnSpan(4),
-                                Forms\Components\Toggle::make('agent')
-                                    ->label('Agent')
-                                    ->columnSpan(4),
-                                Forms\Components\Toggle::make('employer')
-                                    ->label('Employer')
-                                    ->columnSpan(4),
-                            ])->columns(12)
-                            ->hidden(function () {
-                                $user = Auth::user();
-
-                                return !$user->super;
-                            }),
-                    ])->columnSpan(6),
+                    ])->columnSpan(12),
             ])->columns(12);
     }
 

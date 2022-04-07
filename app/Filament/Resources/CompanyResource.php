@@ -33,6 +33,26 @@ class CompanyResource extends Resource
     {
         return $form
             ->schema([
+                // Field Notes: For admin use only
+                Forms\Components\Group::make()
+                    ->schema([
+                        Forms\Components\Card::make()
+                            ->schema([
+                                Forms\Components\Placeholder::make('For Admin Use Only')
+                                    ->columnSpan(12),
+                                Forms\Components\BelongsToSelect::make('membership_id')
+                                    ->relationship('membership', 'name')
+                                    ->preload()
+                                    ->searchable()
+                                    ->label('Membership Type')
+                                    ->required()
+                                    ->columnSpan(12),
+                            ])->columns(12),
+                    ])->hidden(function () {
+                        $user = Auth::user();
+
+                        return !$user->super;
+                    })->columnSpan(12),
                 Forms\Components\Group::make()
                     ->schema([
                         Forms\Components\Card::make()
@@ -77,33 +97,14 @@ class CompanyResource extends Resource
                                 Forms\Components\TextInput::make('url')
                                     ->label('URL')
                                     ->columnSpan(12),
-                            ])->columns(12),
-                    ])->columnSpan(6),
-                Forms\Components\Group::make()
-                    ->schema([
-                        Forms\Components\Card::make()
-                            ->schema([
                                 Forms\Components\BelongsToSelect::make('category_id')
                                     ->relationship('category', 'name')
                                     ->preload()
                                     ->searchable()
                                     ->label('Industry')
                                     ->columnSpan(12),
-                                // Field Notes: Admin use only
-                                Forms\Components\BelongsToSelect::make('membership_id')
-                                    ->relationship('membership', 'name')
-                                    ->preload()
-                                    ->searchable()
-                                    ->label('Membership Type')
-                                    ->required()
-                                    ->columnSpan(12)
-                                    ->hidden(function () {
-                                        $user = Auth::user();
-
-                                        return !$user->super;
-                                    }),
                             ])->columns(12),
-                    ])->columnSpan(6),
+                    ])->columnSpan(12),
             ])->columns(12);
     }
 

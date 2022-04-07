@@ -30,4 +30,9 @@ class Category extends Model
     {
         return $this->hasMany(Company::class);
     }
+
+    public function vacancies(): HasMany
+    {
+        return $this->hasMany(Vacancy::class);
+    }
 }

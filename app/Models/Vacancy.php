@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Vacancy extends Model
@@ -25,7 +26,7 @@ class Vacancy extends Model
         'category_id',
         'subcategory_id',
         'location_id',
-        'state',
+        'state_id',
         'status',
         'posted_at',
     ];
@@ -42,4 +43,44 @@ class Vacancy extends Model
         'Withdrawn by Regeine Career',
         'Withdrawn by Client',
     ];
+
+    // Relationships
+
+    public function work(): BelongsTo
+    {
+        return $this->belongsTo(Work::class);
+    }
+
+    public function company(): BelongsTo
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function subcategory(): BelongsTo
+    {
+        return $this->belongsTo(Subcategory::class);
+    }
+
+    public function location(): BelongsTo
+    {
+        return $this->belongsTo(Location::class);
+    }
+
+    public function state(): BelongsTo
+    {
+        return $this->belongsTo(State::class);
+    }
+
+    // Inversed Relationships
+
 }

@@ -49,4 +49,8 @@ class Company extends Model
 
     // Inversed Relationships
 
+    public function vacancies(): HasMany
+    {
+        return $this->hasMany(Vacancy::class);
+    }
 }

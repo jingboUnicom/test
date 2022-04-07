@@ -20,9 +20,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->job(new LogTime())->everyMinute();
 
-        $schedule->job(new JobAdderRefreshAccessToken())->name('App\Jobs\JobAdderRefreshAccessToken')->hourly();
+        $schedule->job(new JobAdderRefreshAccessToken())->name('App\Jobs\JobAdderRefreshAccessToken')->everyMinute();
 
-        $schedule->job(new JobAdderSyncJobAds())->name('App\Jobs\JobAdderSyncJobAds')->hourly();
+        $schedule->job(new JobAdderSyncJobAds())->name('App\Jobs\JobAdderSyncJobAds')->everyMinute();
     }
 
     /**

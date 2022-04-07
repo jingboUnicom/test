@@ -22,11 +22,12 @@ class JobAdData extends DataTransferObject
 	public $short_description;
 
 	#[MapFrom('bulletPoints')]
+	#[CastWith(BulletPointsCaster::class)]
 	public $bullet_points;
 
 	#[MapFrom('state')]
 	#[CastWith(StateCaster::class)]
-	public $state;
+	public $state_id;
 
 	public $status;
 

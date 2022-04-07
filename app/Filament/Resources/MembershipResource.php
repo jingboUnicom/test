@@ -17,9 +17,9 @@ class MembershipResource extends Resource
 {
     protected static ?string $model = Membership::class;
 
-    protected static ?string $navigationGroup = null;
+    protected static ?string $navigationGroup = 'Portal Management';
 
-    protected static ?int $navigationSort = 15;
+    protected static ?int $navigationSort = 11;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 

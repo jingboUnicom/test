@@ -17,7 +17,7 @@ class WorkResource extends Resource
 {
     protected static ?string $model = Work::class;
 
-    protected static ?string $navigationGroup = null;
+    protected static ?string $navigationGroup = 'Job Adder Management';
 
     protected static ?int $navigationSort = 16;
 

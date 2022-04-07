@@ -31,6 +31,9 @@ class AppServiceProvider extends ServiceProvider
             Filament::registerTheme(mix('css/filament.css'));
         });
 
-        Filament::registerNavigationGroups([]);
+        Filament::registerNavigationGroups([
+            'Portal Management',
+            'Job Adder Management',
+        ]);
     }
 }

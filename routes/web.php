@@ -32,6 +32,28 @@ Route::prefix('jobadder')->name('jobadder')->middleware(['web', 'jobadder'])->gr
 
     Route::prefix('token')->group(function () {
         Route::get('/', 'App\Services\JobAdder\API\OAuth@token')->name('.token');
-        Route::get('/refresh', 'App\Services\JobAdder\API\OAuth@refresh')->name('.refresh');
+        // Route::get('/refresh', 'App\Services\JobAdder\API\OAuth@refresh')->name('.refresh');
     });
+
+    // Route::prefix('sync')->group(function () {
+    //     Route::get('locations', function () {
+    //         $job = new App\Jobs\JobAdderSyncLocations();
+    //         $job->handle();
+    //     });
+
+    //     Route::get('categories', function () {
+    //         $job = new App\Jobs\JobAdderSyncCategories();
+    //         $job->handle();
+    //     });
+
+    //     Route::get('worktypes', function () {
+    //         $job = new App\Jobs\JobAdderSyncWorkTypes();
+    //         $job->handle();
+    //     });
+
+    //     Route::get('jobads', function () {
+    //         $job = new App\Jobs\JobAdderSyncJobAds();
+    //         $job->handle();
+    //     });
+    // });
 });

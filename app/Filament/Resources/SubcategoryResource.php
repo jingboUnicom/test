@@ -17,9 +17,9 @@ class SubcategoryResource extends Resource
 {
     protected static ?string $model = Subcategory::class;
 
-    protected static ?string $navigationGroup = null;
+    protected static ?string $navigationGroup = 'Job Adder Management';
 
-    protected static ?int $navigationSort = 14;
+    protected static ?int $navigationSort = 15;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 

@@ -17,11 +17,11 @@ class LocationResource extends Resource
 {
     protected static ?string $model = Location::class;
 
-    protected static ?string $navigationGroup = null;
+    protected static ?string $navigationGroup = 'Job Adder Management';
 
-    protected static ?int $navigationSort = 12;
+    protected static ?int $navigationSort = 13;
 
-    protected static ?string $navigationIcon = 'heroicon-o-location-marker';
+    protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     protected static ?string $navigationLabel = 'Locations';
 

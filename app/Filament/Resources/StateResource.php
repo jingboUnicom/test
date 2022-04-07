@@ -17,7 +17,7 @@ class StateResource extends Resource
 {
     protected static ?string $model = State::class;
 
-    protected static ?string $navigationGroup = null;
+    protected static ?string $navigationGroup = 'Job Adder Management';
 
     protected static ?int $navigationSort = 17;
 

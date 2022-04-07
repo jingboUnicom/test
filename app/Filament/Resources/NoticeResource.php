@@ -17,7 +17,7 @@ class NoticeResource extends Resource
 {
     protected static ?string $model = Notice::class;
 
-    protected static ?string $navigationGroup = null;
+    protected static ?string $navigationGroup = 'Portal Management';
 
     protected static ?int $navigationSort = 9;
 

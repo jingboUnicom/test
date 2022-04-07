@@ -48,25 +48,6 @@ class JobAdderSyncJobAds implements ShouldQueue
         foreach ($job_ads['items'] as $job_ad) {
             $job = Http::withHeaders(['Authorization' => 'Bearer ' . $access_token])->get($api_url . '/jobs/' . $job_ad['reference'])->json();
 
-            if (isset($job['workType']['name'])) {
-                Work::firstOrCreate(
-                    ['name' => $job['workType']['name']]
-                );
-            }
-
-            if (isset($job['category']['name'])) {
-                $category = Category::firstOrCreate(
-                    ['name' => $job['category']['name']]
-                );
-
-                if (isset($job['category']['subCategory']['name'])) {
-                    Subcategory::firstOrCreate(
-                        ['name' => $job['category']['subCategory']['name']],
-                        ['category_id' => $category->id]
-                    );
-                }
-            }
-
             if (isset($job['location']['name'])) {
                 Location::firstOrCreate(
                     ['name' => $job['location']['name']]

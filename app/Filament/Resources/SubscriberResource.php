@@ -18,7 +18,7 @@ class SubscriberResource extends Resource
 {
     protected static ?string $model = Subscriber::class;
 
-    protected static ?string $navigationGroup = null;
+    protected static ?string $navigationGroup = 'Portal Management';
 
     protected static ?int $navigationSort = 10;
 

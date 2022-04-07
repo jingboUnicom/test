@@ -29,6 +29,8 @@ class StateResource extends Resource
 
     protected static ?string $pluralLabel = 'States';
 
+    protected static ?string $slug = 'states';
+
     public static function form(Form $form): Form
     {
         return $form

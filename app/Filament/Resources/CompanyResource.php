@@ -29,6 +29,8 @@ class CompanyResource extends Resource
 
     protected static ?string $pluralLabel = 'Company';
 
+    protected static ?string $slug = 'company';
+
     public static function form(Form $form): Form
     {
         return $form

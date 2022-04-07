@@ -14,15 +14,15 @@ class CreateJobAd extends CreateRecord
         $user = auth()->user();
 
         if ($user->super) {
-            return;
+            abort(403);
         }
 
         if ($user->agent) {
-            return;
+            abort(403);
         }
 
         if ($user->employer) {
-            return;
+            abort(403);
         }
 
         abort(403);

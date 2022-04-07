@@ -30,6 +30,8 @@ class SubscriberResource extends Resource
 
     protected static ?string $pluralLabel = 'Subscribers';
 
+    protected static ?string $slug = 'subscribers';
+
     public static function form(Form $form): Form
     {
         return $form

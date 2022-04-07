@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\JobAdResource\Pages;
+namespace App\Filament\Resources\JobOrderResource\Pages;
 
-use App\Filament\Resources\JobAdResource;
+use App\Filament\Resources\JobOrderResource;
 use Filament\Resources\Pages\ListRecords;
 
-class ListJobAds extends ListRecords
+class ListJobOrders extends ListRecords
 {
-    protected static string $resource = JobAdResource::class;
+    protected static string $resource = JobOrderResource::class;
 
     public static function authorizeResourceAccess(): void
     {
@@ -18,11 +18,11 @@ class ListJobAds extends ListRecords
         }
 
         if ($user->agent) {
-            abort(403);
+            return;
         }
 
         if ($user->employer) {
-            abort(403);
+            return;
         }
 
         abort(403);

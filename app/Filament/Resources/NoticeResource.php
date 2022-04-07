@@ -29,6 +29,8 @@ class NoticeResource extends Resource
 
     protected static ?string $pluralLabel = 'Notices';
 
+    protected static ?string $slug = 'notices';
+
     public static function form(Form $form): Form
     {
         return $form

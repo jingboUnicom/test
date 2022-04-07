@@ -29,6 +29,8 @@ class WorkResource extends Resource
 
     protected static ?string $pluralLabel = 'Work Types';
 
+    protected static ?string $slug = 'work-types';
+
     public static function form(Form $form): Form
     {
         return $form

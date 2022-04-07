@@ -29,6 +29,8 @@ class MembershipResource extends Resource
 
     protected static ?string $pluralLabel = 'Membership Types';
 
+    protected static ?string $slug = 'membership-types';
+
     public static function form(Form $form): Form
     {
         return $form

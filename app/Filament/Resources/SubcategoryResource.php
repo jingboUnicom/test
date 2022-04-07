@@ -29,6 +29,8 @@ class SubcategoryResource extends Resource
 
     protected static ?string $pluralLabel = 'Sub Categories';
 
+    protected static ?string $slug = 'sub-categories';
+
     public static function form(Form $form): Form
     {
         return $form

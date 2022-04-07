@@ -29,6 +29,8 @@ class LocationResource extends Resource
 
     protected static ?string $pluralLabel = 'Locations';
 
+    protected static ?string $slug = 'locations';
+
     public static function form(Form $form): Form
     {
         return $form

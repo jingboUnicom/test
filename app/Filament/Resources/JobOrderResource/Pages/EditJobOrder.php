@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Filament\Resources\JobAdResource\Pages;
+namespace App\Filament\Resources\JobOrderResource\Pages;
 
-use App\Filament\Resources\JobAdResource;
+use App\Filament\Resources\JobOrderResource;
 use Filament\Resources\Pages\EditRecord;
 
-class EditJobAd extends EditRecord
+class EditJobOrder extends EditRecord
 {
-    protected static string $resource = JobAdResource::class;
+    protected static string $resource = JobOrderResource::class;
 
     public static function authorizeResourceAccess(): void
     {
         $user = auth()->user();
 
         if ($user->super) {
-            abort(403);
+            return;
         }
 
         if ($user->agent) {
-            abort(403);
+            return;
         }
 
         if ($user->employer) {
-            abort(403);
+            return;
         }
 
         abort(403);

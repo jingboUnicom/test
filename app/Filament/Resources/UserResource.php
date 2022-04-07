@@ -30,6 +30,8 @@ class UserResource extends Resource
 
     protected static ?string $pluralLabel = 'Contacts';
 
+    protected static ?string $slug = 'contacts';
+
     public static function form(Form $form): Form
     {
         return $form

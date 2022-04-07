@@ -47,7 +47,6 @@ class CompanyResource extends Resource
                                     ->preload()
                                     ->searchable()
                                     ->label('Membership Type')
-                                    ->required()
                                     ->columnSpan(12),
                             ])->columns(12),
                     ])->hidden(function () {

@@ -9,6 +9,8 @@ use Spatie\DataTransferObject\Attributes\CastWith;
 class JobAdData extends DataTransferObject
 {
 	#[MapFrom('adId')]
+	public $ja_ad_id;
+
 	public $id;
 
 	public $company_id;

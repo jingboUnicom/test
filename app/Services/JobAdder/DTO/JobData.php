@@ -8,6 +8,9 @@ use Spatie\DataTransferObject\Attributes\CastWith;
 
 class JobData extends DataTransferObject
 {
+	#[MapFrom('jobId')]
+	public $ja_job_id;
+
 	#[MapFrom('workType.name')]
 	#[CastWith(WorkCaster::class)]
 	public $work_id;

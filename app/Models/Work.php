@@ -13,7 +13,6 @@ class Work extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'id',
         'name',
     ];
 

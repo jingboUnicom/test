@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('vacancies', function (Blueprint $table) {
             $table->id();
+            $table->string('ja_ad_id')->nullable();
+            $table->string('ja_job_id')->nullable();
             $table->foreignId('work_id')->nullable();
             $table->foreignId('company_id')->nullable();
             $table->foreignId('user_id')->nullable();

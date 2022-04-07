@@ -50,32 +50,26 @@ class JobAdderSyncJobAds implements ShouldQueue
 
             if (isset($job['workType']['name'])) {
                 Work::firstOrCreate(
-                    ['name' => $job['workType']['name']],
-                    ['id' => $job['workType']['workTypeId']]
+                    ['name' => $job['workType']['name']]
                 );
             }
 
             if (isset($job['category']['name'])) {
                 $category = Category::firstOrCreate(
-                    ['name' => $job['category']['name']],
-                    ['id' => $job['category']['categoryId']]
+                    ['name' => $job['category']['name']]
                 );
 
                 if (isset($job['category']['subCategory']['name'])) {
                     Subcategory::firstOrCreate(
                         ['name' => $job['category']['subCategory']['name']],
-                        [
-                            'id' => $job['category']['subCategory']['subCategoryId'],
-                            'category_id' => $category->id
-                        ]
+                        ['category_id' => $category->id]
                     );
                 }
             }
 
             if (isset($job['location']['name'])) {
                 Location::firstOrCreate(
-                    ['name' => $job['location']['name']],
-                    ['id' => $job['location']['locationId']]
+                    ['name' => $job['location']['name']]
                 );
             }
 
@@ -93,7 +87,8 @@ class JobAdderSyncJobAds implements ShouldQueue
 
             $vacancy = Vacancy::updateOrCreate(
                 [
-                    'id' => $job_ad_data->id
+                    'ja_ad_id' => $job_ad_data->ja_ad_id,
+                    'ja_job_id' => $job_data->ja_job_id,
                 ],
                 $vacancy_data
             );

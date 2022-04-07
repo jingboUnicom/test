@@ -13,7 +13,8 @@ class Vacancy extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'id',
+        'ja_ad_id',
+        'ja_job_id',
         'work_id',
         'company_id',
         'user_id',

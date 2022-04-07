@@ -12,7 +12,6 @@ class State extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'id',
         'name',
     ];
 

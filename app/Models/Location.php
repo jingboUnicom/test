@@ -13,7 +13,6 @@ class Location extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'id',
         'name',
     ];
 

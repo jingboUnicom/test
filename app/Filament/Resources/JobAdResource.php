@@ -62,18 +62,24 @@ class JobAdResource extends Resource
                             ->schema([
                                 Forms\Components\Placeholder::make('For Admin Use Only')
                                     ->columnSpan(12),
-                                Forms\Components\Select::make('status')
-                                    ->label('Status')
-                                    ->options(Vacancy::STATUSES)
-                                    ->columnSpan(6),
+                                Forms\Components\TextInput::make('ja_ad_id')
+                                    ->label('Job Ad Reference')
+                                    ->columnSpan(4),
+                                Forms\Components\TextInput::make('ja_job_id')
+                                    ->label('Job Reference')
+                                    ->columnSpan(4),
                                 Forms\Components\BelongsToSelect::make('state_id')
                                     ->relationship('state', 'name')
                                     ->preload()
                                     ->searchable()
                                     ->label('State')
-                                    ->columnSpan(6),
+                                    ->columnSpan(4),
                                 Forms\Components\DateTimePicker::make('posted_at')
                                     ->label('Posting Date')
+                                    ->columnSpan(12),
+                                Forms\Components\Select::make('status')
+                                    ->label('Status')
+                                    ->options(Vacancy::STATUSES)
                                     ->columnSpan(12),
                             ])->columns(12),
                     ])->hidden(function () {

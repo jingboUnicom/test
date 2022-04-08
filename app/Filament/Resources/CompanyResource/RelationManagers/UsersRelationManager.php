@@ -53,12 +53,11 @@ class UsersRelationManager extends HasManyRelationManager
                                 Forms\Components\TextInput::make('surname')
                                     ->label('Last Name')
                                     ->columnSpan(6),
-                                // Forms\Components\TextInput::make('email')
-                                //     ->label('Email')
-                                //     ->required()
-                                //     ->email()
-                                //     ->unique(User::class, 'email', fn ($record) => $record)
-                                //     ->columnSpan(12),
+                                Forms\Components\TextInput::make('email')
+                                    ->label('Email')
+                                    ->email()
+                                    ->unique(User::class, 'email', fn ($record) => $record)
+                                    ->columnSpan(12),
                                 // Forms\Components\TextInput::make('password')
                                 //     ->label('New Password')
                                 //     ->password()

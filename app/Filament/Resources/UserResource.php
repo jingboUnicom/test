@@ -70,7 +70,6 @@ class UserResource extends Resource
                                     ->columnSpan(6),
                                 Forms\Components\TextInput::make('email')
                                     ->label('Email')
-                                    ->required()
                                     ->email()
                                     ->unique(User::class, 'email', fn ($record) => $record)
                                     ->columnSpan(12),

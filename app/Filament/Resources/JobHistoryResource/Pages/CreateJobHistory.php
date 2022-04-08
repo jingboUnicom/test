@@ -18,11 +18,11 @@ class CreateJobHistory extends CreateRecord
         $user = Auth::user();
 
         if ($user->employer) {
+            $data['user_id'] = $user->id;
+
             if ($user->company) {
                 $data['company_id'] = $user->company->id;
             }
-
-            $data['user_id'] = $user->id;
         }
 
         return $data;

@@ -2,13 +2,11 @@
 
 namespace App\Jobs;
 
-use App\Models\Work;
 use App\Models\State;
 use App\Models\Vacancy;
-use App\Models\Category;
 use App\Models\Location;
-use App\Models\Subcategory;
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use App\Services\JobAdder\DTO\JobData;
 use Illuminate\Queue\SerializesModels;
@@ -39,9 +37,13 @@ class JobAdderSyncJobAds implements ShouldQueue
      */
     public function handle()
     {
-        $access_token = app()->make('jobadder')->cache['access_token'];
+        $jobadder = app()->make('jobadder');
 
-        $api_url = app()->make('jobadder')->cache['api'];
+        $access_token = $jobadder->cache['access_token'];
+
+        $api_url = $jobadder->cache['api'];
+
+        Log::info(json_encode($jobadder));
 
         $job_ads = Http::withHeaders(['Authorization' => 'Bearer ' . $access_token])->get($api_url . '/jobads/')->json();
 

@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -30,6 +31,10 @@ class JobAdderRefreshAccessToken implements ShouldQueue
      */
     public function handle()
     {
-        app()->make('jobadder')->refresh();
+        $jobadder = app()->make('jobadder');
+
+        Log::info(json_encode($jobadder));
+
+        $jobadder->refresh();
     }
 }

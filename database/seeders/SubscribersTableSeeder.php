@@ -23,7 +23,7 @@ class SubscribersTableSeeder extends Seeder
             array (
                 'created_at' => '2022-04-08 00:07:35',
                 'deleted_at' => NULL,
-                'email' => 'jonny@theia.co.nz',
+                'email' => 'eric@theia.co.nz',
                 'id' => 1,
                 'updated_at' => '2022-04-08 00:07:35',
             ),
@@ -31,7 +31,7 @@ class SubscribersTableSeeder extends Seeder
             array (
                 'created_at' => '2022-04-08 00:07:41',
                 'deleted_at' => NULL,
-                'email' => 'eric@theia.co.nz',
+                'email' => 'flora@theia.co.nz',
                 'id' => 2,
                 'updated_at' => '2022-04-08 00:07:41',
             ),

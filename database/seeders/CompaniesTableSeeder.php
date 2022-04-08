@@ -35,6 +35,22 @@ class CompaniesTableSeeder extends Seeder
                 'url' => NULL,
                 'user_id' => 2,
             ),
+            1 => 
+            array (
+                'address' => NULL,
+                'category_id' => NULL,
+                'company_name' => 'Theia Limited',
+                'created_at' => '2022-04-08 01:13:54',
+                'deleted_at' => NULL,
+                'id' => 2,
+                'legal_name' => NULL,
+                'logo' => NULL,
+                'membership_id' => NULL,
+                'phone' => NULL,
+                'updated_at' => '2022-04-08 01:13:54',
+                'url' => NULL,
+                'user_id' => 3,
+            ),
         ));
         
         

@@ -53,4 +53,9 @@ class Company extends Model
     {
         return $this->hasMany(Vacancy::class);
     }
+
+    public function invoices(): HasMany
+    {
+        return $this->hasMany(Invoice::class);
+    }
 }

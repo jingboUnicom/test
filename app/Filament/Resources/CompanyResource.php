@@ -118,7 +118,7 @@ class CompanyResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('company_name')
-                    ->label('Contact Name')
+                    ->label('Company Name')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('address')

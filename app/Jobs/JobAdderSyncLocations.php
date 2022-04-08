@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Models\Location;
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -33,9 +34,13 @@ class JobAdderSyncLocations implements ShouldQueue
      */
     public function handle()
     {
-        $access_token = app()->make('jobadder')->cache['access_token'];
+        $jobadder = app()->make('jobadder');
 
-        $api_url = app()->make('jobadder')->cache['api'];
+        $access_token = $jobadder->cache['access_token'];
+
+        $api_url = $jobadder->cache['api'];
+
+        Log::info(json_encode($jobadder));
 
         $locations = Http::withHeaders(['Authorization' => 'Bearer ' . $access_token])->get($api_url . '/locations?embed=Areas')->json();
 

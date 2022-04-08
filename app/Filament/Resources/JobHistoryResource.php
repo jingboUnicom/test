@@ -191,13 +191,13 @@ class JobHistoryResource extends Resource
             return $query->whereIn('status', [Vacancy::STATUS_FILLED_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_CLIENT]);
         }
 
-        // Policy Notes: Employers CAN BROWSE/READ/EDIT only vacancies belong to his/her company or himself/herself
+        // Policy Notes: Employers CAN BROWSE/READ/EDIT only vacancies belong to him/her or his/her company
         if ($user->employer) {
             return $query->where(function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+
                 if ($user->company) {
-                    $query->where('company_id', $user->company->id);
-                } else {
-                    $query->where('user_id', $user->id);
+                    $query->orWhere('company_id', $user->company->id);
                 }
             })->whereIn('status', [Vacancy::STATUS_FILLED_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_CLIENT]);
         }

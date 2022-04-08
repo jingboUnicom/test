@@ -65,7 +65,7 @@ class JobHistoryResource extends Resource
                                     ->columnSpan(12),
                                 Forms\Components\Select::make('status')
                                     ->label('Status')
-                                    ->options(Arr::except(Vacancy::STATUSES, Vacancy::STATUS_SYNCED_WITH_JOB_ADDER))
+                                    ->options(Arr::except(Vacancy::STATUSES, Vacancy::STATUS_SYNCED))
                                     ->columnSpan(12),
                             ])->columns(12),
                     ])->hidden(function () {
@@ -150,7 +150,7 @@ class JobHistoryResource extends Resource
                     ->label('Primary Contact')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('status')
+                Tables\Columns\BadgeColumn::make('status')
                     ->label('Status')
                     ->enum(Vacancy::STATUSES)
                     ->searchable()
@@ -225,7 +225,7 @@ class JobHistoryResource extends Resource
         $user = auth()->user();
 
         if ($user->super) {
-            return true;
+            return false;
         }
 
         if ($user->employer) {

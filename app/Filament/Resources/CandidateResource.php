@@ -162,7 +162,7 @@ class CandidateResource extends Resource
                     ->label('Current Job Title')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('status')
+                Tables\Columns\BadgeColumn::make('status')
                     ->label('Status')
                     ->enum(Candidate::STATUSES)
                     ->searchable()

@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('photo')->nullable();
             $table->string('resume')->nullable();
             $table->string('cover_letter')->nullable();
-            $table->tinyInteger('status')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

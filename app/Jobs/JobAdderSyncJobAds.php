@@ -76,7 +76,7 @@ class JobAdderSyncJobAds implements ShouldQueue
                 $vacancy_data
             );
 
-            $vacancy->status = Vacancy::STATUS_SYNCED_WITH_JOB_ADDER;
+            $vacancy->status = Vacancy::STATUS_SYNCED;
 
             $vacancy->update();
         }

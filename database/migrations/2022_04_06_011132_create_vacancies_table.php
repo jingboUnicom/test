@@ -30,7 +30,7 @@ return new class extends Migration
             $table->foreignId('subcategory_id')->nullable();
             $table->foreignId('location_id')->nullable();
             $table->foreignId('state_id')->nullable();
-            $table->tinyInteger('status')->nullable();
+            $table->string('status')->nullable();
             $table->datetime('posted_at')->nullable();
             $table->timestamps();
             $table->softDeletes();

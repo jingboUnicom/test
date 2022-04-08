@@ -32,20 +32,20 @@ class Candidate extends Model
         'status',
     ];
 
-    const STATUS_SUBMITTED_TO_CLIENT = 0;
-    const STATUS_INTERVIEW_FIRST_STAGE = 1;
-    const STATUS_INTERVIEW_SECOND_STAGE = 2;
-    const STATUS_OFFERED = 3;
-    const STATUS_DECLINED = 4;
-    const STATUS_ACCEPTED = 5;
+    const STATUS_SUBMITTED_TO_CLIENT = 'submitted_to_client';
+    const STATUS_INTERVIEW_FIRST_STAGE = 'interview_first_stage';
+    const STATUS_INTERVIEW_SECOND_STAGE = 'interview_second_stage';
+    const STATUS_OFFERED = 'offered';
+    const STATUS_DECLINED = 'declined';
+    const STATUS_ACCEPTED = 'accepted';
 
     const STATUSES = [
-        'Submitted to Client',
-        'Interview 1st Stage',
-        'Interview 2nd Stage',
-        'Offered',
-        'Declined',
-        'Accepted',
+        'submitted_to_client' => 'Submitted to Client',
+        'interview_first_stage' => 'Interview 1st Stage',
+        'interview_second_stage' => 'Interview 2nd Stage',
+        'offered' => 'Offered',
+        'declined' => 'Declined',
+        'accepted' => 'Accepted',
     ];
 
     public function setNameAttribute($value)

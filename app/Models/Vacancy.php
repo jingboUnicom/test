@@ -37,20 +37,20 @@ class Vacancy extends Model
         'bullet_points' => 'array',
     ];
 
-    const STATUS_SYNCED_WITH_JOB_ADDER = 0;
-    const STATUS_OPEN = 1;
-    const STATUS_HOLD = 2;
-    const STATUS_FILLED_BY_REGEINE_CAREER = 3;
-    const STATUS_WITHDRAWN_BY_REGEINE_CAREER = 4;
-    const STATUS_WITHDRAWN_BY_CLIENT = 5;
+    const STATUS_SYNCED = 'synced';
+    const STATUS_OPEN = 'open';
+    const STATUS_HOLD = 'hold';
+    const STATUS_FILLED_BY_REGEINE_CAREER = 'filled_by_regeine_career';
+    const STATUS_WITHDRAWN_BY_REGEINE_CAREER = 'withdrawn_by_regeine_career';
+    const STATUS_WITHDRAWN_BY_CLIENT = 'withdrawn_by_client';
 
     const STATUSES = [
-        'Synced with Job Adder',
-        'Open',
-        'Hold',
-        'Filled by Regeine Career',
-        'Withdrawn by Regeine Career',
-        'Withdrawn by Client',
+        'synced' => 'Synced',
+        'open' => 'Open',
+        'hold' => 'Hold',
+        'filled_by_regeine_career' => 'Filled by Regeine Career',
+        'withdrawn_by_regeine_career' => 'Withdrawn by Regeine Career',
+        'withdrawn_by_client' => 'Withdrawn by Client',
     ];
 
     // Relationships

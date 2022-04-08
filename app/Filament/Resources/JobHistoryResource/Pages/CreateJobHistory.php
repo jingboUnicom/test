@@ -13,8 +13,6 @@ class CreateJobHistory extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        $data['status'] = Vacancy::STATUS_OPEN;
-
         $user = Auth::user();
 
         if ($user->employer) {
@@ -23,6 +21,8 @@ class CreateJobHistory extends CreateRecord
             if ($user->company) {
                 $data['company_id'] = $user->company->id;
             }
+
+            $data['status'] = Vacancy::STATUS_OPEN;
         }
 
         return $data;

@@ -145,7 +145,7 @@ class JobAdResource extends Resource
                     ->label('Job Title')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('state.name')
+                Tables\Columns\BadgeColumn::make('state.name')
                     ->label('State')
                     ->searchable()
                     ->sortable(),
@@ -187,7 +187,7 @@ class JobAdResource extends Resource
     {
         $query = parent::getEloquentQuery();
 
-        return $query->whereIn('status', [Vacancy::STATUS_SYNCED_WITH_JOB_ADDER]);
+        return $query->whereIn('status', [Vacancy::STATUS_SYNCED]);
     }
 
     public static function canViewAny(): bool

@@ -125,7 +125,7 @@ class CompanyResource extends Resource
                     ->label('Address')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('membership.name')
+                Tables\Columns\BadgeColumn::make('membership.name')
                     ->label('Membership Type')
                     ->searchable()
                     ->sortable(),

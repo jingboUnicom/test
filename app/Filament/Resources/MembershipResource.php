@@ -19,7 +19,7 @@ class MembershipResource extends Resource
 
     protected static ?string $navigationGroup = 'Portal Management';
 
-    protected static ?int $navigationSort = 11;
+    protected static ?int $navigationSort = 10;
 
     protected static ?string $navigationIcon = 'heroicon-o-view-boards';
 

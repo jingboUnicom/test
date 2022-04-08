@@ -21,9 +21,9 @@ class JobAdResource extends Resource
 {
     protected static ?string $model = Vacancy::class;
 
-    protected static ?string $navigationGroup = null;
+    protected static ?string $navigationGroup = 'Job Adder Management';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 12;
 
     protected static ?string $navigationIcon = 'heroicon-o-volume-up';
 

@@ -19,7 +19,7 @@ class NoticeResource extends Resource
 
     protected static ?string $navigationGroup = 'Portal Management';
 
-    protected static ?int $navigationSort = 9;
+    protected static ?int $navigationSort = 8;
 
     protected static ?string $navigationIcon = 'heroicon-o-bell';
 

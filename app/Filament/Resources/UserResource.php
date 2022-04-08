@@ -160,6 +160,10 @@ class UserResource extends Resource
                     ->label('Phone')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->label('Email')
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime('d/m/Y H:i:s')
                     ->label('Updated')
@@ -197,7 +201,7 @@ class UserResource extends Resource
             return $query;
         }
 
-        // Policy Notes: Employers CAN BROWSE/READ/ADD/EDIT/DELETE only his/her company's users or no users
+        // Policy Notes: Employers CAN BROWSE/READ/ADD/EDIT only his/her company's users or no users
         if ($user->employer) {
             if ($user->company) {
                 return $query->where('company_id', $user->company->id);

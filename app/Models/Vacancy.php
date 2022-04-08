@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -36,12 +37,12 @@ class Vacancy extends Model
         'bullet_points' => 'array',
     ];
 
-    CONST STATUS_SYNCED_WITH_JOB_ADDER = 0;
-    CONST STATUS_OPEN = 1;
-    CONST STATUS_HOLD = 2;
-    CONST STATUS_FILLED_BY_REGEINE_CAREER = 3;
-    CONST STATUS_WITHDRAWN_BY_REGEINE_CAREER = 4;
-    CONST STATUS_WITHDRAWN_BY_CLIENT = 5;
+    const STATUS_SYNCED_WITH_JOB_ADDER = 0;
+    const STATUS_OPEN = 1;
+    const STATUS_HOLD = 2;
+    const STATUS_FILLED_BY_REGEINE_CAREER = 3;
+    const STATUS_WITHDRAWN_BY_REGEINE_CAREER = 4;
+    const STATUS_WITHDRAWN_BY_CLIENT = 5;
 
     const STATUSES = [
         'Synced with Job Adder',
@@ -91,4 +92,8 @@ class Vacancy extends Model
 
     // Inversed Relationships
 
+    public function candidates(): HasMany
+    {
+        return $this->hasMany(Candidate::class);
+    }
 }

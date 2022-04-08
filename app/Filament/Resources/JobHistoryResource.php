@@ -61,6 +61,8 @@ class JobHistoryResource extends Resource
                     ->schema([
                         Forms\Components\Card::make()
                             ->schema([
+                                Forms\Components\Placeholder::make('For Admin Use Only')
+                                    ->columnSpan(12),
                                 Forms\Components\Select::make('status')
                                     ->label('Status')
                                     ->options(Arr::except(Vacancy::STATUSES, Vacancy::STATUS_SYNCED_WITH_JOB_ADDER))
@@ -191,7 +193,7 @@ class JobHistoryResource extends Resource
             return $query->whereIn('status', [Vacancy::STATUS_FILLED_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_CLIENT]);
         }
 
-        // Policy Notes: Employers CAN BROWSE/READ/EDIT only vacancies belong to him/her or his/her company
+        // Policy Notes: Employers CAN BROWSE/READ only vacancies belong to him/her or his/her company
         if ($user->employer) {
             return $query->where(function ($query) use ($user) {
                 $query->where('user_id', $user->id);

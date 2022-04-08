@@ -60,6 +60,8 @@ class JobOrderResource extends Resource
                     ->schema([
                         Forms\Components\Card::make()
                             ->schema([
+                                Forms\Components\Placeholder::make('For Admin Use Only')
+                                    ->columnSpan(12),
                                 Forms\Components\Select::make('status')
                                     ->label('Status')
                                     ->options(Arr::except(Vacancy::STATUSES, Vacancy::STATUS_SYNCED_WITH_JOB_ADDER))

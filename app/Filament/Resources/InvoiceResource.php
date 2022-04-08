@@ -140,7 +140,7 @@ class InvoiceResource extends Resource
             return $query;
         }
 
-        // Policy Notes: Employers CAN BROWSE/READ/EDIT only invoices belong to him/her or his/her company
+        // Policy Notes: Employers CAN BROWSE/READ only invoices belong to him/her or his/her company
         if ($user->employer) {
             return $query->where(function ($query) use ($user) {
                 $query->where('user_id', $user->id);

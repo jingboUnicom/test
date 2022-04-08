@@ -29,7 +29,7 @@ class InvoicePolicy
     // Admins CAN READ Invoices
     // Employers CAN READ Invoices
     // Guests CANNOT READ Invoices
-    public function view(User $user, Invoice $companyInvoice)
+    public function view(User $user, Invoice $invoice)
     {
         if ($user->super) {
             return true;
@@ -61,7 +61,7 @@ class InvoicePolicy
     // Admins CAN EDIT Invoices
     // Employers CANNOT EDIT Invoices
     // Guests CANNOT EDIT Invoices
-    public function update(User $user, Invoice $companyInvoice)
+    public function update(User $user, Invoice $invoice)
     {
         if ($user->super) {
             return true;
@@ -77,7 +77,7 @@ class InvoicePolicy
     // Admins CAN DELETE Invoices
     // Employers CANNOT DELETE Invoices
     // Guests CANNOT DELETE Invoices
-    public function delete(User $user, Invoice $companyInvoice)
+    public function delete(User $user, Invoice $invoice)
     {
         if ($user->super) {
             return true;
@@ -93,7 +93,7 @@ class InvoicePolicy
     // Admins CAN RESTORE Invoices
     // Employers CANNOT RESTORE Invoices
     // Guests CANNOT RESTORE Invoices
-    public function restore(User $user, Invoice $companyInvoice)
+    public function restore(User $user, Invoice $invoice)
     {
         if ($user->super) {
             return true;
@@ -110,7 +110,7 @@ class InvoicePolicy
     // Admins CAN FORCE DELETE Invoices
     // Employers CANNOT FORCE DELETE Invoices
     // Guests CANNOT FORCE DELETE Invoices
-    public function forceDelete(User $user, Invoice $companyInvoice)
+    public function forceDelete(User $user, Invoice $invoice)
     {
         if ($user->super) {
             return true;

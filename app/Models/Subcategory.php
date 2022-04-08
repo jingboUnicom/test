@@ -31,4 +31,9 @@ class Subcategory extends Model
     {
         return $this->hasMany(Vacancy::class);
     }
+
+    public function candidates(): HasMany
+    {
+        return $this->hasMany(Candidate::class);
+    }
 }

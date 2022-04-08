@@ -21,27 +21,27 @@ class MembershipsTableSeeder extends Seeder
         \DB::table('memberships')->insert(array (
             0 => 
             array (
+                'created_at' => '2022-04-08 00:07:55',
+                'deleted_at' => NULL,
                 'id' => 1,
                 'name' => 'Professional',
-                'created_at' => '2022-04-07 22:55:13',
-                'updated_at' => '2022-04-07 22:55:13',
-                'deleted_at' => NULL,
+                'updated_at' => '2022-04-08 00:07:55',
             ),
             1 => 
             array (
+                'created_at' => '2022-04-08 00:07:57',
+                'deleted_at' => NULL,
                 'id' => 2,
                 'name' => 'Elite',
-                'created_at' => '2022-04-07 22:55:15',
-                'updated_at' => '2022-04-07 22:55:15',
-                'deleted_at' => NULL,
+                'updated_at' => '2022-04-08 00:07:57',
             ),
             2 => 
             array (
+                'created_at' => '2022-04-08 00:07:59',
+                'deleted_at' => NULL,
                 'id' => 3,
                 'name' => 'Gem',
-                'created_at' => '2022-04-07 22:55:17',
-                'updated_at' => '2022-04-07 22:55:17',
-                'deleted_at' => NULL,
+                'updated_at' => '2022-04-08 00:07:59',
             ),
         ));
         

@@ -21,19 +21,19 @@ class SubscribersTableSeeder extends Seeder
         \DB::table('subscribers')->insert(array (
             0 => 
             array (
-                'id' => 1,
-                'email' => 'jonny@email.com',
-                'created_at' => '2022-04-07 22:54:24',
-                'updated_at' => '2022-04-07 22:54:24',
+                'created_at' => '2022-04-08 00:07:35',
                 'deleted_at' => NULL,
+                'email' => 'jonny@theia.co.nz',
+                'id' => 1,
+                'updated_at' => '2022-04-08 00:07:35',
             ),
             1 => 
             array (
-                'id' => 2,
-                'email' => 'eric@email.com',
-                'created_at' => '2022-04-07 22:54:28',
-                'updated_at' => '2022-04-07 22:54:28',
+                'created_at' => '2022-04-08 00:07:41',
                 'deleted_at' => NULL,
+                'email' => 'eric@theia.co.nz',
+                'id' => 2,
+                'updated_at' => '2022-04-08 00:07:41',
             ),
         ));
         

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Filament\Resources\JobOrderResource\Pages;
+namespace App\Filament\Resources\JobHistoryResource\Pages;
 
 use App\Models\Vacancy;
 use Illuminate\Support\Facades\Auth;
 use Filament\Resources\Pages\CreateRecord;
-use App\Filament\Resources\JobOrderResource;
+use App\Filament\Resources\JobHistoryResource;
 
-class CreateJobOrder extends CreateRecord
+class CreateJobHistory extends CreateRecord
 {
-    protected static string $resource = JobOrderResource::class;
+    protected static string $resource = JobHistoryResource::class;
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {

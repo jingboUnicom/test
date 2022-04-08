@@ -21,19 +21,19 @@ class CompaniesTableSeeder extends Seeder
         \DB::table('companies')->insert(array (
             0 => 
             array (
-                'id' => 1,
-                'company_name' => 'Regeine Career',
-                'legal_name' => NULL,
-                'user_id' => 2,
-                'logo' => NULL,
                 'address' => NULL,
-                'phone' => NULL,
-                'url' => NULL,
                 'category_id' => NULL,
-                'membership_id' => NULL,
-                'deleted_at' => NULL,
+                'company_name' => 'Regeine Career',
                 'created_at' => '2022-04-07 22:51:43',
-                'updated_at' => '2022-04-07 22:51:58',
+                'deleted_at' => NULL,
+                'id' => 1,
+                'legal_name' => NULL,
+                'logo' => NULL,
+                'membership_id' => NULL,
+                'phone' => NULL,
+                'updated_at' => '2022-04-07 23:12:11',
+                'url' => NULL,
+                'user_id' => 3,
             ),
         ));
         

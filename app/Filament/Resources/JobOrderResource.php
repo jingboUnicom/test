@@ -8,10 +8,12 @@ use Filament\Tables;
 use App\Models\Vacancy;
 use App\Models\Category;
 use App\Models\Subcategory;
+use Illuminate\Support\Arr;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\JobOrderResource\Pages;
 use App\Filament\Resources\JobOrderResource\RelationManagers;
@@ -24,7 +26,7 @@ class JobOrderResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationIcon = 'heroicon-o-volume-up';
+    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
     protected static ?string $navigationLabel = 'Job Orders';
 
@@ -58,26 +60,9 @@ class JobOrderResource extends Resource
                     ->schema([
                         Forms\Components\Card::make()
                             ->schema([
-                                // Forms\Components\Placeholder::make('For Admin Use Only')
-                                //     ->columnSpan(12),
-                                // Forms\Components\TextInput::make('ja_ad_id')
-                                //     ->label('Job Ad Reference')
-                                //     ->columnSpan(4),
-                                // Forms\Components\TextInput::make('ja_job_id')
-                                //     ->label('Job Reference')
-                                //     ->columnSpan(4),
-                                // Forms\Components\BelongsToSelect::make('state_id')
-                                //     ->relationship('state', 'name')
-                                //     ->preload()
-                                //     ->searchable()
-                                //     ->label('State')
-                                //     ->columnSpan(4),
-                                // Forms\Components\DateTimePicker::make('posted_at')
-                                //     ->label('Posting Date')
-                                //     ->columnSpan(12),
                                 Forms\Components\Select::make('status')
                                     ->label('Status')
-                                    ->options(Vacancy::STATUSES)
+                                    ->options(Arr::except(Vacancy::STATUSES, Vacancy::STATUS_SYNCED_WITH_JOB_ADDER))
                                     ->columnSpan(12),
                             ])->columns(12),
                     ])->hidden(function () {
@@ -95,60 +80,6 @@ class JobOrderResource extends Resource
                                     ->searchable()
                                     ->label('Work Type')
                                     ->columnSpan(12),
-                                // Field Notes: Employers can select only his/her company or no company
-                                // Field Notes: Employeres are required to select
-                                // Forms\Components\BelongsToSelect::make('company_id')
-                                //     ->relationship('company', 'company_name', function (Builder $query) {
-                                //         $user = Auth::user();
-
-                                //         if ($user->employer) {
-                                //             if ($user->company) {
-                                //                 return $query->where('id', $user->company->id);
-                                //             } else {
-                                //                 return $query->where('id', -1);
-                                //             }
-                                //         }
-
-                                //         return $query;
-                                //     })
-                                //     ->preload()
-                                //     ->searchable()
-                                //     ->label('Company')
-                                //     ->required(function () {
-                                //         $user = Auth::user();
-
-                                //         if ($user->employer) {
-                                //             return true;
-                                //         }
-
-                                //         return false;
-                                //     })
-                                //     ->columnSpan(6),
-                                // Field Notes: Employers can select only himself/herself
-                                // Field Notes: Employeres are required to select
-                                // Forms\Components\BelongsToSelect::make('user_id')
-                                //     ->relationship('user', 'contact_name', function (Builder $query) {
-                                //         $user = Auth::user();
-
-                                //         if ($user->employer) {
-                                //             return $query->where('id', $user->id);
-                                //         }
-
-                                //         return $query;
-                                //     })
-                                //     ->preload()
-                                //     ->searchable()
-                                //     ->label('Primary Contact')
-                                //     ->required(function () {
-                                //         $user = Auth::user();
-
-                                //         if ($user->employer) {
-                                //             return true;
-                                //         }
-
-                                //         return false;
-                                //     })
-                                //     ->columnSpan(6),
                                 Forms\Components\TextInput::make('job_title')
                                     ->label('Job Title')
                                     ->columnSpan(12),
@@ -216,13 +147,9 @@ class JobOrderResource extends Resource
                     ->label('Primary Contact')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('state.name')
-                    ->label('State')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('posted_at')
-                    ->dateTime('d/m/Y H:i:s')
-                    ->label('Posted')
+                Tables\Columns\TextColumn::make('status')
+                    ->label('Status')
+                    ->enum(Vacancy::STATUSES)
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
@@ -263,11 +190,90 @@ class JobOrderResource extends Resource
             return $query->whereIn('status', [Vacancy::STATUS_OPEN, Vacancy::STATUS_HOLD]);
         }
 
-        // Policy Notes: Employers CAN BROWSE/READ/EDIT only vacancies belong to him/her or his/her company
+        // Policy Notes: Employers CAN BROWSE/READ/EDIT only vacancies belong to his/her company or himself/herself
         if ($user->employer) {
             return $query->where(function ($query) use ($user) {
-                $query->where('user_id', $user->id)->orWhere('company_id', $user->company->id);
+                if ($user->company) {
+                    $query->where('company_id', $user->company->id);
+                } else {
+                    $query->where('user_id', $user->id);
+                }
             })->whereIn('status', [Vacancy::STATUS_OPEN, Vacancy::STATUS_HOLD]);
         }
+    }
+
+    public static function canViewAny(): bool
+    {
+        $user = auth()->user();
+
+        if ($user->super) {
+            return true;
+        }
+
+        if ($user->employer) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function canCreate(): bool
+    {
+        $user = auth()->user();
+
+        if ($user->super) {
+            return true;
+        }
+
+        if ($user->employer) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        $user = auth()->user();
+
+        if ($user->super) {
+            return true;
+        }
+
+        if ($user->employer) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        $user = auth()->user();
+
+        if ($user->super) {
+            return true;
+        }
+
+        if ($user->employer) {
+            return false;
+        }
+
+        return false;
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        $user = auth()->user();
+
+        if ($user->super) {
+            return true;
+        }
+
+        if ($user->employer) {
+            return false;
+        }
+
+        return false;
     }
 }

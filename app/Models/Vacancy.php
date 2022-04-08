@@ -36,7 +36,7 @@ class Vacancy extends Model
         'bullet_points' => 'array',
     ];
 
-    CONST STATUS_SYNCED_FROM_JOB_ADDER = 0;
+    CONST STATUS_SYNCED_WITH_JOB_ADDER = 0;
     CONST STATUS_OPEN = 1;
     CONST STATUS_HOLD = 2;
     CONST STATUS_FILLED_BY_REGEINE_CAREER = 3;
@@ -44,7 +44,7 @@ class Vacancy extends Model
     CONST STATUS_WITHDRAWN_BY_CLIENT = 5;
 
     const STATUSES = [
-        'Synced from Job Adder',
+        'Synced with Job Adder',
         'Open',
         'Hold',
         'Filled by Regeine Career',

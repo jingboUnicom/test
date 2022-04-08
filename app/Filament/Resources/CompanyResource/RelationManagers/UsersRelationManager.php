@@ -58,17 +58,6 @@ class UsersRelationManager extends HasManyRelationManager
                                     ->email()
                                     ->unique(User::class, 'email', fn ($record) => $record)
                                     ->columnSpan(12),
-                                // Forms\Components\TextInput::make('password')
-                                //     ->label('New Password')
-                                //     ->password()
-                                //     ->same('password_confirmation')
-                                //     ->dehydrateStateUsing(fn ($state) => Hash::make($state))
-                                //     ->dehydrated(fn ($state): bool => (bool) ($state))
-                                //     ->columnSpan(12),
-                                // Forms\Components\TextInput::make('password_confirmation')
-                                //     ->label('Confirm Password')
-                                //     ->password()
-                                //     ->columnSpan(12),
                                 Forms\Components\FileUpload::make('profile_photo_path')
                                     ->image()
                                     ->directory('profile-photos')
@@ -83,25 +72,6 @@ class UsersRelationManager extends HasManyRelationManager
                                 Forms\Components\TextInput::make('department')
                                     ->label('Department')
                                     ->columnSpan(12),
-                                // Field Notes: Employers can select only his/her own company or no company
-                                // Forms\Components\BelongsToSelect::make('company_id')
-                                //     ->relationship('contact', 'company_name', function (Builder $query) {
-                                //         $user = Auth::user();
-
-                                //         if ($user->employer) {
-                                //             if ($user->company) {
-                                //                 return $query->where('id', $user->company->id);
-                                //             } else {
-                                //                 return $query->where('id', -1);
-                                //             }
-                                //         }
-
-                                //         return $query;
-                                //     })
-                                //     ->preload()
-                                //     ->searchable()
-                                //     ->label('Company')
-                                //     ->columnSpan(12),
                                 Forms\Components\TextInput::make('phone')
                                     ->label('Phone')
                                     ->columnSpan(12),
@@ -126,12 +96,12 @@ class UsersRelationManager extends HasManyRelationManager
                     ->label('Position')
                     ->searchable()
                     ->sortable(),
-                // Tables\Columns\TextColumn::make('contact.company_name')
-                //     ->label('Company')
-                //     ->searchable()
-                //     ->sortable(),
                 Tables\Columns\TextColumn::make('phone')
                     ->label('Phone')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->label('Email')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')

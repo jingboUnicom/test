@@ -58,7 +58,7 @@ class UsersTableSeeder extends Seeder
                 'department' => NULL,
                 'email' => 'bella@regeinecareer.com',
                 'email_verified_at' => NULL,
-                'employer' => 0,
+                'employer' => 1,
                 'id' => 2,
                 'last_login' => NULL,
                 'name' => 'Bella',
@@ -73,7 +73,7 @@ class UsersTableSeeder extends Seeder
                 'two_factor_confirmed_at' => NULL,
                 'two_factor_recovery_codes' => NULL,
                 'two_factor_secret' => NULL,
-                'updated_at' => '2022-04-08 00:06:34',
+                'updated_at' => '2022-04-08 00:09:23',
             ),
         ));
         

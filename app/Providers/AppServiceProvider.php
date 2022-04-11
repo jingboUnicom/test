@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Filament\Facades\Filament;
-use Illuminate\Support\ServiceProvider;
 use App\Services\JobAdder\API\OAuth;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {

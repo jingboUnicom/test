@@ -3,3 +3,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.filament-body {
+	@apply bg-primary-50;
+}
+
+.filament-sidebar-header {
+	@apply bg-primary;
+
+	.filament-brand {
+		@apply text-white;
+	}
+}
+
+.filament-sidebar-group {
+	button {
+		p:first-of-type {
+			@apply text-primary;
+		}
+	}
+
+	.filament-sidebar-item {
+		a {
+			@apply hover:bg-primary-100;
+		}
+	}
+}
+
+.filament-breadcrumbs {
+	@apply text-primary;
+}
+
+.filament-header-heading {
+	@apply text-primary;
+}

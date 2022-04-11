@@ -204,7 +204,7 @@ return [
             'alignment' => 'center',
         ],
         'sidebar' => [
-            'is_collapsible_on_desktop' => false,
+            'is_collapsible_on_desktop' => true,
         ],
         'tables' => [
             'actions' => [
@@ -222,7 +222,7 @@ return [
     |
     */
 
-    'favicon' => null,
+    'favicon' => '/images/logo-64.png',
 
     /*
     |--------------------------------------------------------------------------

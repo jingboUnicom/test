@@ -1,2 +1,8 @@
 *
 !.gitignore
+!cms/
+!cms/**/*
+!favicons/
+!favicons/**/*
+!images/
+!images/**/*

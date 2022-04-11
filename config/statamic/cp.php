@@ -13,7 +13,7 @@ return [
 
     'enabled' => env('CP_ENABLED', true),
 
-    'route' => env('CP_ROUTE', 'cp'),
+    'route' => env('CP_ROUTE', 'content'),
 
     /*
     |--------------------------------------------------------------------------
@@ -115,12 +115,21 @@ return [
     |
     */
 
-    'custom_cms_name' => env('STATAMIC_CUSTOM_CMS_NAME', 'Statamic'),
+    'custom_cms_name' => env('STATAMIC_CUSTOM_CMS_NAME', 'Regeine Career'),
 
-    'custom_logo_url' => env('STATAMIC_CUSTOM_LOGO_URL', null),
+    // 'custom_logo_url' => env('STATAMIC_CUSTOM_LOGO_URL', null),
 
-    'custom_favicon_url' => env('STATAMIC_CUSTOM_FAVICON_URL', null),
+    'custom_logo_url' => [
+        'nav' => '/images/logo-64.png',
+        'outside' => '/images/logo-256.png',
+    ],
 
-    'custom_css_url' => env('STATAMIC_CUSTOM_CSS_URL', null),
+    // 'custom_favicon_url' => env('STATAMIC_CUSTOM_FAVICON_URL', null),
+
+    'custom_favicon_url' => '/favicons/favicon.ico',
+
+    // 'custom_css_url' => env('STATAMIC_CUSTOM_CSS_URL', null),
+
+    'custom_css_url' => '/css/content.css',
 
 ];

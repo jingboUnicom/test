@@ -9,11 +9,6 @@ sections:
           required: true
           validate:
             - required
-      -
-        handle: content
-        field:
-          type: markdown
-          localizable: true
   sidebar:
     display: Sidebar
     fields:
@@ -32,13 +27,13 @@ sections:
           listable: false
           localizable: true
       -
-        handle: template
+        handle: template_field
         field:
           hide_partials: true
-          display: Template
+          display: 'Template Field'
           type: template
           icon: template
           listable: hidden
           instructions_position: above
           read_only: false
-title: Pages
+title: Default

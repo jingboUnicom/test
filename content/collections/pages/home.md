@@ -1,9 +1,8 @@
 ---
-id: 89e13976-923a-42da-b319-dea25d010ed6
-blueprint: pages
+id: 4f9add21-6e61-42d1-a185-fd40fc0139b9
+blueprint: home
 title: Home
+template_field: pages/home
 updated_by: 1
-updated_at: 1649037100
-template: pages/home
+updated_at: 1649645141
 ---
-This is the home page.

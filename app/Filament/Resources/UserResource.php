@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Closure;
 use Filament\Forms;
 use App\Models\User;
 use Filament\Tables;
@@ -79,10 +80,20 @@ class UserResource extends Resource
                                     ->same('password_confirmation')
                                     ->dehydrateStateUsing(fn ($state) => Hash::make($state))
                                     ->dehydrated(fn ($state): bool => (bool) ($state))
+                                    ->hidden(function (Closure $get) {
+                                        $user = Auth::user();
+
+                                        return $get('id') !== $user->id;
+                                    })
                                     ->columnSpan(12),
                                 Forms\Components\TextInput::make('password_confirmation')
                                     ->label('Confirm Password')
                                     ->password()
+                                    ->hidden(function (Closure $get) {
+                                        $user = Auth::user();
+
+                                        return $get('id') !== $user->id;
+                                    })
                                     ->columnSpan(12),
                                 Forms\Components\FileUpload::make('profile_photo_path')
                                     ->image()
@@ -117,14 +128,10 @@ class UserResource extends Resource
                                     ->preload()
                                     ->searchable()
                                     ->label('Company')
-                                    ->required(function () {
+                                    ->hidden(function () {
                                         $user = Auth::user();
 
-                                        if ($user->employer) {
-                                            return true;
-                                        }
-
-                                        return false;
+                                        return !$user->super;
                                     })
                                     ->columnSpan(12),
                                 Forms\Components\TextInput::make('phone')

@@ -187,7 +187,9 @@ class JobAdResource extends Resource
     {
         $query = parent::getEloquentQuery();
 
-        return $query->whereIn('status', [Vacancy::STATUS_SYNCED]);
+        return $query->where(function ($query) {
+            $query->whereIn('status', [Vacancy::STATUS_SYNCED]);
+        });
     }
 
     public static function canViewAny(): bool

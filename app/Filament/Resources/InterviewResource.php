@@ -39,16 +39,24 @@ class InterviewResource extends Resource
                     ->schema([
                         Forms\Components\Card::make()
                             ->schema([
+                                // Field Notes: Employers can select only his/her company's contacts
                                 Forms\Components\BelongsToSelect::make('user_id')
-                                    ->relationship('user', 'contact_name')
+                                    ->relationship('user', 'contact_name', function (Builder $query) {
+                                        $user = Auth::user();
+
+                                        if ($user->employer) {
+                                            if ($user->company) {
+                                                return $query->where('company_id', $user->company->id);
+                                            } else {
+                                                return $query->where('id', -1);
+                                            }
+                                        }
+
+                                        return $query;
+                                    })
                                     ->searchable()
                                     ->preload()
                                     ->label('Main Contact')
-                                    ->disabled(function () {
-                                        $user = Auth::user();
-
-                                        return $user->employer;
-                                    })
                                     ->columnSpan(12),
                                 Forms\Components\BelongsToSelect::make('candidate_id')
                                     ->relationship('candidate', 'candidate_name')

@@ -83,6 +83,52 @@ class JobHistoryResource extends Resource
                                     ->searchable()
                                     ->label('Work Type')
                                     ->columnSpan(12),
+                                // Field Notes: Employers can select only his/her company or no company
+                                // Field Notes: Employers are required to select
+                                Forms\Components\BelongsToSelect::make('company_id')
+                                    ->relationship('company', 'company_name', function (Builder $query) {
+                                        $user = Auth::user();
+
+                                        if ($user->employer) {
+                                            if ($user->company) {
+                                                return $query->where('id', $user->company->id);
+                                            } else {
+                                                return $query->where('id', -1);
+                                            }
+                                        }
+
+                                        return $query;
+                                    })
+                                    ->preload()
+                                    ->searchable()
+                                    ->label('Company')
+                                    ->hidden(function () {
+                                        $user = Auth::user();
+
+                                        return !$user->super;
+                                    })
+                                    ->columnSpan(6),
+                                // Field Notes: Employers can select only himself/herself
+                                // Field Notes: Employers are required to select
+                                Forms\Components\BelongsToSelect::make('user_id')
+                                    ->relationship('user', 'contact_name', function (Builder $query) {
+                                        $user = Auth::user();
+
+                                        if ($user->employer) {
+                                            return $query->where('id', $user->id);
+                                        }
+
+                                        return $query;
+                                    })
+                                    ->preload()
+                                    ->searchable()
+                                    ->label('Primary Contact')
+                                    ->hidden(function () {
+                                        $user = Auth::user();
+
+                                        return !$user->super;
+                                    })
+                                    ->columnSpan(6),
                                 Forms\Components\TextInput::make('job_title')
                                     ->label('Job Title')
                                     ->columnSpan(12),
@@ -190,7 +236,9 @@ class JobHistoryResource extends Resource
         $query = parent::getEloquentQuery();
 
         if ($user->super) {
-            return $query->whereIn('status', [Vacancy::STATUS_FILLED_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_CLIENT]);
+            return $query->where(function ($query) {
+                $query->whereIn('status', [Vacancy::STATUS_FILLED_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_CLIENT]);
+            });
         }
 
         // Policy Notes: Employers CAN BROWSE/READ only vacancies belong to him/her or his/her company
@@ -201,7 +249,9 @@ class JobHistoryResource extends Resource
                 if ($user->company) {
                     $query->orWhere('company_id', $user->company->id);
                 }
-            })->whereIn('status', [Vacancy::STATUS_FILLED_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_CLIENT]);
+            })->where(function ($query) {
+                $query->whereIn('status', [Vacancy::STATUS_FILLED_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_REGEINE_CAREER, Vacancy::STATUS_WITHDRAWN_BY_CLIENT]);
+            });
         }
     }
 

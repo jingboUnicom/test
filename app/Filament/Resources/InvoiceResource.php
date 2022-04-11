@@ -45,12 +45,12 @@ class InvoiceResource extends Resource
                                     ->searchable()
                                     ->label('Company')
                                     ->columnSpan(12),
-                                Forms\Components\BelongsToSelect::make('user_id')
-                                    ->relationship('user', 'contact_name')
-                                    ->preload()
-                                    ->searchable()
-                                    ->label('Main Contact')
-                                    ->columnSpan(12),
+                                // Forms\Components\BelongsToSelect::make('user_id')
+                                //     ->relationship('user', 'contact_name')
+                                //     ->preload()
+                                //     ->searchable()
+                                //     ->label('Main Contact')
+                                //     ->columnSpan(12),
                                 Forms\Components\TextInput::make('number')
                                     ->label('Invoice Number')
                                     ->columnSpan(12),
@@ -88,10 +88,10 @@ class InvoiceResource extends Resource
                     ->label('Company')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('user.contact_name')
-                    ->label('Primary Contact')
-                    ->searchable()
-                    ->sortable(),
+                // Tables\Columns\TextColumn::make('user.contact_name')
+                //     ->label('Primary Contact')
+                //     ->searchable()
+                //     ->sortable(),
                 Tables\Columns\TextColumn::make('issued_at')
                     ->dateTime('d/m/Y')
                     ->label('Issue Date')

@@ -207,17 +207,13 @@ class CandidateResource extends Resource
 
         // Policy Notes: Employers CAN BROWSE/READ only candidates belong to him/her or his/her company
         if ($user->employer) {
-            if ($user->company && $user->company->candidates->count()) {
-                return $query->whereHas('companies', function ($pivot) use ($user) {
-                    $pivot->where('company_id', $user->company->id);
+            return $query->where(function ($query) use ($user) {
+                $query->whereHas('companies', function ($query) use ($user) {
+                    $query->where('company_id', $user->company->id);
+                })->orWhereHas('users', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
                 });
-            } else if ($user->candidates && $user->candidates->count()) {
-                return $query->whereHas('users', function ($pivot) use ($user) {
-                    $pivot->where('user_id', $user->id);
-                });
-            } else {
-                return $query->where('id', -1);
-            }
+            });
         }
     }
 }

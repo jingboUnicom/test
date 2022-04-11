@@ -36,7 +36,11 @@ module.exports = {
                 warning: colors.amber,
             },
             fontFamily: {
-                sans: [...defaultTheme.fontFamily.sans],
+                primary: ["source-sans-pro", ...defaultTheme.fontFamily.sans],
+                sans: ["source-sans-pro", ...defaultTheme.fontFamily.sans],
+                serif: ["source-sans-pro", ...defaultTheme.fontFamily.serif],
+                mono: ["source-sans-pro", ...defaultTheme.fontFamily.mono],
+                secondary: ["montserrat", ...defaultTheme.fontFamily.sans],
             },
         },
     },

@@ -3200,6 +3200,11 @@ select{
   margin-right: calc(0.25rem * var(--tw-space-x-reverse));
   margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.space-x-4 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .space-y-2 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -3209,11 +3214,6 @@ select{
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-.space-x-4 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
@@ -3457,6 +3457,10 @@ select{
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
+.bg-primary-50{
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 239 248 / var(--tw-bg-opacity));
+}
 .bg-black\/50{
   background-color: rgb(0 0 0 / 0.5);
 }
@@ -3493,6 +3497,18 @@ select{
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }
+.bg-danger-500\/10{
+  background-color: rgb(244 63 94 / 0.1);
+}
+.bg-success-500\/10{
+  background-color: rgb(34 197 94 / 0.1);
+}
+.bg-warning-500\/10{
+  background-color: rgb(245 158 11 / 0.1);
+}
+.bg-gray-500\/10{
+  background-color: rgb(107 114 128 / 0.1);
+}
 .bg-danger-50\/50{
   background-color: rgb(255 241 242 / 0.5);
 }
@@ -3511,25 +3527,9 @@ select{
 .bg-transparent{
   background-color: transparent;
 }
-.bg-primary-50{
-  --tw-bg-opacity: 1;
-  background-color: rgb(236 239 248 / var(--tw-bg-opacity));
-}
 .bg-primary-200{
   --tw-bg-opacity: 1;
   background-color: rgb(173 185 224 / var(--tw-bg-opacity));
-}
-.bg-danger-500\/10{
-  background-color: rgb(244 63 94 / 0.1);
-}
-.bg-success-500\/10{
-  background-color: rgb(34 197 94 / 0.1);
-}
-.bg-warning-500\/10{
-  background-color: rgb(245 158 11 / 0.1);
-}
-.bg-gray-500\/10{
-  background-color: rgb(107 114 128 / 0.1);
 }
 .bg-gray-400\/10{
   background-color: rgb(156 163 175 / 0.1);
@@ -3797,11 +3797,11 @@ select{
 .tracking-widest{
   letter-spacing: 0.1em;
 }
-.tracking-wider{
-  letter-spacing: 0.05em;
-}
 .tracking-tight{
   letter-spacing: -0.025em;
+}
+.tracking-wider{
+  letter-spacing: 0.05em;
 }
 .tracking-normal{
   letter-spacing: 0em;
@@ -3874,6 +3874,10 @@ select{
   --tw-text-opacity: 1;
   color: rgb(251 113 133 / var(--tw-text-opacity));
 }
+.text-primary-500{
+  --tw-text-opacity: 1;
+  color: rgb(64 88 170 / var(--tw-text-opacity));
+}
 .text-danger-500{
   --tw-text-opacity: 1;
   color: rgb(244 63 94 / var(--tw-text-opacity));
@@ -3898,10 +3902,6 @@ select{
   --tw-text-opacity: 1;
   color: rgb(190 18 60 / var(--tw-text-opacity));
 }
-.text-primary-500{
-  --tw-text-opacity: 1;
-  color: rgb(64 88 170 / var(--tw-text-opacity));
-}
 .text-success-500{
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
@@ -3909,6 +3909,14 @@ select{
 .text-warning-500{
   --tw-text-opacity: 1;
   color: rgb(245 158 11 / var(--tw-text-opacity));
+}
+.text-success-700{
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity));
+}
+.text-warning-700{
+  --tw-text-opacity: 1;
+  color: rgb(180 83 9 / var(--tw-text-opacity));
 }
 .text-danger-900{
   --tw-text-opacity: 1;
@@ -3933,14 +3941,6 @@ select{
 .text-gray-50{
   --tw-text-opacity: 1;
   color: rgb(249 250 251 / var(--tw-text-opacity));
-}
-.text-success-700{
-  --tw-text-opacity: 1;
-  color: rgb(21 128 61 / var(--tw-text-opacity));
-}
-.text-warning-700{
-  --tw-text-opacity: 1;
-  color: rgb(180 83 9 / var(--tw-text-opacity));
 }
 .text-danger-50{
   --tw-text-opacity: 1;
@@ -4853,6 +4853,9 @@ select{
     --tw-bg-opacity: 1;
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));
   }
+  .dark\:bg-gray-500\/20{
+    background-color: rgb(107 114 128 / 0.2);
+  }
   .dark\:bg-danger-900\/50{
     background-color: rgb(136 19 55 / 0.5);
   }
@@ -4882,9 +4885,6 @@ select{
   .dark\:bg-white\/10{
     background-color: rgb(255 255 255 / 0.1);
   }
-  .dark\:bg-gray-500\/20{
-    background-color: rgb(107 114 128 / 0.2);
-  }
   .dark\:fill-current{
     fill: currentColor;
   }
@@ -4899,6 +4899,10 @@ select{
   .dark\:text-gray-300{
     --tw-text-opacity: 1;
     color: rgb(209 213 219 / var(--tw-text-opacity));
+  }
+  .dark\:text-gray-400{
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
   }
   .dark\:text-primary-500{
     --tw-text-opacity: 1;
@@ -4919,10 +4923,6 @@ select{
   .dark\:text-warning-500{
     --tw-text-opacity: 1;
     color: rgb(245 158 11 / var(--tw-text-opacity));
-  }
-  .dark\:text-gray-400{
-    --tw-text-opacity: 1;
-    color: rgb(156 163 175 / var(--tw-text-opacity));
   }
   .dark\:text-gray-200{
     --tw-text-opacity: 1;
@@ -5054,6 +5054,10 @@ select{
   .dark\:hover\:bg-gray-800\/30:hover{
     background-color: rgb(31 41 55 / 0.3);
   }
+  .dark\:hover\:text-primary-500:hover{
+    --tw-text-opacity: 1;
+    color: rgb(64 88 170 / var(--tw-text-opacity));
+  }
   .dark\:hover\:text-primary-400:hover{
     --tw-text-opacity: 1;
     color: rgb(96 119 195 / var(--tw-text-opacity));
@@ -5073,10 +5077,6 @@ select{
   .dark\:hover\:text-warning-400:hover{
     --tw-text-opacity: 1;
     color: rgb(251 191 36 / var(--tw-text-opacity));
-  }
-  .dark\:hover\:text-primary-500:hover{
-    --tw-text-opacity: 1;
-    color: rgb(64 88 170 / var(--tw-text-opacity));
   }
   .dark\:hover\:text-gray-300:hover{
     --tw-text-opacity: 1;
@@ -5598,11 +5598,11 @@ select{
     --tw-translate-x: 0px;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
-  .lg\:grid-cols-1{
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
   .lg\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lg\:grid-cols-1{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
   .lg\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));

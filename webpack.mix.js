@@ -29,6 +29,7 @@ mix.sass('resources/sass/filament.scss', 'css');
 mix.sass('resources/sass/content.scss', 'css');
 
 mix.js('resources/js/app.js', 'js');
+mix.js('resources/js/alpine.js', 'js');
 
 if (mix.inProduction()) {
     mix.version();

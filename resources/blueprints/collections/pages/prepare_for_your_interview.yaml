@@ -28,10 +28,10 @@ sections:
           listable: false
           localizable: true
       -
-        handle: template_field
+        handle: template
         field:
           hide_partials: true
-          display: 'Template Field'
+          display: Template
           type: template
           icon: template
           listable: hidden

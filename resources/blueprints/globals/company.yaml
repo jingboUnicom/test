@@ -1,0 +1,221 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: label_address
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Address'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: address
+        field:
+          antlers: false
+          display: Address
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_phone
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Phone'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: phone
+        field:
+          input_type: text
+          antlers: false
+          display: Phone
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_email
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Email'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: email
+        field:
+          input_type: text
+          antlers: false
+          display: Email
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_operating_hours
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Operating Hours'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: operating_hours
+        field:
+          collapse: false
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  handle: day
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Day
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: time
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Time
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+          display: 'Operating Hours'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: social_media
+        field:
+          collapse: false
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  handle: icon
+                  field:
+                    mode: list
+                    container: assets
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    display: Icon
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: url
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Url
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+          display: 'Social Media'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  header:
+    display: Header
+    fields:
+      -
+        handle: logo_header
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: 'Logo Header'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  footer:
+    display: Footer
+    fields:
+      -
+        handle: logo_footer
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: 'Logo Footer'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: summary
+        field:
+          antlers: false
+          display: Summary
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: copyright
+        field:
+          input_type: text
+          antlers: false
+          display: Copyright
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: title_footer
+        field:
+          input_type: text
+          antlers: false
+          display: 'Title Footer'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false

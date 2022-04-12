@@ -16,6 +16,12 @@ module.exports = {
     ],
 
     theme: {
+        screens: {
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1200px",
+        },
         extend: {
             colors: {
                 danger: colors.rose,
@@ -36,11 +42,11 @@ module.exports = {
                 warning: colors.amber,
             },
             fontFamily: {
-                primary: ["source-sans-pro", ...defaultTheme.fontFamily.sans],
-                sans: ["source-sans-pro", ...defaultTheme.fontFamily.sans],
-                serif: ["source-sans-pro", ...defaultTheme.fontFamily.serif],
-                mono: ["source-sans-pro", ...defaultTheme.fontFamily.mono],
-                secondary: ["montserrat", ...defaultTheme.fontFamily.sans],
+                primary: ["montserrat", ...defaultTheme.fontFamily.sans],
+                sans: ["montserrat", ...defaultTheme.fontFamily.sans],
+                serif: ["montserrat", ...defaultTheme.fontFamily.serif],
+                mono: ["montserrat", ...defaultTheme.fontFamily.mono],
+                secondary: ["source-sans-pro", ...defaultTheme.fontFamily.sans],
             },
         },
     },

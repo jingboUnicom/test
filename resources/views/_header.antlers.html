@@ -1,0 +1,102 @@
+<header x-data="{ scrolled: false }" x-on:scroll.window="scrolled = window.scrollY > 0"
+	x-init="scrolled = window.scrollY > 0" x-bind:class="{ 'bg-none': !scrolled, 'bg-primary': scrolled }"
+	class="hidden xl:block fixed top-0 w-full transition-all z-50">
+	<nav class="w-9/12 mx-auto px-[15px] py-[15px] flex items-stretch justify-between">
+		<a href="{{ homepage }}">
+			{{ company:logo_header }}
+			<img class="pr-[15px]" src="{{ url }}" alt="">
+			{{ /company:logo_header }}
+		</a>
+		<ul class="flex items-center justify-end space-x-[40px]">
+			{{ nav:header include_home="true" }}
+			<li x-data="{ submenu_{{ index }}: false }" x-on:mouseover="submenu_{{ index }} = true"
+				x-on:mouseover.away="submenu_{{ index }} = false" class="h-full relative">
+				<a class="flex items-center justify-center h-full font-primary text-[18px] text-primary-50 {{if is_current }} font-bold {{ else }} font-normal {{ /if }} text-center py-[15px] hover:text-primary-300 transition-all"
+					href="{{ url }}">{{ title }}</a>
+				{{ if depth == 1}}
+				<div x-cloak x-bind:class="submenu_{{ index }} ? 'opacity-100 w-[10px]' : 'opacity-0 w-0'"
+					class="absolute bg-primary-50 h-[10px] rounded-full bottom-[0px] left-1/2 transform -translate-x-1/2 transition-all">
+				</div>
+				{{ /if }}
+				{{ if children }}
+				<ul x-cloak
+					x-bind:class="[submenu_{{ index }} ? 'block' : 'hidden', scrolled ? 'bg-primary' : 'bg-none']"
+					class="absolute top-[calc(100%)] left-[50%] transform translate-x-[-50%] w-[175%] pt-[15px] rounded-b-xl">
+					{{ *recursive children* }}
+				</ul>
+				{{ /if }}
+			</li>
+			{{ /nav:header }}
+			{{ nav:portal }}
+			<li>
+				<a class="self-center flex items-center h-full font-primary font-semibold text-[18px] text-primary-50 text-center uppercase group"
+					href="{{ url }}">
+					<span x-bind:class="scrolled ? 'bg-primary-300' : 'bg-primary'"
+						class="group-hover:bg-primary-700 rounded-full py-[5px] px-[20px] transition-all">
+						{{ title }}
+					</span>
+				</a>
+			</li>
+			{{ /nav:portal }}
+		</ul>
+	</nav>
+</header>
+<header x-data="{ scrolled: false }" x-on:scroll.window="scrolled = window.scrollY > 200"
+	x-init="scrolled = window.scrollY > 200" x-bind:class="{ 'bg-none': !scrolled, 'bg-primary': scrolled }"
+	class="block xl:hidden fixed top-0 w-full transition-all z-50">
+	<div x-data="{ sidemenu: false }">
+		<div class="container mx-auto px-[15px] py-[15px]  flex items-center justify-between">
+			<a href="{{ homepage }}">
+				{{ company:logo_header }}
+				<img class="object-contain min-w-[200px]" src="{{ url }}" alt="">
+				{{ /company:logo_header }}
+			</a>
+			<svg x-bind:class="{ 'text-primary-300': sidemenu, 'text-primary-50': !sidemenu }"
+				x-on:click.stop="sidemenu = true" xmlns="http://www.w3.org/2000/svg"
+				class="w-[50px] h-[50px] ml-[30px] hover:text-primary-300 transition-all cursor-pointer"
+				viewBox="0 0 20 20" fill="currentColor">
+				<path fill-rule="evenodd"
+					d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+					clip-rule="evenodd" />
+			</svg>
+		</div>
+		<div x-cloak x-show="sidemenu">
+			<div class="flex fixed inset-0">
+				<div class="cursor-pointer fixed inset-0" x-show="sidemenu" x-on:click="sidemenu = false"
+					x-transition:enter="transition-all ease-in-out duration-300" x-transition:enter-start="opacity-0"
+					x-transition:enter-end="opacity-100" x-transition:leave="transition-all ease-in-out duration-300"
+					x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+					<div class="bg-black bg-opacity-[50%] absolute inset-0"></div>
+				</div>
+				<div class="bg-primary w-full max-w-xs py-[30px] px-[40px] relative overflow-auto" x-show="sidemenu"
+					x-transition:enter="transition ease-in-out duration-300 transform"
+					x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
+					x-transition:leave="transition ease-in-out duration-300 transform"
+					x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full">
+					<nav>
+						<ul class="space-y-[30px]">
+							{{ nav:header include_home="true" }}
+							<li>
+								<a class="inline-block font-primary text-[18px] text-primary-50 {{if is_current }} font-bold {{ else }} font-normal {{ /if }} {{ if children }} mb-[30px] {{ /if }} hover:text-primary-300 transition-all"
+									href="{{ url }}">{{ title }}</a>
+								{{ if children }}
+								<ul class="ml-[30px] space-y-[15px]">
+									{{ *recursive children* }}
+								</ul>
+								{{ /if }}
+							</li>
+							{{ /nav:header }}
+							{{ nav:portal }}
+							<li>
+								<a class="flex items-center h-full font-primary font-semibold text-[16px] text-primary-50 text-center uppercase group"
+									href="{{ url }}"><span
+										class="bg-primary-300 group-hover:bg-primary-700 rounded-full py-[5px] px-[20px] transition-all">{{
+										title }}</span></a>
+							</li>
+							{{ /nav:portal }}
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+</header>

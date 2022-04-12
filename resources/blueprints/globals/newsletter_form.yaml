@@ -1,0 +1,68 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title_1
+        field:
+          antlers: false
+          display: 'Title 1'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: title_2
+        field:
+          antlers: false
+          display: 'Title 2'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_email
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Email'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_email_1
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Email 1'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_email_2
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Email 2'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: button_submit
+        field:
+          input_type: text
+          antlers: false
+          display: 'Button Submit'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false

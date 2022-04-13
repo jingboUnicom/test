@@ -28,7 +28,9 @@ module.exports = {
                 primary: {
                     DEFAULT: "#4058AA",
                     50: "#ECEFF8",
+                    75: "#EBEFFF",
                     100: "#D6DCF0",
+                    150: "#C9D1EE",
                     200: "#ADB9E0",
                     300: "#889AD2",
                     400: "#6077C3",
@@ -52,7 +54,7 @@ module.exports = {
     },
 
     plugins: [
-        require("@tailwindcss/aspect-ratio"),
+        // require("@tailwindcss/aspect-ratio"),
         require("@tailwindcss/forms"),
         require("@tailwindcss/line-clamp"),
         require("@tailwindcss/typography"),

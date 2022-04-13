@@ -102,7 +102,7 @@ return [
     |
     */
 
-    'theme' => env('STATAMIC_THEME', 'rad'),
+    'theme' => env('STATAMIC_THEME', 'business'),
 
     /*
     |--------------------------------------------------------------------------

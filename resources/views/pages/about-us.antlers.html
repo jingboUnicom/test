@@ -1,1 +1,56 @@
-<div>{{ title }}</div>
+<div class="bg-cover bg-left-top bg-no-repeat h-[90vh] overflow-hidden relative z-0"
+	style="background-image:url('{{ image_a1 }}{{ url }}{{ /image_a1 }}');">
+	<div class="bg-gradient-to-b from-primary-900 opacity-50 absolute inset-0 z-10"></div>
+	<img class="opacity-50 transform translate-y-[25%] translate-x-[25%] absolute bottom-0 right-0 z-20 "
+		src="{{ image_a2 }}{{ url }}{{ /image_a2 }}" alt="">
+	<div class="container mx-auto px-[15px] flex flex-col items-start justify-center absolute inset-0 z-30">
+		<div
+			class="font-primary font-semibold text-[50px] leading-[50px] md:text-[75px] md:leading-[75px] xl:text-[100px] xl:leading-[100px] text-white mt-[50px] md:mt-[75px] xl:mt-[100px] mb-[30px] md:mb-[45px] xl:mb-[60px]">
+			{{ title_a | nl2br }}
+		</div>
+		<div
+			class="font-primary text-[17px] md:text-[26px] xl:text-[34px] text-white mb-[40px] md:mb-[60px] xl:mb-[80px]">
+			{{ content_a | nl2br }}
+		</div>
+	</div>
+</div>
+<div class="bg-primary">
+	<div class="container mx-auto px-[15px] pt-[80px] pb-[140px]">
+		<div
+			class="font-primary font-semibold text-[40px] leading-[40px] md:text-[60px] md:leading-[60px] xl:text-[80px] xl:leading-[80px] text-primary-75 mb-[30px] md:md-[45px] xl:mb-[60px]">
+			{{ title_b | nl2br }}</div>
+		<div class="font-primary text-[18px] text-primary-75">{{ content_b | nl2br }}</div>
+	</div>
+</div>
+<div class="flex bg-cover bg-left-bottom bg-no-repeat min-h-[250vh] py-[75px] relative z-0"
+	style="background-image:url('{{ image_c1 }}{{ url }}{{ /image_c1 }}');">
+	<div class="bg-gradient-to-t from-primary w-full h-[50%] absolute bottom-0 left-0 z-10 "></div>
+	<div class="w-full absolute left-0 top-[35%] z-20">
+		<div class="container xl:max-w-[80%] mx-auto px-[15px]">
+			<img src="{{ image_c2 }}{{ url }}{{ /image_c2 }}" alt="">
+		</div>
+	</div>
+	<div class="self-end container xl:max-w-[90%] mx-auto px-[15px] relative z-30">
+		<div class="grid grid-cols-5 gap-y-[15px] gap-x-[15px]">
+			{{ products_c }}
+			<div class="col-span-5 xl:col-span-1 xl:min-h-[100vh]">
+				<div class="border-2 border-primary-75 h-full py-[100px] px-[40px] rounded-full relative">
+					<div class="flex items-center justify-center ">
+						<img src="{{ image_1 }}{{ url }}{{ /image_1 }}" alt="">
+					</div>
+					<div class="flex items-center justify-center min-h-[100px] ">
+						<div
+							class="font-primary-75 font-semibold text-[25px] leading-[25px] text-primary-75 text-center">
+							{{ title | nl2br }}
+						</div>
+					</div>
+					<div class="font-primary-75 text-[16px] text-primary-75">{{ content | nl2br }}</div>
+					<div class="border-2 border-primary-75 w-[20%] xl:w-[calc(100%-20px)] aspect-square rounded-full bg-cover bg-center bg-no-repeat absolute z-[-1] bottom-[10px] left-[50%] transform origin-bottom translate-x-[-50%] scale-[0.75] md:scale-[0.4] xl:scale-100 "
+						style="background-image:url('{{ image_2 }}{{ url }}{{ /image_2 }}');">
+					</div>
+				</div>
+			</div>
+			{{ /products_c }}
+		</div>
+	</div>
+</div>

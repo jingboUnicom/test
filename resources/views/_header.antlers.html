@@ -1,7 +1,7 @@
 <header x-data="{ scrolled: false }" x-on:scroll.window="scrolled = window.scrollY > 0"
 	x-init="scrolled = window.scrollY > 0" x-bind:class="{ 'bg-none': !scrolled, 'bg-primary': scrolled }"
 	class="hidden xl:block fixed top-0 w-full transition-all z-50">
-	<nav class="w-9/12 mx-auto px-[15px] py-[15px] flex items-stretch justify-between">
+	<nav class="w-10/12 mx-auto px-[15px] py-[15px] flex items-stretch justify-between">
 		<a href="{{ homepage }}">
 			{{ company:logo_header }}
 			<img class="pr-[15px]" src="{{ url }}" alt="">
@@ -11,11 +11,11 @@
 			{{ nav:header include_home="true" }}
 			<li x-data="{ submenu_{{ index }}: false }" x-on:mouseover="submenu_{{ index }} = true"
 				x-on:mouseover.away="submenu_{{ index }} = false" class="h-full relative">
-				<a class="flex items-center justify-center h-full font-primary text-[18px] text-primary-50 {{if is_current }} font-bold {{ else }} font-normal {{ /if }} text-center py-[15px] hover:text-primary-300 transition-all"
+				<a class="flex items-center justify-center h-full font-primary text-[18px] text-white {{if is_current }} font-bold {{ else }} font-normal {{ /if }} text-center py-[15px] hover:text-primary-150 transition-all"
 					href="{{ url }}">{{ title }}</a>
 				{{ if depth == 1}}
 				<div x-cloak x-bind:class="submenu_{{ index }} ? 'opacity-100 w-[10px]' : 'opacity-0 w-0'"
-					class="absolute bg-primary-50 h-[10px] rounded-full bottom-[0px] left-1/2 transform -translate-x-1/2 transition-all">
+					class="absolute bg-white h-[10px] rounded-full bottom-[0px] left-1/2 transform -translate-x-1/2 transition-all">
 				</div>
 				{{ /if }}
 				{{ if children }}
@@ -29,10 +29,10 @@
 			{{ /nav:header }}
 			{{ nav:portal }}
 			<li>
-				<a class="self-center flex items-center h-full font-primary font-semibold text-[18px] text-primary-50 text-center uppercase group"
+				<a class="self-center flex items-center h-full group"
 					href="{{ url }}">
-					<span x-bind:class="scrolled ? 'bg-primary-300' : 'bg-primary'"
-						class="group-hover:bg-primary-700 rounded-full py-[5px] px-[20px] transition-all">
+					<span x-bind:class="scrolled ? 'text-primary bg-primary-150 group-hover:text-white group-hover:bg-primary-700' : 'text-white bg-primary group-hover:text-white group-hover:bg-primary-700'"
+						class="font-primary font-semibold text-[18px] text-center uppercase rounded-full py-[5px] px-[20px] transition-all">
 						{{ title }}
 					</span>
 				</a>
@@ -51,9 +51,9 @@
 				<img class="object-contain min-w-[200px]" src="{{ url }}" alt="">
 				{{ /company:logo_header }}
 			</a>
-			<svg x-bind:class="{ 'text-primary-300': sidemenu, 'text-primary-50': !sidemenu }"
+			<svg x-bind:class="{ 'text-primary-150': sidemenu, 'text-white': !sidemenu }"
 				x-on:click.stop="sidemenu = true" xmlns="http://www.w3.org/2000/svg"
-				class="w-[50px] h-[50px] ml-[30px] hover:text-primary-300 transition-all cursor-pointer"
+				class="w-[50px] h-[50px] ml-[30px] hover:text-primary-150 transition-all cursor-pointer"
 				viewBox="0 0 20 20" fill="currentColor">
 				<path fill-rule="evenodd"
 					d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -77,7 +77,7 @@
 						<ul class="space-y-[30px]">
 							{{ nav:header include_home="true" }}
 							<li>
-								<a class="inline-block font-primary text-[18px] text-primary-50 {{if is_current }} font-bold {{ else }} font-normal {{ /if }} {{ if children }} mb-[30px] {{ /if }} hover:text-primary-300 transition-all"
+								<a class="inline-block font-primary text-[18px] text-white {{if is_current }} font-bold {{ else }} font-normal {{ /if }} {{ if children }} mb-[30px] {{ /if }} hover:text-primary-150 transition-all"
 									href="{{ url }}">{{ title }}</a>
 								{{ if children }}
 								<ul class="ml-[30px] space-y-[15px]">
@@ -88,9 +88,9 @@
 							{{ /nav:header }}
 							{{ nav:portal }}
 							<li>
-								<a class="flex items-center h-full font-primary font-semibold text-[16px] text-primary-50 text-center uppercase group"
+								<a class="flex items-center h-full group"
 									href="{{ url }}"><span
-										class="bg-primary-300 group-hover:bg-primary-700 rounded-full py-[5px] px-[20px] transition-all">{{
+										class="font-primary font-semibold text-[16px] text-white text-center uppercase bg-primary-150 group-hover:bg-primary-700 rounded-full py-[5px] px-[20px] transition-all">{{
 										title }}</span></a>
 							</li>
 							{{ /nav:portal }}

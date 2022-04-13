@@ -1,9 +1,9 @@
 <div>
     <div
-        class="font-primary font-semibold text-[40px] leading-[40px] md:text-[60px] md:leading-[60px] xl:text-[80px] xl:leading-[80px] text-primary-50 mb-[50px]">
+        class="font-primary font-semibold text-[40px] leading-[40px] md:text-[60px] md:leading-[60px] xl:text-[80px] xl:leading-[80px] text-primary-75 mb-[50px]">
         {{ $content['title_1'] }}
     </div>
-    <div class="bg-primary-100 p-[15px] border-2 border-primary rounded-xl relative">
+    <div class="bg-primary-150 p-[15px] border-2 border-primary rounded-xl relative">
         <form wire:submit.prevent="$emit('getGoogleRecaptchaToken')">
             <div class="grid grid-cols-12 gap-y-[15px] gap-x-0 xl:gap-y-0 xl:gap-x-[15px]">
                 <div class="col-span-12">
@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-span-12 xl:col-span-3">
                     <button wire:loading.attr="disabled" type="submit"
-                        class="font-secondary font-semibold text-[16px] text-primary-50 uppercase bg-primary w-full h-[44px] rounded-lg hover:bg-primary-700 transition-all">
+                        class="font-secondary font-semibold text-[16px] text-primary-150 uppercase bg-primary w-full h-[44px] rounded-lg hover:text-white hover:bg-primary-700 transition-all">
                         {{ $content['label_submit'] }}
                     </button>
                 </div>

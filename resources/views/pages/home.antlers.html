@@ -1,14 +1,15 @@
-<div class="bg-cover bg-left-top bg-no-repeat h-[120vh] relative z-0 overflow-hidden"
+<div class="bg-cover bg-left-top bg-no-repeat h-[120vh] overflow-hidden relative z-0"
 	style="background-image:url('{{ image_a1 }}{{ url }}{{ /image_a1 }}');">
-	<div class="bg-gradient-to-b from-primary-900 opacity-75 absolute inset-0 z-10"></div>
-	<img class="absolute bottom-0 right-0 z-20 transform translate-y-[25%] translate-x-[25%] opacity-50"
-	src="{{ image_a2 }}{{ url }}{{ /image_a2 }}" alt="">
+	<div class="bg-gradient-to-b from-primary-900 opacity-50 absolute inset-0 z-10"></div>
+	<img class="opacity-50 transform translate-y-[25%] translate-x-[25%] absolute bottom-0 right-0 z-20 "
+		src="{{ image_a2 }}{{ url }}{{ /image_a2 }}" alt="">
 	<div class="container mx-auto px-[15px] flex flex-col items-start justify-center absolute inset-0 z-30">
 		<div
-			class="font-primary font-semibold text-[50px] leading-[50px] md:text-[75px] md:leading-[75px] xl:text-[100px] xl:leading-[100px] text-white mt-[50px] md:mt-[75px] xl:mt-[100px]  mb-[30px] md:mb-[45px] xl:mb-[60px]">
+			class="font-primary font-semibold text-[50px] leading-[50px] md:text-[75px] md:leading-[75px] xl:text-[100px] xl:leading-[100px] text-white mt-[50px] md:mt-[75px] xl:mt-[100px] mb-[30px] md:mb-[45px] xl:mb-[60px]">
 			{{ title_a | nl2br }}
 		</div>
-		<div class="font-primary text-[17px] md:text-[26px] xl:text-[34px] text-white mb-[40px] md:mb-[60px] xl:mb-[80px]">
+		<div
+			class="font-primary text-[17px] md:text-[26px] xl:text-[34px] text-white mb-[40px] md:mb-[60px] xl:mb-[80px]">
 			{{ content_a | nl2br }}
 		</div>
 		<div class="w-full">
@@ -20,7 +21,7 @@
 	<div
 		class="col-span-12 xl:col-span-6 bg-primary xl:min-h-[550px] py-[60px] px-[60px] flex items-center justify-start xl:justify-center">
 		<div
-			class="font-primary font-semibold text-primary-50 uppercase white-nowrap text-[56px] leading-[56px] md:text-[120px] md:leading-[100px] xl:text-[160px] xl:leading-[140px] relative ml-[35px] md:ml-[53px] xl:ml-[70px]">
+			class="font-primary font-semibold text-primary-75 uppercase white-nowrap text-[56px] leading-[56px] md:text-[120px] md:leading-[100px] xl:text-[160px] xl:leading-[140px] relative ml-[35px] md:ml-[53px] xl:ml-[70px]">
 			{{ title_b | nl2br }}
 			<div
 				class="absolute top-[50%] left-0 transform translate-y-[-50%] translate-x-[-100%] scale-50 md:scale-75 xl:scale-100">
@@ -30,13 +31,13 @@
 	</div>
 	{{ products_b }}
 	{{ if index == 0 || index == 1 }}
-	<div class="col-span-12 xl:col-span-6 xl:min-h-[550px] py-[60px] px-[60px] group relative z-0 bg-primary-50 group">
+	<div class="col-span-12 xl:col-span-6 xl:min-h-[550px] py-[60px] px-[60px] group relative z-0 bg-primary-75 group">
 		<div class="bg-cover bg-left-top bg-no-repeat absolute inset-0 z-10 opacity-0 group-hover:opacity-100 duration-500 transition-all"
 			style="background-image:url('{{ image_1 }}{{ url }}{{ /image_1 }}');"></div>
 		<div
-			class="bg-primary-50 bg-opacity-50 absolute inset-0 z-20 opacity-0 group-hover:opacity-100 duration-500 transition-all">
+			class="bg-primary-75 bg-opacity-50 absolute inset-0 z-20 opacity-0 group-hover:opacity-100 duration-500 transition-all">
 		</div>
-		<div class="bg-gradient-to-r from-primary-50 absolute inset-0 z-30"></div>
+		<div class="bg-gradient-to-r from-primary-75 absolute inset-0 z-30"></div>
 		<div class="relative z-40 {{ if index == 1 }} ml-0 xl:ml-36 {{ /if }}">
 			<div
 				class="inline-block font-primary font-semibold text-[30px] leading-[30px] md:text-[45px] md:leading-[45px] xl:text-[60px] xl:leading-[60px] text-primary mb-[30px] relative">
@@ -63,14 +64,14 @@
 		<div class="bg-gradient-to-r from-primary absolute inset-0 z-30"></div>
 		<div class="relative z-40">
 			<div
-				class="inline-block font-primary font-semibold text-[30px] leading-[30px] md:text-[45px] md:leading-[45px] xl:text-[60px] xl:leading-[60px] text-primary-50 mb-[30px] relative">
+				class="inline-block font-primary font-semibold text-[30px] leading-[30px] md:text-[45px] md:leading-[45px] xl:text-[60px] xl:leading-[60px] text-primary-75 mb-[30px] relative">
 				{{ title | nl2br }}
 				<div
 					class="absolute top-[50%] right-0 transform translate-y-[-50%] translate-x-[125%] scale-50 md:scale-75 xl:scale-100">
 					<img src="{{ image_2 }}{{ url }}{{ /image_2 }}" alt="">
 				</div>
 			</div>
-			<div class="font-primary text-[18px] text-primary-50">
+			<div class="font-primary text-[18px] text-primary-75">
 				{{ content | nl2br }}
 			</div>
 		</div>
@@ -81,7 +82,7 @@
 </div>
 <div class="pb-[75px] bg-cover bg-left-bottom bg-no-repeat min-h-[250vh] relative z-0"
 	style="background-image:url('{{ image_c1 }}{{ url }}{{ /image_c1 }}');">
-	<div class="bg-primary-50 bg-opacity-50 xl:bg-opacity-0 absolute inset-0 z-10"></div>
+	<div class="bg-primary-75 bg-opacity-50 xl:bg-opacity-0 absolute inset-0 z-10"></div>
 	<div class="container xl:max-w-[90%] mx-auto px-[15px] relative z-20">
 		<div class="flex flex-col items-center justify-center py-[75px]">
 			<img class="mb-[50px]" src="{{ image_c2 }}{{ url }}{{ /image_c2 }}" alt="">

@@ -1,4 +1,4 @@
-<div class="bg-primary-50 bg-opacity-75 p-[15px] border-2 border-primary rounded-xl relative">
+<div class="bg-primary-150 bg-opacity-75 p-[15px] border-2 border-primary rounded-xl relative">
     <form wire:submit.prevent="submit">
         <div class="grid grid-cols-12 gap-y-[15px] gap-x-0 xl:gap-y-0 xl:gap-x-[15px]">
             <div class="col-span-12">
@@ -29,7 +29,7 @@
             </div>
             <div class="col-span-12 xl:col-span-3">
                 <button wire:loading.attr="disabled" type="submit"
-                    class="font-secondary font-semibold text-[16px] text-primary-50 uppercase bg-primary w-full h-[44px] rounded-lg hover:bg-primary-700 transition-all">
+                    class="font-secondary font-semibold text-[16px] text-primary-150 uppercase bg-primary w-full h-[44px] rounded-lg hover:text-white hover:bg-primary-700 transition-all">
                     {{ $content['label_submit'] }}
                 </button>
             </div>

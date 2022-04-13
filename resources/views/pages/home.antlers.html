@@ -1,17 +1,20 @@
-<div class="bg-cover bg-left-top bg-no-repeat h-[100vh] relative z-0 overflow-hidden"
+<div class="bg-cover bg-left-top bg-no-repeat h-[120vh] relative z-0 overflow-hidden"
 	style="background-image:url('{{ image_a1 }}{{ url }}{{ /image_a1 }}');">
 	<div class="bg-gradient-to-b from-primary-900 opacity-75 absolute inset-0 z-10"></div>
-	<div class="container mx-auto px-[15px] flex flex-col items-start justify-center absolute inset-0 z-20">
+	<img class="absolute bottom-0 right-0 z-20 transform translate-y-[25%] translate-x-[25%] opacity-50"
+	src="{{ image_a2 }}{{ url }}{{ /image_a2 }}" alt="">
+	<div class="container mx-auto px-[15px] flex flex-col items-start justify-center absolute inset-0 z-30">
 		<div
-			class="font-primary font-semibold text-[50px] leading-[50px] md:text-[75px] md:leading-[75px] xl:text-[100px] xl:leading-[100px] text-white mb-[30px] md:mb-[45px] xl:mb-[60px]">
+			class="font-primary font-semibold text-[50px] leading-[50px] md:text-[75px] md:leading-[75px] xl:text-[100px] xl:leading-[100px] text-white mt-[50px] md:mt-[75px] xl:mt-[100px]  mb-[30px] md:mb-[45px] xl:mb-[60px]">
 			{{ title_a | nl2br }}
 		</div>
-		<div class="font-primary text-[17px] md:text-[26px] xl:text-[34px] text-white">
+		<div class="font-primary text-[17px] md:text-[26px] xl:text-[34px] text-white mb-[40px] md:mb-[60px] xl:mb-[80px]">
 			{{ content_a | nl2br }}
 		</div>
+		<div class="w-full">
+			{{ livewire:job-search }}
+		</div>
 	</div>
-	<img class="absolute bottom-0 right-0 z-30 transform translate-y-[25%] translate-x-[25%] opacity-50"
-		src="{{ image_a2 }}{{ url }}{{ /image_a2 }}" alt="">
 </div>
 <div class="grid grid-cols-12">
 	<div
@@ -27,11 +30,14 @@
 	</div>
 	{{ products_b }}
 	{{ if index == 0 || index == 1 }}
-	<div class="col-span-12 xl:col-span-6 bg-cover bg-left-top bg-no-repeat xl:min-h-[550px] py-[60px] px-[60px] relative z-0"
-		style="background-image:url('{{ image_1 }}{{ url }}{{ /image_1 }}');">
-		<div class="bg-primary-50 bg-opacity-50 absolute inset-0 z-10"></div>
-		<div class="bg-gradient-to-r from-primary-50 absolute inset-0 z-20"></div>
-		<div class="relative z-30 {{ if index == 1 }} ml-0 xl:ml-36 {{ /if }}">
+	<div class="col-span-12 xl:col-span-6 xl:min-h-[550px] py-[60px] px-[60px] group relative z-0 bg-primary-50 group">
+		<div class="bg-cover bg-left-top bg-no-repeat absolute inset-0 z-10 opacity-0 group-hover:opacity-100 duration-500 transition-all"
+			style="background-image:url('{{ image_1 }}{{ url }}{{ /image_1 }}');"></div>
+		<div
+			class="bg-primary-50 bg-opacity-50 absolute inset-0 z-20 opacity-0 group-hover:opacity-100 duration-500 transition-all">
+		</div>
+		<div class="bg-gradient-to-r from-primary-50 absolute inset-0 z-30"></div>
+		<div class="relative z-40 {{ if index == 1 }} ml-0 xl:ml-36 {{ /if }}">
 			<div
 				class="inline-block font-primary font-semibold text-[30px] leading-[30px] md:text-[45px] md:leading-[45px] xl:text-[60px] xl:leading-[60px] text-primary mb-[30px] relative">
 				{{ title | nl2br }}
@@ -44,14 +50,18 @@
 				{{ content | nl2br }}
 			</div>
 		</div>
+		<a href="{{ link }}" class="absolute inset-0 z-50"></a>
 	</div>
 	{{ /if }}
 	{{ if index == 2 }}
-	<div class="col-span-12 xl:col-span-6 bg-cover bg-left-top bg-no-repeat xl:min-h-[550px] py-[60px] px-[60px] relative z-0"
-		style="background-image:url('{{ image_1 }}{{ url }}{{ /image_1 }}');">
-		<div class="bg-primary bg-opacity-50 absolute inset-0 z-10"></div>
-		<div class="bg-gradient-to-r from-primary absolute inset-0 z-20"></div>
-		<div class="relative z-30">
+	<div class="col-span-12 xl:col-span-6 xl:min-h-[550px] py-[60px] px-[60px] group relative z-0 bg-primary group">
+		<div class="bg-cover bg-left-top bg-no-repeat absolute inset-0 z-10 opacity-0 group-hover:opacity-100 duration-500 transition-all"
+			style="background-image:url('{{ image_1 }}{{ url }}{{ /image_1 }}');"></div>
+		<div
+			class="bg-primary bg-opacity-50 absolute inset-0 z-20 opacity-0 group-hover:opacity-100 duration-500 transition-all">
+		</div>
+		<div class="bg-gradient-to-r from-primary absolute inset-0 z-30"></div>
+		<div class="relative z-40">
 			<div
 				class="inline-block font-primary font-semibold text-[30px] leading-[30px] md:text-[45px] md:leading-[45px] xl:text-[60px] xl:leading-[60px] text-primary-50 mb-[30px] relative">
 				{{ title | nl2br }}
@@ -64,6 +74,7 @@
 				{{ content | nl2br }}
 			</div>
 		</div>
+		<a href="{{ link }}" class="absolute inset-0 z-50"></a>
 	</div>
 	{{ /if }}
 	{{ /products_b }}

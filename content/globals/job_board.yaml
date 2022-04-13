@@ -1,0 +1,8 @@
+title: 'Job Board'
+data:
+  title_search: 'Search Job'
+  label_keyword: 'Enter keywords*'
+  label_classification: Classifications
+  label_location: Locations
+  label_submit: Search
+  link_search: 'entry::42a1e225-456d-4663-b5cd-b7eaf74d447b'

@@ -3,7 +3,7 @@ id: 4f9add21-6e61-42d1-a185-fd40fc0139b9
 blueprint: home
 title: Home
 updated_by: 1
-updated_at: 1649737494
+updated_at: 1649812485
 template: pages/home
 title_a: |-
   New Zealand's
@@ -31,6 +31,7 @@ products_b:
     content: |-
       Find sample resumes and templates, and get expert
       tips and advice on how to create the perfect resume.
+    link: 'entry::ab0693b0-b025-44fa-ac12-20059a85b1cf'
   -
     image_1:
       - content/parabol-_4IXzw1L9L0-unsplash.jpg
@@ -45,6 +46,7 @@ products_b:
       your confidence.
     type: new_set
     enabled: true
+    link: 'entry::461b19d9-5ff6-43d5-ac42-371eb874d2af'
   -
     image_1:
       - content/jason-goodman-6awfTPLGaCE-unsplash.jpg
@@ -60,6 +62,7 @@ products_b:
       question.
     type: new_set
     enabled: true
+    link: 'entry::0e909573-1e50-404f-a19d-4224bb95bef2'
 image_a1:
   - content/christina-wocintechchat-com-eF7HN40WbAQ-unsplash_Y.jpg
 image_a2:

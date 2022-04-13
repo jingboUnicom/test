@@ -114,45 +114,6 @@ sections:
           listable: hidden
           instructions_position: above
           read_only: false
-      -
-        handle: social_media
-        field:
-          collapse: false
-          sets:
-            new_set:
-              display: 'New Set'
-              fields:
-                -
-                  handle: icon
-                  field:
-                    mode: list
-                    container: assets
-                    restrict: false
-                    allow_uploads: true
-                    show_filename: true
-                    display: Icon
-                    type: assets
-                    icon: assets
-                    listable: hidden
-                    instructions_position: above
-                    read_only: false
-                -
-                  handle: url
-                  field:
-                    input_type: text
-                    antlers: false
-                    display: Url
-                    type: text
-                    icon: text
-                    listable: hidden
-                    instructions_position: above
-                    read_only: false
-          display: 'Social Media'
-          type: replicator
-          icon: replicator
-          listable: hidden
-          instructions_position: above
-          read_only: false
   header:
     display: Header
     fields:
@@ -209,11 +170,50 @@ sections:
           instructions_position: above
           read_only: false
       -
-        handle: title_footer
+        handle: social_media
+        field:
+          collapse: false
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  handle: icon
+                  field:
+                    mode: list
+                    container: assets
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    display: Icon
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: url
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Url
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+          display: 'Social Media'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: title_contact_us
         field:
           input_type: text
           antlers: false
-          display: 'Title Footer'
+          display: 'Title Contact Us'
           type: text
           icon: text
           listable: hidden

@@ -1,6 +1,9 @@
 {{ company }}
 <div class="bg-primary">
-	<div class="w-10/12 mx-auto pt-[140px] pb-[70px] px-[15px]">
+	<div class="w-10/12 mx-auto py-[70px] xl:pt-[140px] pb-[70px] px-[15px]">
+		<div class="w-full xl:w-[90%] mb-[45px] xl:mb-[90px]">
+			{{ livewire:subscribers }}
+		</div>
 		<div class="w-full bg-primary-50 h-[2px] my-[30px]"></div>
 		<div class="grid grid-cols-12">
 			<div class="col-span-12">
@@ -38,7 +41,7 @@
 					{{ /nav:portal }}
 					<div class="col-span-12 xl:col-span-3">
 						<div class="font-primary font-semibold text-[16px] text-primary-50 mb-[30px]">
-							{{ title_footer }}
+							{{ title_contact_us }}
 						</div>
 						<div class="mb-[30px]">
 							<div class="flex">
@@ -84,7 +87,7 @@
 					</a>
 					{{ /social_media }}
 				</div>
-				<div class="font-primary text-[16px] text-primary-50">{{ copyright }} | Powered by Theia</div>
+				<div class="font-primary text-[16px] text-primary-50">{{ copyright }} | <a class="hover:text-primary-300 transition-all" href="https://theia.co.nz" target="_blank">Powered by Theia</a></div>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,40 @@
+sections:
+  google_maps:
+    display: 'Google Maps'
+    fields:
+      -
+        handle: google_maps_api_key
+        field:
+          input_type: text
+          antlers: false
+          display: 'Google Maps API Key'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  google_recaptcha:
+    display: 'Google Recaptcha'
+    fields:
+      -
+        handle: google_recaptcha_site_key
+        field:
+          input_type: text
+          antlers: false
+          display: 'Google Recaptcha Site Key'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: google_recaptcha_secret_key
+        field:
+          input_type: text
+          antlers: false
+          display: 'Google Recaptcha Secret Key'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false

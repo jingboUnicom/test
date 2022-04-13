@@ -1,0 +1,71 @@
+sections:
+  form:
+    display: Form
+    fields:
+      -
+        handle: title_search
+        field:
+          input_type: text
+          antlers: false
+          display: 'Title Search'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_keyword
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Keyword'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_classification
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Classification'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_location
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Location'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_submit
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Submit'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: link_search
+        field:
+          display: 'Link Search'
+          type: link
+          icon: link
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  main:
+    display: Main
+    fields: {  }

@@ -26,6 +26,12 @@ data:
       time: '10am - 2pm'
       type: new_set
       enabled: true
+  logo_header:
+    - content/Group-202204121525.png
+  logo_footer:
+    - content/Group-202204121731.png
+  summary: 'Regeine Career implements the competency-based evaluations and effective career plan of multinational company such as IBM/Google. We also help students to reach internship and employment opportunities through professional consultation services.'
+  copyright: '©2020 - 2022 Regeine Career | All Rights Reserved'
   social_media:
     -
       icon:
@@ -51,10 +57,4 @@ data:
       url: 'https://www.twitter.com/'
       type: new_set
       enabled: true
-  logo_header:
-    - content/Group-202204121525.png
-  logo_footer:
-    - content/Group-202204121731.png
-  summary: 'Regeine Career implements the competency-based evaluations and effective career plan of multinational company such as IBM/Google. We also help students to reach internship and employment opportunities through professional consultation services.'
-  copyright: '©2020 - 2022 Regeine Career | All Rights Reserved'
-  title_footer: 'Contact Us'
+  title_contact_us: 'Contact Us'

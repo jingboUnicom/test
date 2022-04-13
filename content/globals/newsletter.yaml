@@ -1,0 +1,11 @@
+title: Newsletter
+data:
+  title_1: Newsletter
+  title_2: 'Subscribe to our newsletter'
+  label_email: 'Email Address*'
+  error_email_1: 'Please fill in an email address'
+  error_email_2: 'Please fill in a valid email address'
+  error_email_3: 'Please fill in another email address'
+  error_recaptcha: 'Please refresh the page and try again'
+  label_submit: Subscribe
+  message_success: 'Thankyou for subscribing'

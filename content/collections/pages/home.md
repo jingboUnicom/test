@@ -3,7 +3,7 @@ id: 4f9add21-6e61-42d1-a185-fd40fc0139b9
 blueprint: home
 title: Home
 updated_by: 1
-updated_at: 1649812485
+updated_at: 1649886397
 template: pages/home
 title_a: |-
   New Zealand's
@@ -11,8 +11,6 @@ title_a: |-
 content_a: |-
   Temporary | Permanent | Contract
   Recruitment Solutions.
-image_b:
-  - content/Group-202204121524.png
 title_b: |-
   We
   Help
@@ -108,4 +106,6 @@ products_c:
     content: 'We will handle all aspects of your recruitment requirements including permanent, temporary staff and/or contractors. We will focus on your staffing needs so you can focus on your business.'
     type: new_set
     enabled: true
+image_b:
+  - content/Group-202204121524.png
 ---

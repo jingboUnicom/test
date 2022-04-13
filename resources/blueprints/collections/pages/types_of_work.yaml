@@ -37,3 +37,129 @@ sections:
           listable: hidden
           instructions_position: above
           read_only: false
+  section_a:
+    display: 'Section A'
+    fields:
+      -
+        handle: image_a
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: 'Image A'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: title_a
+        field:
+          antlers: false
+          display: 'Title A'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: content_a1
+        field:
+          antlers: false
+          display: 'Content A1'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: content_a2
+        field:
+          antlers: false
+          display: 'Content A2'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  section_b:
+    display: 'Section B'
+    fields:
+      -
+        handle: products_b
+        field:
+          collapse: false
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  handle: image
+                  field:
+                    mode: list
+                    container: assets
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    display: Image
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: title
+                  field:
+                    antlers: false
+                    display: Title
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: content
+                  field:
+                    antlers: false
+                    display: Content
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+          display: 'Products B'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          read_only: false
+          max_sets: 4
+  section_c:
+    display: 'Section C'
+    fields:
+      -
+        handle: image_c
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: 'Image C'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: content_c
+        field:
+          antlers: false
+          display: 'Content C'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false

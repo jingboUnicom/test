@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/alpine.js": "/js/alpine.js",
+    "/js/contact-us.js": "/js/contact-us.js",
     "/css/filament.css": "/css/filament.css",
     "/css/app.css": "/css/app.css",
     "/css/content.css": "/css/content.css"

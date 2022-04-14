@@ -1,3 +1,0 @@
-<div>
-    Job Ads
-</div>

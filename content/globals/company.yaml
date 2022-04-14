@@ -5,6 +5,8 @@ data:
     Head Office
     Level 3, 60 Airdale Street,
     Auckland CBD, NZ
+  latitude: '-36.85546299399129'
+  longitude: '174.7654298688347'
   label_phone: 'P:'
   phone: '+64960006629'
   label_email: 'E:'

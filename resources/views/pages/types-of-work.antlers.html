@@ -11,27 +11,25 @@
         </div>
     </div>
 </div>
-{{ products_b }} {{ if index | mod:2 }}
-<div class="grid grid-cols-12">
-    <div class="xl:min-h-auto order-2 col-span-12 min-h-[500px] bg-cover bg-left-top bg-no-repeat xl:order-1 xl:col-span-6" style="background-image:url('{{ image }}{{ url }}{{ /image }}');"></div>
-    <div class="order-1 col-span-12 bg-primary px-[60px] pt-[60px] pb-[120px] xl:order-2 xl:col-span-6">
-        <div class="xl:w-8/12">
+<div class="bg-primary">
+    {{ products_b }} {{ if index | mod:2 }}
+    <div class="flex flex-col xl:flex-row">
+        <div class="xl:min-h-auto order-2 min-h-[500px] basis-1/2 bg-cover bg-left-top bg-no-repeat xl:order-1" style="background-image:url('{{ image }}{{ url }}{{ /image }}');"></div>
+        <div class="order-1 basis-1/2 px-[60px] pt-[60px] pb-[120px] xl:order-2 xl:ml-0 xl:max-w-2xl">
             <div class="mb-[30px] font-primary text-[30px] font-semibold leading-[30px] text-primary-75 md:text-[45px] md:leading-[45px] xl:text-[60px] xl:leading-[60px]">{{ title | nl2br }}</div>
             <div class="font-primary text-[18px] text-primary-75">{{ content | nl2br }}</div>
         </div>
     </div>
-</div>
-{{ else }}
-<div class="grid grid-cols-12">
-    <div class="order-1 col-span-12 bg-primary px-[60px] pt-[60px] pb-[120px] xl:order-1 xl:col-span-6">
-        <div class="xl:ml-auto xl:w-8/12">
+    {{ else }}
+    <div class="flex flex-col xl:flex-row">
+        <div class="order-1 basis-1/2 px-[60px] pt-[60px] pb-[120px] xl:order-1 xl:ml-auto xl:max-w-2xl">
             <div class="mb-[30px] font-primary text-[30px] font-semibold leading-[30px] text-primary-75 md:text-[45px] md:leading-[45px] xl:text-[60px] xl:leading-[60px]">{{ title | nl2br }}</div>
             <div class="font-primary text-[18px] text-primary-75">{{ content | nl2br }}</div>
         </div>
+        <div class="xl:min-h-auto order-2 min-h-[500px] basis-1/2 bg-cover bg-left-top bg-no-repeat xl:order-2" style="background-image:url('{{ image }}{{ url }}{{ /image }}');"></div>
     </div>
-    <div class="xl:min-h-auto order-1 col-span-12 min-h-[500px] bg-cover bg-left-top bg-no-repeat xl:order-2 xl:col-span-6" style="background-image:url('{{ image }}{{ url }}{{ /image }}');"></div>
+    {{ /if }} {{ /products_b }}
 </div>
-{{ /if }} {{ /products_b }}
 <div class="bg-primary-150 py-[40px]">
     <div class="container mx-auto px-[15px]">
         <div class="flex flex-wrap justify-center gap-y-[40px] gap-x-[40px] xl:flex-nowrap xl:justify-end xl:gap-y-[0]">

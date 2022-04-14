@@ -24,6 +24,30 @@ sections:
           instructions_position: above
           read_only: false
       -
+        handle: latitude
+        field:
+          input_type: text
+          antlers: false
+          display: Latitude
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: longitude
+        field:
+          input_type: text
+          antlers: false
+          display: Longitude
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
         handle: label_phone
         field:
           input_type: text

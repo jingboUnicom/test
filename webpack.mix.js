@@ -16,7 +16,7 @@ mix.options({
     postCss: [require("tailwindcss"), require("autoprefixer")],
 });
 
-mix.setPublicPath('public');
+mix.setPublicPath("public");
 
 // mix.js("resources/js/app.js", "public/js").postCss(
 //     "resources/css/app.css",
@@ -24,12 +24,13 @@ mix.setPublicPath('public');
 //     [require("postcss-import"), require("tailwindcss")]
 // );
 
-mix.sass('resources/sass/app.scss', 'css');
-mix.sass('resources/sass/filament.scss', 'css');
-mix.sass('resources/sass/content.scss', 'css');
+mix.sass("resources/sass/app.scss", "css");
+mix.sass("resources/sass/filament.scss", "css");
+mix.sass("resources/sass/content.scss", "css");
 
-mix.js('resources/js/app.js', 'js');
-mix.js('resources/js/alpine.js', 'js');
+mix.js("resources/js/app.js", "js");
+mix.js("resources/js/alpine.js", "js");
+mix.js("resources/js/contact-us.js", "js");
 
 if (mix.inProduction()) {
     mix.version();

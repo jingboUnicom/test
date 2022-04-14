@@ -1,1 +1,49 @@
-<div>{{ title }}</div>
+<div class="relative z-0 h-[85vh] overflow-hidden bg-primary-200">
+    <img class="absolute bottom-0 right-0 z-10 translate-y-[20%] translate-x-[20%] transform opacity-50" src="{{ image_a }}{{ url }}{{ /image_a }}" alt="" />
+    <div class="container absolute inset-0 z-30 mx-auto flex items-center px-[15px]">
+        <div class="grid grid-cols-12 gap-y-[30px] md:gap-y-[45px] xl:gap-y-0">
+            <div class="col-span-12 xl:col-span-7">
+                <div class="font-primary text-[50px] font-semibold leading-[50px] text-primary md:text-[75px] md:leading-[75px] xl:text-[100px] xl:leading-[100px]">{{ title_a | nl2br }}</div>
+            </div>
+            <div class="col-span-12 xl:col-span-5">
+                <div class="font-primary text-[17px] text-primary md:text-[26px] xl:text-[34px]">{{ content_a1 | nl2br }} <span class="font-bold">{{ content_a2 }}</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-primary">
+    <div class="container mx-auto px-[15px] pt-[80px] pb-[140px]">
+        <div class="md:md-[45px] mb-[30px] font-primary text-[40px] font-semibold leading-[40px] text-primary-75 md:text-[60px] md:leading-[60px] xl:mb-[60px] xl:text-[80px] xl:leading-[80px]">{{ title_b | nl2br }}</div>
+        <div class="font-primary text-[18px] text-primary-75">{{ content_b | nl2br }}</div>
+    </div>
+</div>
+<div class="bg-primary-75 py-[60px]">
+    <div class="container mx-auto px-[15px]">
+        <div class="mb-[30px] font-primary text-[30px] font-semibold leading-[30px] text-primary md:text-[45px] md:leading-[45px] xl:text-[60px] xl:leading-[60px]">{{ title_c | nl2br }}</div>
+        <div class="font-primary text-[18px] text-primary">{{ content_c | nl2br }}</div>
+    </div>
+</div>
+<div class="bg-primary py-[60px]">
+    <div class="container mx-auto px-[15px]">
+        <div class="mb-[30px] font-primary text-[30px] font-semibold leading-[30px] text-primary-75 md:text-[45px] md:leading-[45px] xl:text-[60px] xl:leading-[60px]">{{ title_d | nl2br }}</div>
+        <div class="font-primary text-[18px] text-primary-75">{{ content_d| nl2br }}</div>
+    </div>
+</div>
+<div class="bg-primary-75 py-[60px]">
+    <div class="container mx-auto px-[15px]">
+        <div class="mb-[30px] font-primary text-[30px] font-semibold leading-[30px] text-primary md:text-[45px] md:leading-[45px] xl:text-[60px] xl:leading-[60px]">{{ title_e | nl2br }}</div>
+        <div class="font-primary text-[18px] text-primary">{{ content_e | nl2br }}</div>
+    </div>
+</div>
+<div class="bg-primary-150 py-[40px]">
+    <div class="container mx-auto px-[15px]">
+        <div class="flex flex-wrap justify-center gap-y-[40px] gap-x-[40px] xl:flex-nowrap xl:justify-end xl:gap-y-[0]">
+            <img class="self-start" src="{{ image_f }}{{ url }}{{ /image_f }}" alt="" />
+            <div>
+                <div class="font-primary text-[16px] text-primary">{{ content_f | nl2br }}</div>
+                <a class="block font-primary text-[16px] text-primary transition-all hover:text-primary-700" href="tel:{{ company:phone }}">{{ company:phone }}</a>
+                <a class="block font-primary text-[16px] text-primary transition-all hover:text-primary-700" href="mailto:{{ company:email }}">{{ company:email }}</a>
+            </div>
+        </div>
+    </div>
+</div>

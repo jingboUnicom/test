@@ -1,1 +1,37 @@
-<div>{{ title }}</div>
+<div class="relative z-0 h-[85vh] overflow-hidden bg-primary-200">
+    <img class="absolute bottom-0 right-0 z-10 translate-y-[20%] translate-x-[20%] transform opacity-50" src="{{ image_a }}{{ url }}{{ /image_a }}" alt="" />
+    <div class="container absolute inset-0 z-30 mx-auto flex items-center px-[15px]">
+        <div class="grid grid-cols-12 gap-y-[30px] md:gap-y-[45px] xl:gap-y-0">
+            <div class="col-span-12 xl:col-span-7">
+                <div class="font-primary text-[50px] font-semibold leading-[50px] text-primary md:text-[75px] md:leading-[75px] xl:text-[100px] xl:leading-[100px]">{{ title_a | nl2br }}</div>
+            </div>
+            <div class="col-span-12 xl:col-span-5">
+                <div class="font-primary text-[17px] text-primary md:text-[26px] xl:text-[34px]">
+                    {{ content_a1 | nl2br }}
+                    <span class="font-bold">{{ content_a2 }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ products_b }} {{ if index | mod:2 }}
+<div class="grid grid-cols-12">
+    <div class="xl:min-h-auto order-2 col-span-12 min-h-[500px] bg-cover bg-left-top bg-no-repeat xl:order-1 xl:col-span-6" style="background-image:url('{{ image }}{{ url }}{{ /image }}');"></div>
+    <div class="order-1 col-span-12 bg-primary-75 px-[60px] pt-[60px] pb-[120px] xl:order-2 xl:col-span-6">
+        <div class="xl:w-8/12">
+            <div class="mb-[30px] font-primary text-[30px] font-semibold leading-[30px] text-primary md:text-[45px] md:leading-[45px] xl:text-[60px] xl:leading-[60px]">{{ title | nl2br }}</div>
+            <div class="font-primary text-[18px] text-primary">{{ content | nl2br }}</div>
+        </div>
+    </div>
+</div>
+{{ else }}
+<div class="grid grid-cols-12">
+    <div class="order-1 col-span-12 bg-primary-75 px-[60px] pt-[60px] pb-[120px] xl:order-1 xl:col-span-6">
+        <div class="xl:ml-auto xl:w-8/12">
+            <div class="mb-[30px] font-primary text-[30px] font-semibold leading-[30px] text-primary md:text-[45px] md:leading-[45px] xl:text-[60px] xl:leading-[60px]">{{ title | nl2br }}</div>
+            <div class="font-primary text-[18px] text-primary">{{ content | nl2br }}</div>
+        </div>
+    </div>
+    <div class="xl:min-h-auto order-1 col-span-12 min-h-[500px] bg-cover bg-left-top bg-no-repeat xl:order-2 xl:col-span-6" style="background-image:url('{{ image }}{{ url }}{{ /image }}');"></div>
+</div>
+{{ /if }} {{ /products_b }}

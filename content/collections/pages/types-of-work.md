@@ -3,7 +3,7 @@ id: ccd59c96-2260-47b4-ae01-d4ead8921262
 blueprint: types_of_work
 title: 'Types Of Work'
 updated_by: 1
-updated_at: 1649887022
+updated_at: 1649893319
 template: pages/types-of-work
 image_a:
   - content/Group-202204140944.png
@@ -17,7 +17,7 @@ products_b:
     type: new_set
     enabled: true
     image:
-      - content/mimi-thian-54uolC2jjm4-unsplash-1649885638.jpg
+      - content/mimi-thian-54uolC2jjm4-unsplash.jpg
     title: |-
       Permanent
       Employment

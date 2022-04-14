@@ -37,3 +37,169 @@ sections:
           listable: hidden
           instructions_position: above
           read_only: false
+  section_a:
+    display: 'Section A'
+    fields:
+      -
+        handle: image_a
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: 'Image A'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: title_a
+        field:
+          antlers: false
+          display: 'Title A'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: content_a1
+        field:
+          antlers: false
+          display: 'Content A1'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: content_a2
+        field:
+          antlers: false
+          display: 'Content A2'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  section_b:
+    display: 'Section B'
+    fields:
+      -
+        handle: title_b
+        field:
+          antlers: false
+          display: 'Title B'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: content_b
+        field:
+          antlers: false
+          display: 'Content B'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  section_c:
+    display: 'Section C'
+    fields:
+      -
+        handle: title_c
+        field:
+          antlers: false
+          display: 'Title C'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: content_c
+        field:
+          antlers: false
+          display: 'Content C'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  section_d:
+    display: 'Section D'
+    fields:
+      -
+        handle: title_d
+        field:
+          antlers: false
+          display: 'Title D'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: content_d
+        field:
+          antlers: false
+          display: 'Content D'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  section_e:
+    display: 'Section E'
+    fields:
+      -
+        handle: title_e
+        field:
+          antlers: false
+          display: 'Title E'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: content_e
+        field:
+          antlers: false
+          display: 'Content E'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  section_f:
+    display: 'Section F'
+    fields:
+      -
+        handle: image_f
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: 'Image F'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: content_f
+        field:
+          antlers: false
+          display: 'Content F'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false

@@ -20,7 +20,7 @@ class Subscribers extends Component
     public $show_message_success;
     public $show_message_failure;
 
-    protected $listeners = ['setGoogleRecaptchaToken', 'hideMessageSuccess', 'hideMessageFailure'];
+    protected $listeners = ['setGoogleRecaptchaTokenSubscriber', 'hideMessageSuccessSubscriber', 'hideMessageFailureSubscriber'];
 
     public function mount(): void
     {
@@ -28,7 +28,7 @@ class Subscribers extends Component
         $this->google = GlobalSet::findByHandle('google')->in('default')->data()->all();
     }
 
-    public function setGoogleRecaptchaToken($token): void
+    public function setGoogleRecaptchaTokenSubscriber($token): void
     {
         $this->google_recaptcha_token = $token;
 
@@ -72,12 +72,12 @@ class Subscribers extends Component
         }
     }
 
-    public function hideMessageSuccess(): void
+    public function hideMessageSuccessSubscriber(): void
     {
         $this->show_message_success = false;
     }
 
-    public function hideMessageFailure(): void
+    public function hideMessageFailureSubscriber(): void
     {
         $this->show_message_failure = false;
     }

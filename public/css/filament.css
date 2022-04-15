@@ -2837,11 +2837,14 @@ select{
 .ml-0{
   margin-left: 0px;
 }
+.mb-\[100px\]{
+  margin-bottom: 100px;
+}
+.mb-\[20px\]{
+  margin-bottom: 20px;
+}
 .-mb-7{
   margin-bottom: -1.75rem;
-}
-.mt-\[\]{
-  margin-top: ;
 }
 .block{
   display: block;
@@ -2944,6 +2947,9 @@ select{
 }
 .h-\[120vh\]{
   height: 120vh;
+}
+.h-\[500px\]{
+  height: 500px;
 }
 .h-0{
   height: 0px;
@@ -3061,6 +3067,9 @@ select{
 }
 .w-\[20\%\]{
   width: 20%;
+}
+.w-\[180px\]{
+  width: 180px;
 }
 .min-w-0{
   min-width: 0px;
@@ -3409,6 +3418,10 @@ select{
 }
 .gap-y-\[10px\]{
   row-gap: 10px;
+}
+.gap-x-\[10px\]{
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
 .gap-y-\[30px\]{
   row-gap: 30px;
@@ -4002,17 +4015,25 @@ select{
   padding-left: 0.375rem;
   padding-right: 0.375rem;
 }
-.py-\[30px\]{
-  padding-top: 30px;
-  padding-bottom: 30px;
+.py-\[15px\]{
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
-.px-\[60px\]{
-  padding-left: 60px;
-  padding-right: 60px;
+.px-\[30px\]{
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .px-5{
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+.py-\[8px\]{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.px-\[12px\]{
+  padding-left: 12px;
+  padding-right: 12px;
 }
 .py-\[70px\]{
   padding-top: 70px;
@@ -4022,10 +4043,6 @@ select{
   padding-left: 15px;
   padding-right: 15px;
 }
-.py-\[15px\]{
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
 .py-\[5px\]{
   padding-top: 5px;
   padding-bottom: 5px;
@@ -4033,6 +4050,10 @@ select{
 .px-\[20px\]{
   padding-left: 20px;
   padding-right: 20px;
+}
+.py-\[30px\]{
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .px-\[40px\]{
   padding-left: 40px;
@@ -4053,6 +4074,10 @@ select{
 .py-\[40px\]{
   padding-top: 40px;
   padding-bottom: 40px;
+}
+.px-\[60px\]{
+  padding-left: 60px;
+  padding-right: 60px;
 }
 .pt-6{
   padding-top: 1.5rem;
@@ -4138,6 +4163,9 @@ select{
 .pt-\[130px\]{
   padding-top: 130px;
 }
+.pb-\[100px\]{
+  padding-bottom: 100px;
+}
 .pb-\[75px\]{
   padding-bottom: 75px;
 }
@@ -4146,6 +4174,9 @@ select{
 }
 .pb-\[120px\]{
   padding-bottom: 120px;
+}
+.pt-\[40px\]{
+  padding-top: 40px;
 }
 .pl-10{
   padding-left: 2.5rem;
@@ -4210,8 +4241,8 @@ select{
 .text-\[16px\]{
   font-size: 16px;
 }
-.text-\[60px\]{
-  font-size: 60px;
+.text-\[30px\]{
+  font-size: 30px;
 }
 .text-\[18px\]{
   font-size: 18px;
@@ -4224,9 +4255,6 @@ select{
 }
 .text-\[25px\]{
   font-size: 25px;
-}
-.text-\[30px\]{
-  font-size: 30px;
 }
 .text-\[56px\]{
   font-size: 56px;
@@ -4797,6 +4825,10 @@ select{
   --tw-scale-x: 1.05;
   --tw-scale-y: 1.05;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:cursor-pointer:hover{
+  cursor: pointer;
 }
 
 .hover\:border-gray-300:hover{
@@ -6386,14 +6418,14 @@ select{
   .md\:text-\[60px\]{
     font-size: 60px;
   }
+  .md\:text-\[45px\]{
+    font-size: 45px;
+  }
   .md\:text-\[75px\]{
     font-size: 75px;
   }
   .md\:text-\[26px\]{
     font-size: 26px;
-  }
-  .md\:text-\[45px\]{
-    font-size: 45px;
   }
   .md\:text-\[120px\]{
     font-size: 120px;
@@ -6619,6 +6651,9 @@ select{
   .xl\:ml-\[15px\]{
     margin-left: 15px;
   }
+  .xl\:mt-\[-270px\]{
+    margin-top: -270px;
+  }
   .xl\:mb-\[90px\]{
     margin-bottom: 90px;
   }
@@ -6645,21 +6680,6 @@ select{
   }
   .xl\:ml-auto{
     margin-left: auto;
-  }
-  .xl\:mt-\[\]{
-    margin-top: ;
-  }
-  .xl\:mt-\[-\]{
-    margin-top: -;
-  }
-  .xl\:mt-\[-2\]{
-    margin-top: -2;
-  }
-  .xl\:mt-\[-270\]{
-    margin-top: -270;
-  }
-  .xl\:mt-\[-270px\]{
-    margin-top: -270px;
   }
   .xl\:block{
     display: block;
@@ -6744,6 +6764,9 @@ select{
   .xl\:items-center{
     align-items: center;
   }
+  .xl\:justify-start{
+    justify-content: flex-start;
+  }
   .xl\:justify-end{
     justify-content: flex-end;
   }
@@ -6770,20 +6793,28 @@ select{
   .xl\:bg-opacity-0{
     --tw-bg-opacity: 0;
   }
+  .xl\:py-\[30px\]{
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .xl\:px-\[60px\]{
+    padding-left: 60px;
+    padding-right: 60px;
+  }
   .xl\:pt-\[140px\]{
     padding-top: 140px;
   }
   .xl\:text-\[80px\]{
     font-size: 80px;
   }
+  .xl\:text-\[60px\]{
+    font-size: 60px;
+  }
   .xl\:text-\[100px\]{
     font-size: 100px;
   }
   .xl\:text-\[34px\]{
     font-size: 34px;
-  }
-  .xl\:text-\[60px\]{
-    font-size: 60px;
   }
   .xl\:text-\[160px\]{
     font-size: 160px;

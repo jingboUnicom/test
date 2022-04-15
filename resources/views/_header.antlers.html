@@ -1,5 +1,5 @@
 <header x-data="{ scrolled: false }" x-on:scroll.window="scrolled = window.scrollY > 0"
-	x-init="scrolled = window.scrollY > 0" x-bind:class="{ 'bg-none': !scrolled, 'bg-primary': scrolled }"
+	x-init="scrolled = window.scrollY > 0" x-bind:class="{ 'bg-none': !scrolled, 'bg-primary shadow-lg': scrolled }"
 	class="hidden xl:block fixed top-0 w-full transition-all z-50">
 	<nav class="w-10/12 mx-auto px-[15px] py-[15px] flex items-stretch justify-between">
 		<a href="{{ homepage }}">
@@ -42,7 +42,7 @@
 	</nav>
 </header>
 <header x-data="{ scrolled: false }" x-on:scroll.window="scrolled = window.scrollY > 200"
-	x-init="scrolled = window.scrollY > 200" x-bind:class="{ 'bg-none': !scrolled, 'bg-primary': scrolled }"
+	x-init="scrolled = window.scrollY > 200" x-bind:class="{ 'bg-none': !scrolled, 'bg-primary shadow-lg': scrolled }"
 	class="block xl:hidden fixed top-0 w-full transition-all z-50">
 	<div x-data="{ sidemenu: false }">
 		<div class="container mx-auto px-[15px] py-[15px]  flex items-center justify-between">
@@ -68,7 +68,7 @@
 					x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
 					<div class="bg-black bg-opacity-[50%] absolute inset-0"></div>
 				</div>
-				<div class="bg-primary w-full max-w-xs py-[30px] px-[40px] relative overflow-auto" x-show="sidemenu"
+				<div class="bg-primary shdaow-lg w-full max-w-xs py-[30px] px-[40px] relative overflow-auto" x-show="sidemenu"
 					x-transition:enter="transition ease-in-out duration-300 transform"
 					x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
 					x-transition:leave="transition ease-in-out duration-300 transform"
@@ -90,7 +90,7 @@
 							<li>
 								<a class="flex items-center h-full group"
 									href="{{ url }}"><span
-										class="font-primary font-semibold text-[16px] text-white text-center uppercase bg-primary-150 group-hover:bg-primary-700 rounded-full py-[5px] px-[20px] transition-all">{{
+										class="font-primary font-semibold text-[16px] text-primary text-center uppercase bg-primary-150 group-hover:text-white group-hover:bg-primary-700 rounded-full py-[5px] px-[20px] transition-all">{{
 										title }}</span></a>
 							</li>
 							{{ /nav:portal }}

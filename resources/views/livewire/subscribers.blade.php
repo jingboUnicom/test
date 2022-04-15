@@ -4,7 +4,7 @@
         {{ $content['title_1'] }}
     </div>
     <div class="bg-primary-150 p-[15px] border-2 border-primary rounded-xl relative">
-        <form wire:submit.prevent="$emit('getGoogleRecaptchaToken')">
+        <form wire:submit.prevent="$emit('getGoogleRecaptchaTokenSubscriber')">
             <div class="grid grid-cols-12 gap-y-[15px] gap-x-0 xl:gap-y-0 xl:gap-x-[15px]">
                 <div class="col-span-12">
                     <div class="font-secondary font-bold text-[20px] text-primary uppercase mb-[15px] xl:ml-[15px]">{{
@@ -13,7 +13,7 @@
                 <div class="col-span-12 xl:col-span-9">
                     <input wire:model="email" type="text" placeholder="{{ $content['label_email'] }}"
                         class="font-secondary bg-transparent w-full border-2 border-primary rounded-lg placeholder:font-secondary placeholder:font-semibold placeholder:text-[16px] placeholder:text-primary">
-                    @error('email')<small class="font-primary text-red-500">{{ $message }}</small> @enderror
+                    @error('email') <small class="font-primary text-red-500">{{ $message }}</small> @enderror
                 </div>
                 <div class="col-span-12 xl:col-span-3">
                     <button wire:loading.attr="disabled" type="submit"
@@ -28,13 +28,13 @@
         <small class="font-primary text-red-500">{{ $content['error_recaptcha'] }}</small>
         @endif
         @if($show_message_success === true)
-        <small x-data="" x-init="setTimeout(() => { $wire.emitSelf('hideMessageSuccess') }, 2000);"
+        <small x-data="" x-init="setTimeout(() => { $wire.emitSelf('hideMessageSuccessSubscriber') }, 2000);"
             class="font-primary text-green-500">
             {{ $content['message_success'] }}
         </small>
         @endif
         @if($show_message_failure === true)
-        <small x-data="" x-init="setTimeout(() => { $wire.emitSelf('hideMessageFailure') }, 2000);"
+        <small x-data="" x-init="setTimeout(() => { $wire.emitSelf('hideMessageFailureSubscriber') }, 2000);"
             class="font-primary text-red-500">
             {{ $content['message_failure'] }}
         </small>
@@ -53,11 +53,11 @@
     <script src="https://www.google.com/recaptcha/api.js?render={{ $google['google_recaptcha_site_key'] }}"></script>
     <script>
         document.addEventListener('livewire:load', function () {
-            Livewire.on('getGoogleRecaptchaToken', () => {
+            Livewire.on('getGoogleRecaptchaTokenSubscriber', () => {
                 grecaptcha.ready(function() {
                     grecaptcha.execute('{{ $google["google_recaptcha_site_key"] }}', {action: 'submit'})
                     .then(function(token) {
-                        @this.emitSelf('setGoogleRecaptchaToken', token);
+                        @this.emitSelf('setGoogleRecaptchaTokenSubscriber', token);
                     });
                 });
             });

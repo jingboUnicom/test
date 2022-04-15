@@ -1,46 +1,82 @@
-<div>
+<div class="w-full">
     <div
-        class="bg-primary-150 py-[15px] xl:py-[30px] px-[30px] xl:px-[60px] border-2 border-primary rounded-xl relative xl:mt-[-270px]">
+        class="bg-primary-150 py-[15px] xl:py-[30px] px-[30px] xl:px-[60px] border-2 border-primary rounded-xl relative">
         <div class="font-primary font-semibold text-[30px] md:text-[45px] xl:text-[60px] text-primary mb-[15px]">{{
             $content['title'] }}</div>
-        <div class="font-primary text-[18px] text-primary mb-[30px]">{{ $content['content'] }}</div>
         <form wire:submit.prevent="$emit('getGoogleRecaptchaToken')">
-            <div class="grid grid-cols-12 gap-y-[10px] gap-x-0">
-                <div class="col-span-12">
+            <div class="grid grid-cols-12 gap-y-[10px] gap-x-[10px]">
+                <div class="col-span-12 xl:col-span-6">
                     <input wire:model="name" type="text" placeholder="{{ $content['label_name'] }}"
                         class="font-secondary bg-primary-75 w-full border-2 border-primary rounded-lg placeholder:font-secondary placeholder:font-semibold placeholder:text-[16px] placeholder:text-primary">
                     @error('name') <small class="font-primary text-red-500">{{ $message }}</small> @enderror
                 </div>
-                <div class="col-span-12">
+                <div class="col-span-12 xl:col-span-6">
                     <input wire:model="surname" type="text" placeholder="{{ $content['label_surname'] }}"
                         class="font-secondary bg-primary-75 w-full border-2 border-primary rounded-lg placeholder:font-secondary placeholder:font-semibold placeholder:text-[16px] placeholder:text-primary">
                     @error('surname') <small class="font-primary text-red-500">{{ $message }}</small> @enderror
                 </div>
-                <div class="col-span-12">
+                <div class="col-span-12 xl:col-span-6">
                     <input wire:model="email" type="text" placeholder="{{ $content['label_email'] }}"
                         class="font-secondary bg-primary-75 w-full border-2 border-primary rounded-lg placeholder:font-secondary placeholder:font-semibold placeholder:text-[16px] placeholder:text-primary">
                     @error('email') <small class="font-primary text-red-500">{{ $message }}</small> @enderror
                 </div>
-                <div class="col-span-12">
+                <div class="col-span-12 xl:col-span-6">
                     <input wire:model="phone" type="text" placeholder="{{ $content['label_phone'] }}"
                         class="font-secondary bg-primary-75 w-full border-2 border-primary rounded-lg placeholder:font-secondary placeholder:font-semibold placeholder:text-[16px] placeholder:text-primary">
                     @error('phone') <small class="font-primary text-red-500">{{ $message }}</small> @enderror
                 </div>
                 <div class="col-span-12">
-                    <select wire:model="enquiry"
-                        class="bg-primary-75 w-full border-2 border-primary rounded-lg font-secondary font-semibold text-[16px] text-primary">
-                        <option selected>{{ $content['label_enquiry'] }}</option>
-                        @foreach($content['option_enquiry'] as $key => $option)
-                        <option value="{{ $option['question'] }}">{{ $option['question'] }}</option>
-                        @endforeach
-                    </select>
-                    @error('enquiry') <small class="font-primary text-red-500">{{ $message }}</small> @enderror
+                    <input wire:model="category_text" type="text" placeholder="{{ $content['label_category_text'] }}"
+                        class="font-secondary bg-primary-75 w-full border-2 border-primary rounded-lg placeholder:font-secondary placeholder:font-semibold placeholder:text-[16px] placeholder:text-primary">
+                    @error('category_text') <small class="font-primary text-red-500">{{ $message }}</small> @enderror
                 </div>
-                <div class="col-span-12">
-                    <textarea wire:model="notes" placeholder="{{ $content['label_notes'] }}" rows=10
-                        class="font-secondary bg-primary-75 w-full border-2 border-primary rounded-lg placeholder:font-secondary placeholder:font-semibold placeholder:text-[16px] placeholder:text-primary"></textarea>
-                    @error('notes') <small class="font-primary text-red-500">{{ $message }}</small>
-                    @enderror
+                <div class="col-span-12 xl:col-span-6">
+                    <div class="bg-primary-200 w-full h-[44px] border-2 border-primary rounded-lg relative">
+                        <label for="resume"
+                            class="absolute inset-0 hover:cursor-pointer flex items-center justify-between py-[8px] px-[12px]">
+                            <div class="font-secondary font-semibold text-[16px] text-primary">
+                                {{ $content['label_resume'] }}
+                            </div>
+                            @if ($this->resume)
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            @else
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                            </svg>
+                            @endif
+                            <input id="resume" wire:model="resume" type="file" class="sr-only" />
+                        </label>
+                    </div>
+                    @error('resume') <small class="font-primary text-red-500">{{ $message }}</small> @enderror
+                </div>
+                <div class="col-span-12 xl:col-span-6">
+                    <div class="bg-primary-200 w-full h-[44px] border-2 border-primary rounded-lg relative">
+                        <label for="cover_letter"
+                            class="absolute inset-0 hover:cursor-pointer flex items-center justify-between py-[8px] px-[12px]">
+                            <div class="font-secondary font-semibold text-[16px] text-primary">
+                                {{ $content['label_cover_letter'] }}
+                            </div>
+                            @if ($this->cover_letter)
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            @else
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                            </svg>
+                            @endif
+                            <input id="cover_letter" wire:model="cover_letter" type="file" class="sr-only" />
+                        </label>
+                    </div>
+                    @error('cover_letter') <small class="font-primary text-red-500">{{ $message }}</small> @enderror
                 </div>
                 <div class="col-span-12">
                     <button wire:loading.attr="disabled" type="submit"
@@ -77,8 +113,6 @@
             </svg>
         </div>
     </div>
-    <script src="{{ mix('js/contact-us.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ $google['google_maps_api_key'] }}"></script>
     <script src="https://www.google.com/recaptcha/api.js?render={{ $google['google_recaptcha_site_key'] }}">
     </script>
     <script>

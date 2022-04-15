@@ -14,16 +14,6 @@ sections:
           instructions_position: above
           read_only: false
       -
-        handle: content
-        field:
-          antlers: false
-          display: Content
-          type: textarea
-          icon: textarea
-          listable: hidden
-          instructions_position: above
-          read_only: false
-      -
         handle: label_name
         field:
           input_type: text
@@ -123,69 +113,66 @@ sections:
           instructions_position: above
           read_only: false
       -
-        handle: label_enquiry
+        handle: label_category_text
         field:
           input_type: text
           antlers: false
-          display: 'Label Enquiry'
+          display: 'Label Category Text'
           type: text
           icon: text
           listable: hidden
           instructions_position: above
           read_only: false
       -
-        handle: option_enquiry
-        field:
-          collapse: false
-          sets:
-            new_set:
-              display: 'New Set'
-              fields:
-                -
-                  handle: question
-                  field:
-                    input_type: text
-                    antlers: false
-                    display: Question
-                    type: text
-                    icon: text
-                    listable: hidden
-                    instructions_position: above
-                    read_only: false
-          display: 'Option Enquiry'
-          type: replicator
-          icon: replicator
-          listable: hidden
-          instructions_position: above
-          read_only: false
-      -
-        handle: error_enquiry
+        handle: error_category_text
         field:
           input_type: text
           antlers: false
-          display: 'Error Enquiry'
+          display: 'Error Category Text'
           type: text
           icon: text
           listable: hidden
           instructions_position: above
           read_only: false
       -
-        handle: label_notes
+        handle: label_resume
         field:
           input_type: text
           antlers: false
-          display: 'Label Notes'
+          display: 'Label Resume'
           type: text
           icon: text
           listable: hidden
           instructions_position: above
           read_only: false
       -
-        handle: error_notes
+        handle: error_resume
         field:
           input_type: text
           antlers: false
-          display: 'Error Notes'
+          display: 'Error Resume'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_cover_letter
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Cover Letter'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_cover_letter
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Cover Letter'
           type: text
           icon: text
           listable: hidden

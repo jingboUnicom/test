@@ -66,6 +66,3 @@ sections:
           listable: hidden
           instructions_position: above
           read_only: false
-  main:
-    display: Main
-    fields: {  }

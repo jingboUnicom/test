@@ -9,3 +9,4 @@ data:
   error_recaptcha: 'Please refresh the page and try again'
   label_submit: Subscribe
   message_success: 'Thankyou for subscribing'
+  message_failure: 'Failed to subscribe, please refresh the page and try again'

@@ -18,8 +18,9 @@ class Subscribers extends Component
 
     public $show_error_recaptcha;
     public $show_message_success;
+    public $show_message_failure;
 
-    protected $listeners = ['setGoogleRecaptchaToken', 'hideMessageSuccess'];
+    protected $listeners = ['setGoogleRecaptchaToken', 'hideMessageSuccess', 'hideMessageFailure'];
 
     public function mount(): void
     {
@@ -36,9 +37,9 @@ class Subscribers extends Component
         if ($result['success'] && ($result['score'] > 0.3)) {
             $this->show_error_recaptcha = false;
             $this->submit();
+        } else {
+            $this->show_error_recaptcha = true;
         }
-
-        $this->show_error_recaptcha = true;
     }
 
     public function submit(): void
@@ -54,22 +55,31 @@ class Subscribers extends Component
             ]
         );
 
-        Subscriber::create([
+        $subscriber = Subscriber::create([
             'email' => $data['email'],
         ])->save();
 
-        $this->reset([
-            'email',
-            'google_recaptcha_token',
-            'show_error_recaptcha',
-        ]);
+        if ($subscriber) {
+            $this->reset([
+                'email',
+                'google_recaptcha_token',
+                'show_error_recaptcha',
+            ]);
 
-        $this->show_message_success = true;
+            $this->show_message_success = true;
+        } else {
+            $this->show_message_failure = true;
+        }
     }
 
     public function hideMessageSuccess(): void
     {
         $this->show_message_success = false;
+    }
+
+    public function hideMessageFailure(): void
+    {
+        $this->show_message_failure = false;
     }
 
     public function render(): View

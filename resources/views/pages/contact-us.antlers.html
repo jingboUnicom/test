@@ -1,5 +1,43 @@
 <div class="h-[90vh] w-full bg-primary pt-[130px]">
     <div id="map" x-init="$store.coordinates.initLatitudeLongitude({{ company:latitude }}, {{ company:longitude }}); window.initMap();" class="h-full w-full"></div>
 </div>
-
-{{ livewire:contact-us }}
+<div class="container mx-auto px-[15px]">
+    <div class="grid grid-cols-12">
+        <div class="col-span-12 py-[100px] xl:col-span-5">
+            <img class="mb-[60px]" src="{{ image_a }}{{ url }}{{ /image_a }}" alt="" />
+            <div class="mb-[30px] font-primary text-[40px] font-semibold text-primary">{{ title_a }}</div>
+            {{ company }}
+            <div class="mb-[30px]">
+                <div class="flex">
+                    <div class="mr-[15px] font-primary text-[16px] text-primary">
+                        <div>{{ label_address }}</div>
+                    </div>
+                    <div class="font-primary text-[16px] text-primary">
+                        <div>{{ address | nl2br }}</div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="mr-[15px] font-primary text-[16px] text-primary">
+                        <div>{{ label_phone }}</div>
+                    </div>
+                    <div class="font-primary text-[16px] text-primary transition-all hover:text-primary-150">
+                        <a href="tel:{{ phone }}">{{ phone }}</a>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="mr-[15px] font-primary text-[16px] text-primary">
+                        <div>{{ label_email }}</div>
+                    </div>
+                    <div class="font-primary text-[16px] text-primary transition-all hover:text-primary-150">
+                        <a href="mailto:{{ email }}">{{ email }}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="font-primary text-[16px] text-primary">{{ label_operating_hours }}</div>
+            {{ operating_hours }}
+            <div class="font-primary text-[16px] text-primary"><span>{{ day }}</span>&nbsp;{{ time }}</div>
+            {{ /operating_hours }} {{ /company }}
+        </div>
+        <div class="col-span-12 xl:col-span-7">{{ livewire:contact-us }}</div>
+    </div>
+</div>

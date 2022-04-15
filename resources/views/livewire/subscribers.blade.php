@@ -33,6 +33,12 @@
             {{ $content['message_success'] }}
         </small>
         @endif
+        @if($show_message_failure === true)
+        <small x-data="" x-init="setTimeout(() => { $wire.emitSelf('hideMessageFailure') }, 2000);"
+            class="font-primary text-red-500">
+            {{ $content['message_failure'] }}
+        </small>
+        @endif
         <div wire:loading.delay class="absolute top-[15px] right-[15px]">
             <svg class="animate-spin text-primary w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">

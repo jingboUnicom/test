@@ -31,7 +31,7 @@ window.initMap = function () {
 
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: latitude, lng: longitude },
-        zoom: 16,
+        zoom: 13,
         disableDefaultUI: false,
         styles: [
             {
@@ -39,7 +39,7 @@ window.initMap = function () {
                 elementType: "geometry.fill",
                 stylers: [
                     {
-                        color: "#d3d3d3",
+                        color: "#ADB9E0",
                     },
                 ],
             },
@@ -167,7 +167,7 @@ window.initMap = function () {
                         visibility: "on",
                     },
                     {
-                        color: "#737373",
+                        color: "#4058AA",
                     },
                 ],
             },

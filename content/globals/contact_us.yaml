@@ -1,1 +1,41 @@
 title: 'Contact Us'
+data:
+  title: 'Send an Enquiry'
+  content: 'Want to contact us? Drop us a line below outlining your enquiry, or keep in touch by joining us on LinkedIn, Facebook or Instagram. If you are job hunting, please browse our jobs or submit your CV.'
+  label_name: 'Given Name*'
+  error_name: 'Please enter your given name'
+  label_surname: 'Family Name*'
+  error_surname: 'Please enter your family name'
+  label_email: 'Email Address*'
+  error_email_1: 'Please enter your email address'
+  error_email_2: 'Please enter a valid email address'
+  label_phone: 'Contact Number*'
+  error_phone: 'Please enter your contact number'
+  label_enquiry: 'What is your query about?*'
+  option_enquiry:
+    -
+      question: 'Where is your query about?'
+      type: new_set
+      enabled: true
+    -
+      question: 'When is your query about?'
+      type: new_set
+      enabled: true
+  error_enquiry: 'Please select an enquiry'
+  label_notes: 'Your Message*'
+  error_notes: 'Please enter your message'
+  error_recaptcha: 'Please refresh the page and try again'
+  label_submit: Submit
+  message_success: 'We will get back to you as soon as possible'
+  message_failure: 'Failed to submit, please refresh the page and try again'
+  recipients:
+    -
+      name: 'Kevin Lim'
+      email: kevin@theia.co.nz
+      type: new_set
+      enabled: true
+    -
+      name: 'Eric Zhou'
+      email: eric@theia.co.nz
+      type: new_set
+      enabled: true

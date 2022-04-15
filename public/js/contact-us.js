@@ -3003,13 +3003,13 @@ window.initMap = function () {
       lat: latitude,
       lng: longitude
     },
-    zoom: 16,
+    zoom: 13,
     disableDefaultUI: false,
     styles: [{
       featureType: "water",
       elementType: "geometry.fill",
       stylers: [{
-        color: "#d3d3d3"
+        color: "#ADB9E0"
       }]
     }, {
       featureType: "transit",
@@ -3094,7 +3094,7 @@ window.initMap = function () {
       stylers: [{
         visibility: "on"
       }, {
-        color: "#737373"
+        color: "#4058AA"
       }]
     }, {
       featureType: "poi",

@@ -37,3 +37,71 @@ sections:
           listable: hidden
           instructions_position: above
           read_only: false
+  section_a:
+    display: 'Section A'
+    fields:
+      -
+        handle: image_a1
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: 'Image A1'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: image_a2
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: 'Image A2'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: title_a
+        field:
+          antlers: false
+          display: 'Title A'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: content_a
+        field:
+          antlers: false
+          display: 'Content A'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  section_b:
+    display: 'Section B'
+    fields:
+      -
+        handle: image_b
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: 'Image B'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false

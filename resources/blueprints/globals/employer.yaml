@@ -1,0 +1,284 @@
+sections:
+  main:
+    display: Form
+    fields:
+      -
+        handle: title
+        field:
+          antlers: false
+          display: Title
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_company_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Company Name'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_company_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Company Name'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_position
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Position'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_position
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Position'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Name'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Name'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_surname
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Surname'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_surname
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Surname'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_email
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Email'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_email_1
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Email 1'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_email_2
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Email 2'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_phone
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Phone'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_phone
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Phone'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_job_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Job Title'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_job_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Job Title'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_job_description
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Job Description'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_job_description
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Job Description'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: error_recaptcha
+        field:
+          input_type: text
+          antlers: false
+          display: 'Error Recaptcha'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_submit
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Submit'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: message_success
+        field:
+          input_type: text
+          antlers: false
+          display: 'Message Success'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: message_failure
+        field:
+          input_type: text
+          antlers: false
+          display: 'Message Failure'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  email:
+    display: Email
+    fields:
+      -
+        handle: recipients
+        field:
+          collapse: false
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  handle: name
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Name
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: email
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Email
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+          display: Recipients
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          read_only: false

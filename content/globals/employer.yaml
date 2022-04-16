@@ -1,0 +1,38 @@
+title: Employer
+data:
+  title: |-
+    Recruiting now?
+    If you have a vacancy to fill please
+    complete the form below.
+  label_company_name: 'Your Organisation*'
+  error_company_name: 'Please fill in your organisation'
+  label_position: 'Your Position*'
+  error_position: 'Please fill in your position'
+  label_name: 'Given Name*'
+  error_name: 'Please enter your given name'
+  label_surname: 'Family Name*'
+  error_surname: 'Please enter your family name'
+  label_email: 'Email Address*'
+  error_email_1: 'Please enter your email address'
+  error_email_2: 'Please enter a valid email address'
+  label_phone: 'Contact Number*'
+  error_phone: 'Please enter your contact number'
+  label_job_title: 'What position are you looking for?*'
+  error_job_title: 'Please tell us what position you are looking for'
+  label_job_description: 'Further information about the role*'
+  error_job_description: 'Please tell us further information about the role*'
+  error_recaptcha: 'Please refresh the page and try again'
+  label_submit: 'Send Now'
+  message_success: 'We will get back to you as soon as possible'
+  message_failure: 'Failed to submit, please refresh the page and try again'
+  recipients:
+    -
+      name: 'Kevin Lim'
+      email: kevin@theia.co.nz
+      type: new_set
+      enabled: true
+    -
+      name: 'Eric Zhou'
+      email: eric@theia.co.nz
+      type: new_set
+      enabled: true

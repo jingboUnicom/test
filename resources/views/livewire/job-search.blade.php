@@ -1,4 +1,4 @@
-<div class="bg-primary-150 bg-opacity-75 p-[15px] border-2 border-primary rounded-xl relative">
+<div class="w-full bg-primary-150 bg-opacity-75 p-[15px] border-2 border-primary rounded-xl relative">
     <form wire:submit.prevent="submit">
         <div class="grid grid-cols-12 gap-y-[15px] gap-x-0 xl:gap-y-0 xl:gap-x-[15px]">
             <div class="col-span-12">

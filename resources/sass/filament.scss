@@ -4,6 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+	@apply w-[8px];
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-primary-75;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-primary rounded-[5px];
+
+	&:hover {
+		@apply bg-primary-400;
+	}
+}
+
 .filament-body {
 	@apply bg-primary-75;
 }

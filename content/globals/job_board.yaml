@@ -6,3 +6,14 @@ data:
   label_location: Locations
   label_submit: Search
   link_search: 'entry::42a1e225-456d-4663-b5cd-b7eaf74d447b'
+  label_reset: Reset
+  label_jobs_found: 'jobs found'
+  label_hours_ago: 'h ago'
+  label_days_ago: 'd ago'
+  label_view: 'View Details'
+  label_reference: 'Reference:'
+  label_search_error: |-
+    Sorry, we couldn't find anything. Maybe try taking the following steps...
+
+    - Change or remove filters such as classification to broaden your search.
+    - Check for spelling errors.

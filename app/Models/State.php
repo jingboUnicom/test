@@ -15,6 +15,9 @@ class State extends Model
         'name',
     ];
 
+    const STATE_CURRENT = 'Current';
+    const STATE_EXPIRED = 'Expired';
+
     // Relationships
 
     // Inversed Relationships

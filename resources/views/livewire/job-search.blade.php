@@ -5,15 +5,15 @@
                 <div class="font-secondary font-bold text-[20px] text-primary uppercase mb-[15px] xl:ml-[15px]">{{
                     $content['title_search'] }}</div>
             </div>
-            <div class="col-span-12 xl:col-span-3">
+            <div class="col-span-12 xl:col-span-4">
                 <input wire:model="keyword" type="text" placeholder="{{ $content['label_keyword'] }}"
-                    class="font-secondary bg-transparent w-full border-2 border-primary rounded-lg placeholder:font-secondary placeholder:font-semibold placeholder:text-[16px] placeholder:text-primary">
+                    class="font-secondary font-semibold  bg-transparent w-full border-2 border-primary rounded-lg placeholder:font-secondary placeholder:font-semibold placeholder:text-[16px] placeholder:text-primary">
             </div>
             <div class="col-span-12 xl:col-span-3">
                 <select wire:model="classification"
                     class="bg-transparent w-full border-2 border-primary rounded-lg font-secondary font-semibold text-[16px] text-primary">
-                    <option selected>{{ $content['label_classification'] }}</option>
-                    @foreach($classifications as $key => $value)
+                    <option value="" selected>{{ $content['label_classification'] }}</option>
+                    @foreach(Arr::sort($classifications) as $key => $value)
                     <option value="{{ $key }}">{{ $value }}</option>
                     @endforeach
                 </select>
@@ -21,13 +21,13 @@
             <div class="col-span-12 xl:col-span-3">
                 <select wire:model="location"
                     class="bg-transparent w-full border-2 border-primary rounded-lg font-secondary font-semibold text-[16px] text-primary">
-                    <option selected>{{ $content['label_location'] }}</option>
-                    @foreach($locations as $key => $value)
+                    <option value="" selected>{{ $content['label_location'] }}</option>
+                    @foreach(Arr::sort($locations) as $key => $value)
                     <option value="{{ $key }}">{{ $value }}</option>
                     @endforeach
                 </select>
             </div>
-            <div class="col-span-12 xl:col-span-3">
+            <div class="col-span-12 xl:col-span-2">
                 <button wire:loading.attr="disabled" type="submit"
                     class="font-secondary font-semibold text-[16px] text-primary-150 uppercase bg-primary w-full h-[44px] rounded-lg hover:text-white hover:bg-primary-700 transition-all">
                     {{ $content['label_submit'] }}

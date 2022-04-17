@@ -1,1 +1,26 @@
-{{ livewire:job-ads }}
+<div class="relative z-0 h-[90vh] overflow-hidden bg-cover bg-left-top bg-no-repeat" style="background-image:url('{{ image_a1 }}{{ url }}{{ /image_a1 }}');">
+    <div class="absolute inset-0 z-10 bg-gradient-to-b from-primary-900 opacity-50"></div>
+    <img class="absolute bottom-0 right-0 z-20 translate-y-[25%] translate-x-[25%] transform opacity-50" src="{{ image_a2 }}{{ url }}{{ /image_a2 }}" alt="" />
+    <div class="container absolute inset-0 z-30 mx-auto flex items-center px-[15px]">
+        <div class="grid grid-cols-12 gap-y-[30px] md:gap-y-[45px] xl:gap-y-0">
+            <div class="col-span-12 xl:col-span-7">
+                <div class="font-primary text-[50px] font-semibold leading-[50px] text-white md:text-[75px] md:leading-[75px] xl:text-[100px] xl:leading-[100px]">{{ title_a | nl2br }}</div>
+            </div>
+            <div class="col-span-12 xl:col-span-5">
+                <div class="mb-[40px] font-primary text-[17px] text-white md:mb-[60px] md:text-[26px] xl:mb-[80px] xl:text-[34px]">{{ content_a }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-0 z-10 h-[500px] w-full bg-gradient-to-t from-white"></div>
+</div>
+{{ livewire:jobs }}
+<div class="container mx-auto px-[15px] pt-[100px] pb-[50px]">
+    <div class="flex flex-wrap justify-center gap-y-[40px] gap-x-[40px] xl:flex-nowrap xl:justify-end xl:gap-y-[0]">
+        <img class="self-start" src="{{ image_b}}{{ url }}{{ /image_b }}" alt="" />
+        <div>
+            <div class="font-primary text-[16px] text-primary">{{ content_b | nl2br }}</div>
+            <a class="block font-primary text-[16px] text-primary transition-all hover:text-primary-700" href="tel:{{ company:phone }}">{{ company:phone }}</a>
+            <a class="block font-primary text-[16px] text-primary transition-all hover:text-primary-700" href="mailto:{{ company:email }}">{{ company:email }}</a>
+        </div>
+    </div>
+</div>

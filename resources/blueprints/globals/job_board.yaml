@@ -1,6 +1,6 @@
 sections:
-  form:
-    display: Form
+  search:
+    display: Search
     fields:
       -
         handle: title_search
@@ -66,3 +66,85 @@ sections:
           listable: hidden
           instructions_position: above
           read_only: false
+      -
+        handle: label_reset
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Reset'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  jobs:
+    display: Jobs
+    fields:
+      -
+        handle: label_jobs_found
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Jobs Found'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_hours_ago
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Hours Ago'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_days_ago
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Days Ago'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_view
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label View'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_reference
+        field:
+          input_type: text
+          antlers: false
+          display: 'Label Reference'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: label_search_error
+        field:
+          antlers: false
+          display: 'Label Search Error'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  job:
+    display: Job
+    fields: {  }

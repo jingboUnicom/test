@@ -161,6 +161,9 @@
             </svg>
         </div>
     </div>
+    <script>
+        document.title = '{{ $vacancy->job_title }} | {{ config('app.name') }}';
+    </script>
     <script src="https://www.google.com/recaptcha/api.js?render={{ $google['google_recaptcha_site_key'] }}">
     </script>
     <script>

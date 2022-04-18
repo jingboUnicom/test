@@ -4,6 +4,7 @@ namespace App\Services\JobAdder\API;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 use App\Services\JobAdder\DTO\OAuthData;
@@ -69,5 +70,28 @@ class OAuth
 	public function isAuthorised(): bool
 	{
 		return Cache::get('jobadder::oauth') !== null;
+	}
+
+	public function submitAJobApplication(int $adId, string $firstName, string $lastName, string $email, string $phone): mixed
+	{
+		$response = Http::withHeaders([
+			'Authorization' => 'Bearer ' . $this->cache['access_token']
+		])->post($this->cache['api'] . '/jobboards/' . config('jobadder.board_id') . '/ads/' . $adId . '/applications', [
+			'firstName' => $firstName,
+			'lastName' => $lastName,
+			'email' => $email,
+			'phone' => $phone,
+		]);
+
+		return $response->json();
+	}
+
+	public function submitJobApplicationDocuments(int $adId, int $applicationId, string $attachmentType, string $fileData): mixed
+	{
+		$response = Http::withHeaders([
+			'Authorization' => 'Bearer ' . $this->cache['access_token']
+		])->attach('fileData', File::get($fileData))->post($this->cache['api'] . '/jobboards/' . config('jobadder.board_id') . '/ads/' . $adId . '/applications/' . $applicationId . '/' . $attachmentType);
+
+		return $response->json();
 	}
 }

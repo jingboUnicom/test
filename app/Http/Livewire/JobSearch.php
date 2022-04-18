@@ -23,8 +23,8 @@ class JobSearch extends Component
     public function mount(): void
     {
         $this->content = GlobalSet::findByHandle('job_board')->in('default')->data()->all();
-        $this->classifications = Category::orderBy('name', 'asc')->get(['id', 'name'])->pluck('name', 'id')->all();
-        $this->locations = Location::orderBy('name', 'asc')->get(['id', 'name'])->pluck('name', 'id')->all();
+        $this->classifications = Category::get(['id', 'name'])->pluck('name', 'id')->all();
+        $this->locations = Location::get(['id', 'name'])->pluck('name', 'id')->all();
     }
 
     public function submit(): mixed

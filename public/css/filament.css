@@ -3006,6 +3006,21 @@ select{
 .h-0{
   height: 0px;
 }
+.h-\[\]{
+  height: ;
+}
+.h-1{
+  height: 0.25rem;
+}
+.h-\[1\]{
+  height: 1;
+}
+.h-\[100\]{
+  height: 100;
+}
+.h-\[100vh\]{
+  height: 100vh;
+}
 .max-h-60{
   max-height: 15rem;
 }
@@ -3577,6 +3592,10 @@ select{
 .gap-y-\[15p\]{
   row-gap: 15p;
 }
+.gap-x-\[30px\]{
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
 .space-x-8 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -4086,6 +4105,9 @@ select{
 .p-\[50px\]{
   padding: 50px;
 }
+.p-\[60px\]{
+  padding: 60px;
+}
 .px-4{
   padding-left: 1rem;
   padding-right: 1rem;
@@ -4242,6 +4264,18 @@ select{
   padding-left: 15p;
   padding-right: 15p;
 }
+.py-\[\]{
+  padding-top: ;
+  padding-bottom: ;
+}
+.py-\[80\]{
+  padding-top: 80;
+  padding-bottom: 80;
+}
+.py-\[80px\]{
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
 .pt-6{
   padding-top: 1.5rem;
 }
@@ -4355,6 +4389,27 @@ select{
 }
 .pb-\[50px\]{
   padding-bottom: 50px;
+}
+.pb-\[1x\]{
+  padding-bottom: 1x;
+}
+.pb-\[x\]{
+  padding-bottom: x;
+}
+.pb-\[8x\]{
+  padding-bottom: 8x;
+}
+.pb-\[80x\]{
+  padding-bottom: 80x;
+}
+.pb-\[80px\]{
+  padding-bottom: 80px;
+}
+.pb-\[30px\]{
+  padding-bottom: 30px;
+}
+.pb-\[60px\]{
+  padding-bottom: 60px;
 }
 .text-left{
   text-align: left;
@@ -6599,6 +6654,14 @@ select{
   .md\:gap-y-\[45px\]{
     row-gap: 45px;
   }
+  .md\:gap-x-\[45px\]{
+    -moz-column-gap: 45px;
+         column-gap: 45px;
+  }
+  .md\:gap-x-\[60px\]{
+    -moz-column-gap: 60px;
+         column-gap: 60px;
+  }
   .md\:border-t-0{
     border-top-width: 0px;
   }
@@ -6770,6 +6833,14 @@ select{
   .lg\:px-8{
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+  .lg\:px-7{
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+  .lg\:py-5{
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
   }
   .lg\:pl-80{
     padding-left: 20rem;
@@ -7019,6 +7090,9 @@ select{
   }
   .xl\:pt-\[140px\]{
     padding-top: 140px;
+  }
+  .xl\:pb-\[120px\]{
+    padding-bottom: 120px;
   }
   .xl\:text-\[80px\]{
     font-size: 80px;

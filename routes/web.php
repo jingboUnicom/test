@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::statamic('job/{ja_ad_id}', 'pages.job')->name('job');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });

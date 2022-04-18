@@ -30,7 +30,7 @@
             <div class="col-span-12 xl:col-span-2">
                 <button wire:loading.attr="disabled" type="submit"
                     class="font-secondary font-semibold text-[16px] text-primary-150 uppercase bg-primary w-full h-[44px] rounded-lg hover:text-white hover:bg-primary-700 transition-all">
-                    {{ $content['label_submit'] }}
+                    {{ $content['label_search'] }}
                 </button>
             </div>
         </div>

@@ -53,8 +53,7 @@
 				<div class="flex items-start justify-between flex-wrap xl:flex-nowrap gap-y-[15px] mb-[30px]">
 					<div
 						class="font-primary font-semibold text-[23px] leading-[23px] xl:text-[30px] xl:leading-[30px] text-primary">
-						{{
-						$vacancy->job_title }}
+						{{ $vacancy->job_title }}
 					</div>
 					<div>
 						<div class="font-secondary font-semibold text-[16px] text-primary">
@@ -68,32 +67,26 @@
 						</div>
 					</div>
 				</div>
-
 				@if ($vacancy->category)
 				<div class="font-primary text-[18px] text-primary">{{ $vacancy->category->name }}</div>
 				@endif
-
 				@if($vacancy->location)
 				<div class="font-primary text-[18px] text-primary">{{ $vacancy->location->name }}</div>
 				@endif
-
 				@if($vacancy->work)
 				<div class="font-primary text-[18px] text-primary">{{ $vacancy->work->name }}</div>
 				@endif
-
 				@if ($vacancy->salary_min && $vacancy->salary_max)
 				<div class="font-primary text-[18px] text-primary">${{ number_format($vacancy->salary_min, 0) }} - ${{
 					number_format($vacancy->salary_max, 0) }}</div>
 				@endif
-
 				@if ($vacancy->short_description)
 				<div class="font-primary font-semibold text-[18px] text-primary mt-[60px] mb-[30px]">
 					@nl2br($vacancy->short_description)
 				</div>
 				@endif
-
 				<div class="flex items-end justify-between flex-wrap xl:flex-nowrap gap-y-[15px]">
-					<button
+					<button wire:click="view({{ $vacancy->ja_ad_id }})"
 						class="font-secondary font-semibold text-[16px] text-primary-150 uppercase bg-primary w-full h-[44px] rounded-lg hover:text-white hover:bg-primary-700 transition-all max-w-[280px]">
 						{{ $content['label_view'] }}
 					</button>

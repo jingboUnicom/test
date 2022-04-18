@@ -45,7 +45,7 @@ class Jobs extends Component
     public function getVacanciesProperty(): LengthAwarePaginator
     {
         $vacancies = Vacancy::where('status', Vacancy::STATUS_SYNCED)
-            ->whereHas('state', fn ($query) => $query->where('name', State::STATE_CURRENT))
+            ->whereHas('state', fn ($query) => $query->where('name', State::STATE_EXPIRED))
             ->when(
                 $this->keyword,
                 fn ($query, $value) =>
@@ -63,7 +63,7 @@ class Jobs extends Component
 
         $this->total = $vacancies->get()->count();
 
-        return  $vacancies->paginate($this->per_page);
+        return $vacancies->paginate($this->per_page);
     }
 
     public function loadMore(): void
@@ -84,6 +84,11 @@ class Jobs extends Component
         Session::flash('location', $this->location);
 
         return redirect(Entry::find(explode('::', $this->content['link_search'])[1])->toArray()['url']);
+    }
+
+    public function view($ja_ad_id)
+    {
+        return redirect()->route('job', $ja_ad_id);
     }
 
     public function render(): View

@@ -4,7 +4,7 @@ data:
   label_keyword: 'Enter keywords*'
   label_classification: Classifications
   label_location: Locations
-  label_submit: Search
+  label_search: Search
   link_search: 'entry::42a1e225-456d-4663-b5cd-b7eaf74d447b'
   label_reset: Reset
   label_jobs_found: 'jobs found'
@@ -17,3 +17,21 @@ data:
 
     - Change or remove filters such as classification to broaden your search.
     - Check for spelling errors.
+  title_form: 'Apply Now'
+  label_name: 'Given Name*'
+  error_name: 'Please enter your given name'
+  label_surname: 'Family Name*'
+  error_surname: 'Please enter your family name'
+  label_email: 'Email Address*'
+  error_email_1: 'Please enter your email address'
+  error_email_2: 'Please enter a valid email address'
+  label_phone: 'Contact Number*'
+  error_phone: 'Please enter your contact number'
+  label_resume: 'Resume*'
+  error_resume: 'Please upload your resume'
+  label_cover_letter: 'Cover Letter*'
+  error_cover_letter: 'Please upload your cover letter'
+  error_recaptcha: 'Please refresh the page and try again'
+  label_submit: 'Apply Now'
+  message_success: 'We will get back to you as soon as possible'
+  message_failure: 'Failed to submit, please refresh the page and try again'

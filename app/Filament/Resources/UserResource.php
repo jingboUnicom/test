@@ -83,7 +83,7 @@ class UserResource extends Resource
                                     ->hidden(function (Closure $get) {
                                         $user = Auth::user();
 
-                                        return $get('id') !== $user->id;
+                                        return !$user->super && ($get('id') !== $user->id);
                                     })
                                     ->columnSpan(12),
                                 Forms\Components\TextInput::make('password_confirmation')
@@ -92,7 +92,7 @@ class UserResource extends Resource
                                     ->hidden(function (Closure $get) {
                                         $user = Auth::user();
 
-                                        return $get('id') !== $user->id;
+                                        return !$user->super && ($get('id') !== $user->id);
                                     })
                                     ->columnSpan(12),
                                 Forms\Components\FileUpload::make('profile_photo_path')

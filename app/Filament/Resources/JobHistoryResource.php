@@ -29,11 +29,11 @@ class JobHistoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
-    protected static ?string $navigationLabel = 'Job Histories';
+    protected static ?string $navigationLabel = 'Job History';
 
     protected static ?string $label = 'Job History';
 
-    protected static ?string $pluralLabel = 'Job Histories';
+    protected static ?string $pluralLabel = 'Job History';
 
     protected static ?string $slug = 'job-histories';
 

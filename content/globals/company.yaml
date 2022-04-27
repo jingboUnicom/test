@@ -2,55 +2,55 @@ title: Company
 data:
   label_address: 'A:'
   address: |-
-    Head Office
-    Level 3, 60 Airdale Street,
-    Auckland CBD, NZ
+    Level 3, 60 Airedale Street,
+    Auckland CBD, 1010
+    New Zealand
   latitude: '-36.85546299399129'
   longitude: '174.7654298688347'
   label_phone: 'P:'
-  phone: '+64960006629'
+  phone: '(09) 600 6629'
   label_email: 'E:'
   email: admin@regeinecareer.com
   label_operating_hours: 'Operating Hours:'
   operating_hours:
     -
       day: 'Mon - Fri:'
-      time: '10am - 6pm'
+      time: '9am - 5:00pm'
       type: new_set
       enabled: true
     -
       day: 'Saturday:'
       time: '10am - 5pm'
       type: new_set
-      enabled: true
+      enabled: false
     -
       day: 'Sunday:'
       time: '10am - 2pm'
       type: new_set
-      enabled: true
+      enabled: false
   logo_header:
-    - content/Group-202204121525.png
+    - logo1-1651021199.png
   logo_footer:
     - content/Group-202204121731.png
-  summary: 'Regeine Career implements the competency-based evaluations and effective career plan of multinational company such as IBM/Google. We also help students to reach internship and employment opportunities through professional consultation services.'
+  summary: 'Regeine Career is full service recruitment company based in Auckland CBD, New Zealand.'
   copyright: '©2020 - 2022 Regeine Career | All Rights Reserved'
   social_media:
     -
       icon:
         - content/instagram.png
-      url: 'https://www.instagram.com/'
+      url: 'https://www.instagram.com/regeinecareer/?hl=en'
       type: new_set
       enabled: true
     -
       icon:
         - content/facebook.png
-      url: 'https://www.facebook.com/'
+      url: 'https://www.facebook.com/Regeine-Career-100804078547911'
       type: new_set
       enabled: true
     -
       icon:
-        - content/wechat.png
-      url: 'https://www.wechat.com/'
+        - linkedin-copy.png
+      url: 'https://www.linkedin.com/company/72011364/admin/'
       type: new_set
       enabled: true
     -
@@ -58,5 +58,5 @@ data:
         - content/twitter.png
       url: 'https://www.twitter.com/'
       type: new_set
-      enabled: true
+      enabled: false
   title_contact_us: 'Contact Us'

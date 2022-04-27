@@ -3,16 +3,16 @@ id: 4f9add21-6e61-42d1-a185-fd40fc0139b9
 blueprint: home
 title: Home
 updated_by: 1
-updated_at: 1649886397
+updated_at: 1651026027
 template: pages/home
 title_a: |-
-  New Zealand's
-  Recruiter
+  New Zealand
+  Recruitment
 content_a: |-
   Temporary | Permanent | Contract
   Recruitment Solutions.
 title_b: |-
-  We
+  We 
   Help
   You To
 products_b:
@@ -24,11 +24,12 @@ products_b:
     image_2:
       - content/Group-202204121502.png
     title: |-
-      Build
+      Build Your
       Resume
     content: |-
-      Find sample resumes and templates, and get expert
-      tips and advice on how to create the perfect resume.
+      At Regeine we are here to support you on your job seeker journey. 
+      Our expert consultants are available to offer tips and tricks into 
+      building the perfect CV and cover letter.
     link: 'entry::ab0693b0-b025-44fa-ac12-20059a85b1cf'
   -
     image_1:
@@ -36,12 +37,12 @@ products_b:
     image_2:
       - content/Group-202204121502.png
     title: |-
-      Find
+      Find Your
       Career Path
     content: |-
-      Our staff can help you to plan your career. Support
-      you to match your skills to a job. Help you to build
-      your confidence.
+      Discover the best profession for your skills and interests, 
+      with in-depth industry and profession overviews to 
+      ensure you find the right path.
     type: new_set
     enabled: true
     link: 'entry::461b19d9-5ff6-43d5-ac42-371eb874d2af'
@@ -51,24 +52,21 @@ products_b:
     image_2:
       - content/Group-202204121503.png
     title: |-
-      Prepare
-      Interview
+      Prepare For
+      Your Interview
     content: |-
-      We support you with common interview questions.
-      We make sure you are familiar with job description
-      of interest. We pepare you with examples for each
-      question.
+      Find sample interview questions and answers, 
+      get expert tips and advice on how to prepare 
+      for an interview in any industry.
     type: new_set
     enabled: true
     link: 'entry::0e909573-1e50-404f-a19d-4224bb95bef2'
 image_a1:
-  - content/christina-wocintechchat-com-eF7HN40WbAQ-unsplash_Y.jpg
+  - christina-wocintechchat-com-eF7HN40WbAQ-unsplash-1651026025.jpeg
 image_a2:
   - content/Group-202204121622.png
 image_c1:
-  - content/windows-hNiNxhUfCfQ-unsplash_Y.jpg
-image_c2:
-  - content/Group-202204121617.png
+  - maxime-xzwsMmXTtzI-unsplash-copy.jpg
 title_c: 'Why Choose Us?'
 products_c:
   -
@@ -77,12 +75,12 @@ products_c:
     type: new_set
     enabled: true
     title: 'Quick Response'
-    content: 'Our staff here to help you. Whether you are a client looking for a perfect candidate or if you are a candidate who is searching for your dream job, we have staff who can answer your call, or see you in person trying to find you a solution.'
+    content: 'Our staff are here to help you. Whether you are a client looking for the perfect candidate or if you are a candidate who is searching for your dream job, we have staff who to find you a solution.'
   -
     image:
       - content/Path-202204121621.png
     title: Experienced
-    content: 'We hire professional staff with great deal of integrity and lots of practical experience. We provide our staff with continuing education opportunities on a regular basis to allow them to stay current with the latest trend within the industry.'
+    content: 'We hire professional staff with a great deal of integrity and many years of practical experience. We provide our staff with continuing education opportunities on a regular basis to allow them to stay current with the latest trend within the industry.'
     type: new_set
     enabled: true
   -
@@ -96,7 +94,7 @@ products_c:
     image:
       - content/Path-202204121621.png
     title: Reputable
-    content: 'Although we are relatively new in this business, but we do care about our clients and their businesses. We have respected leaders with lots of experience working within the community as well as in the industry. Our aim is to have many long-term clients who enjoy our services year after year by putting their trust in us.'
+    content: 'We care about our clients and their businesses. We have respected leaders with many years of industry experience working within the community. Our aim is to have many long-term clients who enjoy our services year after year by putting their trust in us.'
     type: new_set
     enabled: true
   -
@@ -106,6 +104,4 @@ products_c:
     content: 'We will handle all aspects of your recruitment requirements including permanent, temporary staff and/or contractors. We will focus on your staffing needs so you can focus on your business.'
     type: new_set
     enabled: true
-image_b:
-  - content/Group-202204121524.png
 ---

@@ -3,7 +3,7 @@ id: ab0693b0-b025-44fa-ac12-20059a85b1cf
 blueprint: build_your_resume
 title: 'Build Your Resume'
 updated_by: 1
-updated_at: 1650245584
+updated_at: 1651019189
 template: pages/build-your-resume
 title_a: 'Building Your Resume'
 content_b: 'At Regeine we are here to support you on your job seeker journey. Our expert consultants are available to offer tips and tricks into building the perfect CV and cover letter. We also offer a range of free resources you can download, or if you have any other questions you can give us a call and we will be happy to refer you to one of our consultants.'

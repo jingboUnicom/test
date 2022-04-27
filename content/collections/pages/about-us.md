@@ -3,21 +3,20 @@ id: 8d197826-c616-4724-938c-a06e46a9f935
 blueprint: about_us
 title: 'About Us'
 updated_by: 1
-updated_at: 1649825076
+updated_at: 1651027901
 template: pages/about-us
 title_a: 'Get to Know Us.'
 content_a: |-
-  Regeine Career provides talent acquisition,
-  managed talent services, and organisational
-  development strategies.
+  Regeine Career is full service recruitment 
+  company based in Auckland CBD.
 image_a1:
   - content/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg
 image_a2:
   - content/Group-202204121622.png
 title_b: 'About Us'
-content_b: 'Regeine Career is a small and relatively new company with big dreams. We are passionate about what we do, and our aim is to get the best possible results for both our clients and the candidates, and we believe that is possible. So, if you are looking for a friendly motivated, and innovative team to support you to get the best results, you are in the right place. Your interests are going to be our top priority and we want you to enjoy working with us as much as we enjoy making our services available to you.'
+content_b: 'We are passionate about what we do, our aim is to get the best possible results for both our clients and the candidates. So, if you are looking for a friendly, motivated and innovative team to support you to get the best results, you are in the right place. Your interests are going to be our top priority, we want you to enjoy working with us as much as we enjoy making our services available to you.'
 image_c1:
-  - content/AdobeStock_410608535_0.jpg
+  - AdobeStock_410608535_0.jpeg
 image_c2:
   - content/Group-202204121731.png
 products_c:

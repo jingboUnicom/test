@@ -14,11 +14,7 @@ data:
   label_enquiry: 'What is your query about?*'
   option_enquiry:
     -
-      question: 'Where is your query about?'
-      type: new_set
-      enabled: true
-    -
-      question: 'When is your query about?'
+      question: General
       type: new_set
       enabled: true
   error_enquiry: 'Please select an enquiry'

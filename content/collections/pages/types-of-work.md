@@ -3,7 +3,7 @@ id: ccd59c96-2260-47b4-ae01-d4ead8921262
 blueprint: types_of_work
 title: 'Types Of Work'
 updated_by: 1
-updated_at: 1649893319
+updated_at: 1651625520
 template: pages/types-of-work
 image_a:
   - content/Group-202204140944.png
@@ -11,7 +11,7 @@ title_a: |-
   Work Types
   We Offer
 content_a1: 'Regeine Career helps job seekers find roles across a range of work types, these include:'
-content_a2: 'Permanent, Temporary, Contracting and Internships.'
+content_a2: 'Permanent, Temporary and Contracting.'
 products_b:
   -
     type: new_set

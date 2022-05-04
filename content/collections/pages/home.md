@@ -3,7 +3,7 @@ id: 4f9add21-6e61-42d1-a185-fd40fc0139b9
 blueprint: home
 title: Home
 updated_by: 1
-updated_at: 1651026027
+updated_at: 1651622446
 template: pages/home
 title_a: |-
   New Zealand
@@ -75,33 +75,33 @@ products_c:
     type: new_set
     enabled: true
     title: 'Quick Response'
-    content: 'Our staff are here to help you. Whether you are a client looking for the perfect candidate or if you are a candidate who is searching for your dream job, we have staff who to find you a solution.'
+    content: 'Our staff are ready to help you. Whether you are a client looking for the perfect candidate or if you are a candidate who is searching for your next career journey.'
   -
     image:
       - content/Path-202204121621.png
     title: Experienced
-    content: 'We hire professional staff with a great deal of integrity and many years of practical experience. We provide our staff with continuing education opportunities on a regular basis to allow them to stay current with the latest trend within the industry.'
+    content: 'Our staff has over 15 years experience across New Zealand businesses and 20 years plus experience in recruitment services.'
     type: new_set
     enabled: true
   -
     image:
       - content/Path-202204121621.png
     title: Practical
-    content: 'Our service philosophy is to be practical with our approach to service provision and stay accessible to all our clients/customers. With both on-line as well as face to face services we believe we are in a fantastic position in order to meet all your recruitment needs.'
+    content: 'We offer both online and in person services at Regeine Career, creating a more practical approach to recruitment.'
     type: new_set
     enabled: true
   -
     image:
       - content/Path-202204121621.png
-    title: Reputable
-    content: 'We care about our clients and their businesses. We have respected leaders with many years of industry experience working within the community. Our aim is to have many long-term clients who enjoy our services year after year by putting their trust in us.'
+    title: Values
+    content: 'Our aim is to build relationships with our clients and their businesses. Our company values are: Integrity, honesty, trust and loyalty.'
     type: new_set
     enabled: true
   -
     image:
       - content/Path-202204121621.png
-    title: Reliable
-    content: 'We will handle all aspects of your recruitment requirements including permanent, temporary staff and/or contractors. We will focus on your staffing needs so you can focus on your business.'
+    title: Affordability
+    content: 'We are running a new subscription based recruitment model that allows us to be cost effective.'
     type: new_set
     enabled: true
 ---

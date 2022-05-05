@@ -6841,6 +6841,9 @@ select{
   .xl\:bg-opacity-0{
     --tw-bg-opacity: 0;
   }
+  .xl\:bg-center{
+    background-position: center;
+  }
   .xl\:py-\[30px\]{
     padding-top: 30px;
     padding-bottom: 30px;

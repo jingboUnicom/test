@@ -46,21 +46,23 @@ class JobAdderSyncCategories implements ShouldQueue
 
         $categories = Http::withHeaders(['Authorization' => 'Bearer ' . $access_token])->get($api_url . '/categories?embed=SubCategories')->json();
 
-        foreach ($categories['items'] as $category_item) {
-            $category_data = new CategoryData($category_item);
+        if (isset($categories['items'])) {
+            foreach ($categories['items'] as $category_item) {
+                $category_data = new CategoryData($category_item);
 
-            $category = Category::firstOrCreate(
-                $category_data->toArray()
-            );
+                $category = Category::firstOrCreate(
+                    $category_data->toArray()
+                );
 
-            if (isset($category_item['subCategories'])) {
-                foreach ($category_item['subCategories'] as $subcategory) {
-                    $subcategory_data = new SubcategoryData($subcategory);
+                if (isset($category_item['subCategories'])) {
+                    foreach ($category_item['subCategories'] as $subcategory) {
+                        $subcategory_data = new SubcategoryData($subcategory);
 
-                    Subcategory::firstOrCreate(
-                        $subcategory_data->toArray(),
-                        ['category_id' => $category->id]
-                    );
+                        Subcategory::firstOrCreate(
+                            $subcategory_data->toArray(),
+                            ['category_id' => $category->id]
+                        );
+                    }
                 }
             }
         }

@@ -44,12 +44,14 @@ class JobAdderSyncLocations implements ShouldQueue
 
         $locations = Http::withHeaders(['Authorization' => 'Bearer ' . $access_token])->get($api_url . '/locations?embed=Areas')->json();
 
-        foreach ($locations['items'] as $location) {
-            $location_data = new LocationData($location);
+        if (isset($locations['items'])) {
+            foreach ($locations['items'] as $location) {
+                $location_data = new LocationData($location);
 
-            Location::firstOrCreate(
-                $location_data->toArray()
-            );
+                Location::firstOrCreate(
+                    $location_data->toArray()
+                );
+            }
         }
     }
 }

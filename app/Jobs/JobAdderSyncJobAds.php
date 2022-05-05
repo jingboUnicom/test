@@ -47,38 +47,40 @@ class JobAdderSyncJobAds implements ShouldQueue
 
         $job_ads = Http::withHeaders(['Authorization' => 'Bearer ' . $access_token])->get($api_url . '/jobads/')->json();
 
-        foreach ($job_ads['items'] as $job_ad) {
-            $job = Http::withHeaders(['Authorization' => 'Bearer ' . $access_token])->get($api_url . '/jobs/' . $job_ad['reference'])->json();
+        if (isset($job_ads['items'])) {
+            foreach ($job_ads['items'] as $job_ad) {
+                $job = Http::withHeaders(['Authorization' => 'Bearer ' . $access_token])->get($api_url . '/jobs/' . $job_ad['reference'])->json();
 
-            if (isset($job['location']['name'])) {
-                Location::firstOrCreate(
-                    ['name' => $job['location']['name']]
+                if (isset($job['location']['name'])) {
+                    Location::firstOrCreate(
+                        ['name' => $job['location']['name']]
+                    );
+                }
+
+                if (isset($job_ad['state'])) {
+                    State::firstOrCreate(
+                        ['name' => $job_ad['state']]
+                    );
+                }
+
+                $job_ad_data = new JobAdData($job_ad);
+
+                $job_data = new JobData($job);
+
+                $vacancy_data = array_merge($job_ad_data->toArray(), $job_data->toArray());
+
+                $vacancy = Vacancy::updateOrCreate(
+                    [
+                        'ja_ad_id' => $job_ad_data->ja_ad_id,
+                        'ja_job_id' => $job_data->ja_job_id,
+                    ],
+                    $vacancy_data
                 );
+
+                $vacancy->status = Vacancy::STATUS_SYNCED;
+
+                $vacancy->update();
             }
-
-            if (isset($job_ad['state'])) {
-                State::firstOrCreate(
-                    ['name' => $job_ad['state']]
-                );
-            }
-
-            $job_ad_data = new JobAdData($job_ad);
-
-            $job_data = new JobData($job);
-
-            $vacancy_data = array_merge($job_ad_data->toArray(), $job_data->toArray());
-
-            $vacancy = Vacancy::updateOrCreate(
-                [
-                    'ja_ad_id' => $job_ad_data->ja_ad_id,
-                    'ja_job_id' => $job_data->ja_job_id,
-                ],
-                $vacancy_data
-            );
-
-            $vacancy->status = Vacancy::STATUS_SYNCED;
-
-            $vacancy->update();
         }
     }
 }

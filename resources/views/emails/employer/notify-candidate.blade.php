@@ -2,7 +2,7 @@
 # You have a new Candidate
 
 <div>
-	<div><strong>Candidate Name:</strong> <span>{{ $data['candidate_name'] }}</span></div>
+	<div><strong>Candidate ID:</strong> <span>{{ $candidate['id'] }}</span></div>
 </div>
 
 @component('mail::button', ['url' => config('app.url') . '/portal/candidates'])

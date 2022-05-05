@@ -2,25 +2,26 @@
 
 namespace App\Mail;
 
+use App\Models\Candidate;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class NotifyEmployerCandidateMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public array $data;
+    public array $candidate;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(array $data)
+    public function __construct(Candidate $candidate)
     {
-        $this->data = $data;
+        $this->candidate = $candidate->toArray();
     }
 
     /**
@@ -30,6 +31,6 @@ class NotifyEmployerCandidateMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('You have a new Candidate')->markdown('emails.employer.notify-candidate')->with($this->data);
+        return $this->subject('You have a new Candidate')->markdown('emails.employer.notify-candidate')->with($this->candidate);
     }
 }

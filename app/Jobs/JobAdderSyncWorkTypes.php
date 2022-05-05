@@ -44,12 +44,14 @@ class JobAdderSyncWorkTypes implements ShouldQueue
 
         $worktypes = Http::withHeaders(['Authorization' => 'Bearer ' . $access_token])->get($api_url . '/worktypes')->json();
 
-        foreach ($worktypes['items'] as $worktype) {
-            $worktype_data = new WorkTypeData($worktype);
+        if (isset($worktypes['items'])) {
+            foreach ($worktypes['items'] as $worktype) {
+                $worktype_data = new WorkTypeData($worktype);
 
-            Work::firstOrCreate(
-                $worktype_data->toArray()
-            );
+                Work::firstOrCreate(
+                    $worktype_data->toArray()
+                );
+            }
         }
     }
 }
